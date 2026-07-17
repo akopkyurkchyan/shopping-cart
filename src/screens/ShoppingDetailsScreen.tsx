@@ -41,8 +41,9 @@ import {
   deleteShoppingCart,
   saveShoppingCart,
 } from '../features/shopping/shoppingSlice';
+import { useFormatCurrency } from '../hooks/useFormatCurrency';
 import type { RootStackParamList } from '../navigation/types';
-import { calcCartTotal, calcRowTotal, formatCurrency } from '../utils/currency';
+import { calcCartTotal, calcRowTotal } from '../utils/currency';
 import {
   productSchema,
   shoppingCartSchema,
@@ -125,6 +126,7 @@ export function ShoppingDetailsScreen() {
   const navigation = useNavigation<NavigationProp>();
   const route = useRoute();
   const saveStatus = useAppSelector(selectShoppingSaveStatus);
+  const formatMoney = useFormatCurrency();
   const cartId = (route.params as RootStackParamList['ShoppingDetails'] | undefined)
     ?.cartId;
   const isEditMode = Boolean(cartId);
@@ -750,7 +752,7 @@ export function ShoppingDetailsScreen() {
                 <View style={styles.rowTotal}>
                   <Text style={styles.rowTotalLabel}>Row Total</Text>
                   <Text style={styles.rowTotalValue}>
-                    {formatCurrency(draftRowTotal)}
+                    {formatMoney(draftRowTotal)}
                   </Text>
                 </View>
 

@@ -5,17 +5,20 @@ import { Provider } from 'react-redux';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { initDatabase } from '../db/database';
+import { loadSettings } from '../features/settings/settingsSlice';
 import { RootNavigator } from '../navigation/RootNavigator';
 import { store } from './store';
 
 function AppBootstrap() {
   useEffect(() => {
-    initDatabase().catch(() => {
-      Alert.alert(
-        'Database error',
-        'The local database could not be initialized.',
-      );
-    });
+    initDatabase()
+      .then(() => store.dispatch(loadSettings()))
+      .catch(() => {
+        Alert.alert(
+          'Database error',
+          'The local database could not be initialized.',
+        );
+      });
   }, []);
 
   return <RootNavigator />;

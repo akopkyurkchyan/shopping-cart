@@ -43,3 +43,10 @@ export const createProductExtrasProductIdIndex = `
 export const addProductsExtraPriceColumn = `
   ALTER TABLE products ADD COLUMN extra_price REAL NOT NULL DEFAULT 0;
 `;
+
+export const createAppSettingsTable = `
+  CREATE TABLE IF NOT EXISTS app_settings (
+    key TEXT PRIMARY KEY NOT NULL,
+    value TEXT
+  );
+`;

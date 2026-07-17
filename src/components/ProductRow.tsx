@@ -4,7 +4,8 @@ import Swipeable, {
   type SwipeableMethods,
 } from 'react-native-gesture-handler/ReanimatedSwipeable';
 
-import { calcExtrasTotal, formatCurrency } from '../utils/currency';
+import { useFormatCurrency } from '../hooks/useFormatCurrency';
+import { calcExtrasTotal } from '../utils/currency';
 
 type ProductRowProps = {
   title: string;
@@ -26,6 +27,7 @@ export function ProductRow({
   onDelete,
 }: ProductRowProps) {
   const swipeableRef = useRef<SwipeableMethods | null>(null);
+  const formatMoney = useFormatCurrency();
   const extrasTotal = calcExtrasTotal(extras);
 
   const confirmDelete = useCallback(() => {
@@ -71,16 +73,16 @@ export function ProductRow({
             {title || 'Untitled product'}
           </Text>
           <Text style={styles.subtitle}>
-            {formatCurrency(price)} each
+            {formatMoney(price)} each
             {extrasTotal > 0
-              ? ` + ${formatCurrency(extrasTotal)} extras`
+              ? ` + ${formatMoney(extrasTotal)} extras`
               : ''}
           </Text>
         </View>
         <View style={styles.quantityBadge}>
           <Text style={styles.quantityValue}>{quantity}</Text>
         </View>
-        <Text style={styles.total}>{formatCurrency(rowTotal)}</Text>
+        <Text style={styles.total}>{formatMoney(rowTotal)}</Text>
       </Pressable>
     </Swipeable>
   );
@@ -95,8 +97,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 12,
     paddingVertical: 14,
-    paddingHorizontal: 14,
-
   },
   content: {
     flex: 1,

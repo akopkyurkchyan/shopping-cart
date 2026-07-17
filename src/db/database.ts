@@ -3,6 +3,7 @@ import uuid from 'react-native-uuid';
 
 import {
   addProductsExtraPriceColumn,
+  createAppSettingsTable,
   createProductExtrasProductIdIndex,
   createProductExtrasTable,
   createProductsShoppingIdIndex,
@@ -64,6 +65,7 @@ const migrate = async (db: DB): Promise<void> => {
   await db.execute(createProductExtrasTable);
   await db.execute(createProductExtrasProductIdIndex);
   await migrateLegacyExtraPrices(db);
+  await db.execute(createAppSettingsTable);
 };
 
 export const initDatabase = async (): Promise<DB> => {

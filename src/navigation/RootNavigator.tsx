@@ -8,6 +8,7 @@ import {
 import React from 'react';
 
 import { HomeScreen } from '../screens/HomeScreen';
+import { SettingsScreen } from '../screens/SettingsScreen';
 import { ShoppingDetailsScreen } from '../screens/ShoppingDetailsScreen';
 import type { RootStackParamList } from './types';
 
@@ -39,6 +40,11 @@ export function RootNavigator() {
           component={ShoppingDetailsScreen}
           name="ShoppingDetails"
           options={{ title: 'Shopping Details' }}
+        />
+        <Stack.Screen
+          component={SettingsScreen}
+          name="Settings"
+          options={{ title: 'Settings' }}
         />
       </Stack.Navigator>
     </NavigationContainer>

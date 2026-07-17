@@ -1,7 +1,7 @@
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { formatCurrency } from '../utils/currency';
+import { useFormatCurrency } from '../hooks/useFormatCurrency';
 
 type TotalFooterProps = {
   total: number;
@@ -18,11 +18,13 @@ export function TotalFooter({
   onDelete,
   onSave,
 }: TotalFooterProps) {
+  const formatMoney = useFormatCurrency();
+
   return (
     <View style={styles.container}>
       <View style={styles.totalRow}>
         <Text style={styles.label}>Total</Text>
-        <Text style={styles.total}>{formatCurrency(total)}</Text>
+        <Text style={styles.total}>{formatMoney(total)}</Text>
       </View>
 
       <View style={styles.actions}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { formatCurrency } from '../utils/currency';
+import { useFormatCurrency } from '../hooks/useFormatCurrency';
 import type { ShoppingCartSummary } from '../types/models';
 
 type ShoppingHistoryItemProps = {
@@ -20,13 +20,15 @@ export function ShoppingHistoryItem({
   cart,
   onPress,
 }: ShoppingHistoryItemProps) {
+  const formatMoney = useFormatCurrency();
+
   return (
     <Pressable onPress={onPress} style={styles.card}>
       <View>
         <Text style={styles.title}>{cart.title}</Text>
         <Text style={styles.date}>{formatDate(cart.date)}</Text>
       </View>
-      <Text style={styles.total}>{formatCurrency(cart.total)}</Text>
+      <Text style={styles.total}>{formatMoney(cart.total)}</Text>
     </Pressable>
   );
 }

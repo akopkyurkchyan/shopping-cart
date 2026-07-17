@@ -8,11 +8,32 @@ type ProductLike = {
   extras?: ExtraLike[];
 };
 
+export type CurrencyCode = string | null;
+
 export const roundCurrency = (value: number): number =>
   Math.round((value + Number.EPSILON) * 100) / 100;
 
-export const formatCurrency = (value: number): string =>
-  `$${roundCurrency(value).toFixed(2)}`;
+export const formatCurrency = (
+  value: number,
+  currency: CurrencyCode = null,
+): string => {
+  const amount = roundCurrency(value);
+
+  if (!currency) {
+    return amount.toFixed(2);
+  }
+
+  try {
+    return new Intl.NumberFormat(undefined, {
+      style: 'currency',
+      currency,
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }).format(amount);
+  } catch {
+    return `${amount.toFixed(2)} ${currency}`;
+  }
+};
 
 export const calcExtrasTotal = (extras: ExtraLike[] = []): number =>
   roundCurrency(

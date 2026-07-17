@@ -25,7 +25,14 @@ export function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Shopping Cart</Text>
+      <View style={styles.header}>
+        <Text style={styles.title}>Shopping Cart</Text>
+        <Pressable
+          onPress={() => navigation.navigate('Settings')}
+          style={styles.settingsButton}>
+          <Text style={styles.settingsButtonLabel}>Settings</Text>
+        </Pressable>
+      </View>
 
       <FlatList
         contentContainerStyle={styles.listContent}
@@ -78,14 +85,30 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '700',
   },
+  header: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 16,
+  },
   listContent: {
     flexGrow: 1,
     paddingBottom: 16,
+  },
+  settingsButton: {
+    backgroundColor: '#e5e7eb',
+    borderRadius: 999,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+  },
+  settingsButtonLabel: {
+    color: '#111827',
+    fontSize: 14,
+    fontWeight: '600',
   },
   title: {
     color: '#111827',
     fontSize: 28,
     fontWeight: '700',
-    marginBottom: 16,
   },
 });

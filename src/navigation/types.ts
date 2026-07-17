@@ -3,4 +3,5 @@ export type RootStackParamList = {
   ShoppingDetails: {
     cartId?: string;
   };
+  Settings: undefined;
 };

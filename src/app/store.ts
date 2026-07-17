@@ -6,11 +6,13 @@ import {
   type TypedUseSelectorHook,
 } from 'react-redux';
 
+import { settingsReducer } from '../features/settings/settingsSlice';
 import { shoppingReducer } from '../features/shopping/shoppingSlice';
 
 export const store = configureStore({
   reducer: {
     shopping: shoppingReducer,
+    settings: settingsReducer,
   },
 });
 

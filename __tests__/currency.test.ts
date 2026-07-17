@@ -11,8 +11,13 @@ describe('currency utils', () => {
     expect(roundCurrency(12.344)).toBe(12.34);
   });
 
-  it('formats currency with two decimal places', () => {
-    expect(formatCurrency(42.3)).toBe('$42.30');
+  it('formats amounts without currency when none is set', () => {
+    expect(formatCurrency(42.3, null)).toBe('42.30');
+  });
+
+  it('formats amounts with a selected currency code', () => {
+    expect(formatCurrency(42.3, 'USD')).toMatch(/42\.30/);
+    expect(formatCurrency(42.3, 'USD')).not.toBe('42.30');
   });
 
   it('calculates row totals', () => {
