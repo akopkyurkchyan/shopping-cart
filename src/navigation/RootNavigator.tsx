@@ -6,6 +6,7 @@ import {
   createNativeStackNavigator,
 } from '@react-navigation/native-stack';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { HomeScreen } from '../screens/HomeScreen';
 import { SettingsScreen } from '../screens/SettingsScreen';
@@ -23,6 +24,8 @@ const navigationTheme = {
 };
 
 export function RootNavigator() {
+  const { t } = useTranslation();
+
   return (
     <NavigationContainer theme={navigationTheme}>
       <Stack.Navigator
@@ -39,12 +42,12 @@ export function RootNavigator() {
         <Stack.Screen
           component={ShoppingDetailsScreen}
           name="ShoppingDetails"
-          options={{ title: 'Shopping Details' }}
+          options={{ title: t('details.screenTitle') }}
         />
         <Stack.Screen
           component={SettingsScreen}
           name="Settings"
-          options={{ title: 'Settings' }}
+          options={{ title: t('settings.title') }}
         />
       </Stack.Navigator>
     </NavigationContainer>

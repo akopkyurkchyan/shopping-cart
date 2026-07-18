@@ -1,5 +1,6 @@
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { useTranslation } from 'react-i18next';
 
 import { useFormatCurrency } from '../hooks/useFormatCurrency';
 
@@ -18,12 +19,13 @@ export function TotalFooter({
   onDelete,
   onSave,
 }: TotalFooterProps) {
+  const { t } = useTranslation();
   const formatMoney = useFormatCurrency();
 
   return (
     <View style={styles.container}>
       <View style={styles.totalRow}>
-        <Text style={styles.label}>Total</Text>
+        <Text style={styles.label}>{t('common.total')}</Text>
         <Text style={styles.total}>{formatMoney(total)}</Text>
       </View>
 
@@ -31,7 +33,7 @@ export function TotalFooter({
         {isEditMode ? (
           <Pressable onPress={onDelete} style={[styles.button, styles.deleteButton]}>
             <Text style={[styles.buttonLabel, styles.deleteButtonLabel]}>
-              Delete
+              {t('common.delete')}
             </Text>
           </Pressable>
         ) : null}
@@ -40,7 +42,9 @@ export function TotalFooter({
           onPress={onSave}
           style={[styles.button, styles.saveButton, isSaving && styles.disabledButton]}
           disabled={isSaving}>
-          <Text style={styles.buttonLabel}>{isSaving ? 'Saving...' : 'Save'}</Text>
+          <Text style={styles.buttonLabel}>
+            {isSaving ? t('common.saving') : t('common.save')}
+          </Text>
         </Pressable>
       </View>
     </View>

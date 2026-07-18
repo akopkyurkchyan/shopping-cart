@@ -1,0 +1,114 @@
+{
+  "common": {
+    "cancel": "Cancel",
+    "close": "Close",
+    "delete": "Delete",
+    "done": "Done",
+    "save": "Save",
+    "saving": "Saving...",
+    "remove": "Remove",
+    "total": "Total",
+    "settings": "Settings",
+    "defaultCartTitle": "Shopping",
+    "untitledProduct": "Untitled product",
+    "example": "Example: {{value}}"
+  },
+  "home": {
+    "title": "Shopping Cart",
+    "createCart": "+ Create New Shopping Cart",
+    "emptyTitle": "No shopping history yet.",
+    "emptyDescription": "Track what you spend while shopping. Create a cart, add products with price and quantity, and see the total update instantly.\n\nTap “Create New Shopping Cart” below to get started. Your carts are saved on this device so you can review them anytime."
+  },
+  "details": {
+    "createTitle": "Create Shopping Cart",
+    "editTitle": "Edit Shopping Cart",
+    "screenTitle": "Shopping Details",
+    "shoppingTitle": "Shopping Title",
+    "shoppingDate": "Shopping Date",
+    "products": "Products",
+    "addProduct": "+ Add Product",
+    "loading": "Loading shopping cart...",
+    "cannotSaveTitle": "Cannot save",
+    "cannotSaveMessage": "Add at least one product before saving.",
+    "saveFailedTitle": "Save failed",
+    "saveFailedMessage": "Unable to save this shopping cart.",
+    "deleteCartTitle": "Delete shopping cart",
+    "deleteCartMessage": "This action cannot be undone.",
+    "deleteFailedTitle": "Delete failed",
+    "deleteFailedMessage": "Unable to delete this shopping cart."
+  },
+  "product": {
+    "newTitle": "New Product",
+    "editTitle": "Product {{number}}",
+    "name": "Product Name",
+    "namePlaceholder": "Milk",
+    "pricePerUnit": "Price Per Unit",
+    "priceHelper": "Enter the discounted price",
+    "quantity": "Quantity",
+    "rowTotal": "Row Total",
+    "each": "{{price}} each",
+    "extrasSuffix": " + {{amount}} extras",
+    "deleteTitle": "Delete product",
+    "deleteMessage": "Remove \"{{title}}\" from this cart?",
+    "extraCardTitle": "Extra price {{number}}",
+    "extraTitle": "Title",
+    "extraTitlePlaceholder": "Tax",
+    "extraAmount": "Amount",
+    "extraHelper": "Fixed amount (tax, fee, or other charge)",
+    "addExtra": "+ Extra price"
+  },
+  "quantity": {
+    "tapToSelect": "Tap to select",
+    "selectTitle": "Select Quantity"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "languageDescription": "Choose the app language. System default follows your device language when available.",
+    "systemDefault": "System default",
+    "systemDefaultHint": "Use device language",
+    "currency": "Currency",
+    "currencyDescription": "Choose how prices are shown across the app. Select “No currency” to display amounts without a currency symbol.",
+    "noCurrency": "No currency",
+    "errorTitle": "Settings error",
+    "currencyUpdateFailed": "Unable to update currency.",
+    "languageUpdateFailed": "Unable to update language."
+  },
+  "languages": {
+    "en": "English",
+    "hy": "Armenian",
+    "ru": "Russian",
+    "zh": "Chinese",
+    "hi": "Hindi",
+    "fr": "French",
+    "de": "German",
+    "it": "Italian"
+  },
+  "currency": {
+    "USD": "US Dollar (USD)",
+    "EUR": "Euro (EUR)",
+    "GBP": "British Pound (GBP)",
+    "AMD": "Armenian Dram (AMD)",
+    "RUB": "Russian Ruble (RUB)",
+    "GEL": "Georgian Lari (GEL)",
+    "TRY": "Turkish Lira (TRY)",
+    "AED": "UAE Dirham (AED)",
+    "JPY": "Japanese Yen (JPY)",
+    "CNY": "Chinese Yuan (CNY)"
+  },
+  "validation": {
+    "extraTitleRequired": "Extra price title is required",
+    "extraAmountPositive": "Extra price must be greater than 0",
+    "productNameRequired": "Product name is required",
+    "pricePositive": "Price must be greater than 0",
+    "quantityWhole": "Quantity must be a whole number",
+    "quantityMin": "Quantity must be at least 1",
+    "quantityMax": "Quantity must be at most 100",
+    "dateFormat": "Date must be in YYYY-MM-DD format",
+    "productsMin": "Add at least one product"
+  },
+  "errors": {
+    "databaseTitle": "Database error",
+    "databaseMessage": "The local database could not be initialized."
+  }
+}

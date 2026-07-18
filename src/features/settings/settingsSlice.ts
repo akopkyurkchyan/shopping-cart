@@ -2,26 +2,40 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import {
   getCurrencySetting,
+  getLanguageSetting,
   setCurrencySetting,
+  setLanguageSetting,
 } from '../../db/settingsRepository';
-import type { AppCurrencyCode } from '../../types/settings';
+import { applyLanguage } from '../../i18n';
+import {
+  DEFAULT_LANGUAGE_PREFERENCE,
+  type AppCurrencyCode,
+  type AppLanguagePreference,
+} from '../../types/settings';
 
 type SettingsState = {
   currency: AppCurrencyCode;
+  language: AppLanguagePreference;
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
 };
 
 const initialState: SettingsState = {
   currency: null,
+  language: DEFAULT_LANGUAGE_PREFERENCE,
   status: 'idle',
   error: null,
 };
 
 export const loadSettings = createAsyncThunk('settings/load', async () => {
-  const currency = await getCurrencySetting();
+  const [currency, language] = await Promise.all([
+    getCurrencySetting(),
+    getLanguageSetting(),
+  ]);
 
-  return { currency };
+  await applyLanguage(language);
+
+  return { currency, language };
 });
 
 export const updateCurrency = createAsyncThunk(
@@ -30,6 +44,16 @@ export const updateCurrency = createAsyncThunk(
     await setCurrencySetting(currency);
 
     return currency;
+  },
+);
+
+export const updateLanguage = createAsyncThunk(
+  'settings/updateLanguage',
+  async (language: AppLanguagePreference) => {
+    await setLanguageSetting(language);
+    await applyLanguage(language);
+
+    return language;
   },
 );
 
@@ -46,6 +70,7 @@ const settingsSlice = createSlice({
       .addCase(loadSettings.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.currency = action.payload.currency;
+        state.language = action.payload.language;
       })
       .addCase(loadSettings.rejected, (state, action) => {
         state.status = 'failed';
@@ -56,6 +81,12 @@ const settingsSlice = createSlice({
       })
       .addCase(updateCurrency.rejected, (state, action) => {
         state.error = action.error.message ?? 'Failed to update currency';
+      })
+      .addCase(updateLanguage.fulfilled, (state, action) => {
+        state.language = action.payload;
+      })
+      .addCase(updateLanguage.rejected, (state, action) => {
+        state.error = action.error.message ?? 'Failed to update language';
       });
   },
 });

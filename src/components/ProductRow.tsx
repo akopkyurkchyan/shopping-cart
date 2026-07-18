@@ -1,5 +1,6 @@
 import React, { useCallback, useRef } from 'react';
 import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import Swipeable, {
   type SwipeableMethods,
 } from 'react-native-gesture-handler/ReanimatedSwipeable';
@@ -26,38 +27,40 @@ export function ProductRow({
   onPress,
   onDelete,
 }: ProductRowProps) {
+  const { t } = useTranslation();
   const swipeableRef = useRef<SwipeableMethods | null>(null);
   const formatMoney = useFormatCurrency();
   const extrasTotal = calcExtrasTotal(extras);
+  const displayTitle = title || t('common.untitledProduct');
 
   const confirmDelete = useCallback(() => {
     Alert.alert(
-      'Delete product',
-      `Remove "${title || 'Untitled product'}" from this cart?`,
+      t('product.deleteTitle'),
+      t('product.deleteMessage', { title: displayTitle }),
       [
         {
-          text: 'Cancel',
+          text: t('common.cancel'),
           style: 'cancel',
           onPress: () => {
             swipeableRef.current?.close();
           },
         },
         {
-          text: 'Delete',
+          text: t('common.delete'),
           style: 'destructive',
           onPress: onDelete,
         },
       ],
     );
-  }, [onDelete, title]);
+  }, [displayTitle, onDelete, t]);
 
   const renderRightActions = useCallback(() => {
     return (
       <View style={styles.deleteAction}>
-        <Text style={styles.deleteActionLabel}>Delete</Text>
+        <Text style={styles.deleteActionLabel}>{t('common.delete')}</Text>
       </View>
     );
-  }, []);
+  }, [t]);
 
   return (
     <Swipeable
@@ -70,12 +73,14 @@ export function ProductRow({
       <Pressable onPress={onPress} style={styles.card}>
         <View style={styles.content}>
           <Text numberOfLines={1} style={styles.title}>
-            {title || 'Untitled product'}
+            {displayTitle}
           </Text>
           <Text style={styles.subtitle}>
-            {formatMoney(price)} each
+            {t('product.each', { price: formatMoney(price) })}
             {extrasTotal > 0
-              ? ` + ${formatMoney(extrasTotal)} extras`
+              ? t('product.extrasSuffix', {
+                  amount: formatMoney(extrasTotal),
+                })
               : ''}
           </Text>
         </View>

@@ -1,0 +1,114 @@
+{
+  "common": {
+    "cancel": "取消",
+    "close": "关闭",
+    "delete": "删除",
+    "done": "完成",
+    "save": "保存",
+    "saving": "保存中...",
+    "remove": "移除",
+    "total": "合计",
+    "settings": "设置",
+    "defaultCartTitle": "购物",
+    "untitledProduct": "未命名商品",
+    "example": "示例：{{value}}"
+  },
+  "home": {
+    "title": "购物车",
+    "createCart": "+ 创建新购物车",
+    "emptyTitle": "暂无购物记录。",
+    "emptyDescription": "购物时随时掌握花费。创建购物车，添加商品价格和数量，即可即时查看总金额。\n\n点击下方“创建新购物车”开始。购物记录会保存在本设备上。"
+  },
+  "details": {
+    "createTitle": "创建购物车",
+    "editTitle": "编辑购物车",
+    "screenTitle": "购物详情",
+    "shoppingTitle": "购物标题",
+    "shoppingDate": "日期",
+    "products": "商品",
+    "addProduct": "+ 添加商品",
+    "loading": "正在加载购物车...",
+    "cannotSaveTitle": "无法保存",
+    "cannotSaveMessage": "保存前请至少添加一件商品。",
+    "saveFailedTitle": "保存失败",
+    "saveFailedMessage": "无法保存此购物车。",
+    "deleteCartTitle": "删除购物车",
+    "deleteCartMessage": "此操作无法撤销。",
+    "deleteFailedTitle": "删除失败",
+    "deleteFailedMessage": "无法删除此购物车。"
+  },
+  "product": {
+    "newTitle": "新商品",
+    "editTitle": "商品 {{number}}",
+    "name": "商品名称",
+    "namePlaceholder": "牛奶",
+    "pricePerUnit": "单价",
+    "priceHelper": "输入折扣后的价格",
+    "quantity": "数量",
+    "rowTotal": "小计",
+    "each": "{{price}} /件",
+    "extrasSuffix": " + {{amount}} 额外费用",
+    "deleteTitle": "删除商品",
+    "deleteMessage": "要从购物车中移除“{{title}}”吗？",
+    "extraCardTitle": "额外费用 {{number}}",
+    "extraTitle": "名称",
+    "extraTitlePlaceholder": "税费",
+    "extraAmount": "金额",
+    "extraHelper": "固定金额（税费、手续费或其他费用）",
+    "addExtra": "+ 额外费用"
+  },
+  "quantity": {
+    "tapToSelect": "点击选择",
+    "selectTitle": "选择数量"
+  },
+  "settings": {
+    "title": "设置",
+    "language": "语言",
+    "languageDescription": "选择应用语言。系统默认会在可用时跟随设备语言。",
+    "systemDefault": "系统默认",
+    "systemDefaultHint": "使用设备语言",
+    "currency": "货币",
+    "currencyDescription": "选择价格显示方式。选择“无货币”将只显示数字，不带货币符号。",
+    "noCurrency": "无货币",
+    "errorTitle": "设置错误",
+    "currencyUpdateFailed": "无法更新货币。",
+    "languageUpdateFailed": "无法更新语言。"
+  },
+  "languages": {
+    "en": "英语",
+    "hy": "亚美尼亚语",
+    "ru": "俄语",
+    "zh": "中文",
+    "hi": "印地语",
+    "fr": "法语",
+    "de": "德语",
+    "it": "意大利语"
+  },
+  "currency": {
+    "USD": "美元 (USD)",
+    "EUR": "欧元 (EUR)",
+    "GBP": "英镑 (GBP)",
+    "AMD": "亚美尼亚德拉姆 (AMD)",
+    "RUB": "俄罗斯卢布 (RUB)",
+    "GEL": "格鲁吉亚拉里 (GEL)",
+    "TRY": "土耳其里拉 (TRY)",
+    "AED": "阿联酋迪拉姆 (AED)",
+    "JPY": "日元 (JPY)",
+    "CNY": "人民币 (CNY)"
+  },
+  "validation": {
+    "extraTitleRequired": "额外费用名称必填",
+    "extraAmountPositive": "额外费用必须大于 0",
+    "productNameRequired": "商品名称必填",
+    "pricePositive": "价格必须大于 0",
+    "quantityWhole": "数量必须是整数",
+    "quantityMin": "数量至少为 1",
+    "quantityMax": "数量最多为 100",
+    "dateFormat": "日期格式必须为 YYYY-MM-DD",
+    "productsMin": "请至少添加一件商品"
+  },
+  "errors": {
+    "databaseTitle": "数据库错误",
+    "databaseMessage": "无法初始化本地数据库。"
+  }
+}

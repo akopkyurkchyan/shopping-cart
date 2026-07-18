@@ -1,0 +1,114 @@
+{
+  "common": {
+    "cancel": "रद्द करें",
+    "close": "बंद करें",
+    "delete": "हटाएँ",
+    "done": "हो गया",
+    "save": "सहेजें",
+    "saving": "सहेजा जा रहा है...",
+    "remove": "हटाएँ",
+    "total": "कुल",
+    "settings": "सेटिंग्स",
+    "defaultCartTitle": "खरीदारी",
+    "untitledProduct": "बिना नाम का उत्पाद",
+    "example": "उदाहरण: {{value}}"
+  },
+  "home": {
+    "title": "शॉपिंग कार्ट",
+    "createCart": "+ नया शॉपिंग कार्ट बनाएँ",
+    "emptyTitle": "अभी कोई खरीदारी इतिहास नहीं है।",
+    "emptyDescription": "खरीदारी करते समय खर्च पर नज़र रखें। कार्ट बनाएँ, कीमत और मात्रा के साथ उत्पाद जोड़ें, और कुल राशि तुरंत देखें।\n\nशुरू करने के लिए नीचे “नया शॉपिंग कार्ट बनाएँ” पर टैप करें। आपके कार्ट इस डिवाइस पर सहेजे जाते हैं।"
+  },
+  "details": {
+    "createTitle": "शॉपिंग कार्ट बनाएँ",
+    "editTitle": "शॉपिंग कार्ट संपादित करें",
+    "screenTitle": "शॉपिंग विवरण",
+    "shoppingTitle": "शॉपिंग शीर्षक",
+    "shoppingDate": "तारीख",
+    "products": "उत्पाद",
+    "addProduct": "+ उत्पाद जोड़ें",
+    "loading": "शॉपिंग कार्ट लोड हो रहा है...",
+    "cannotSaveTitle": "सहेजा नहीं जा सकता",
+    "cannotSaveMessage": "सहेजने से पहले कम से कम एक उत्पाद जोड़ें।",
+    "saveFailedTitle": "सहेजना विफल",
+    "saveFailedMessage": "इस शॉपिंग कार्ट को सहेजा नहीं जा सका।",
+    "deleteCartTitle": "शॉपिंग कार्ट हटाएँ",
+    "deleteCartMessage": "यह क्रिया पूर्ववत नहीं की जा सकती।",
+    "deleteFailedTitle": "हटाना विफल",
+    "deleteFailedMessage": "इस शॉपिंग कार्ट को हटाया नहीं जा सका।"
+  },
+  "product": {
+    "newTitle": "नया उत्पाद",
+    "editTitle": "उत्पाद {{number}}",
+    "name": "उत्पाद का नाम",
+    "namePlaceholder": "दूध",
+    "pricePerUnit": "प्रति इकाई कीमत",
+    "priceHelper": "छूट वाली कीमत दर्ज करें",
+    "quantity": "मात्रा",
+    "rowTotal": "पंक्ति कुल",
+    "each": "{{price}} प्रत्येक",
+    "extrasSuffix": " + {{amount}} अतिरिक्त",
+    "deleteTitle": "उत्पाद हटाएँ",
+    "deleteMessage": "इस कार्ट से \"{{title}}\" हटाएँ?",
+    "extraCardTitle": "अतिरिक्त कीमत {{number}}",
+    "extraTitle": "शीर्षक",
+    "extraTitlePlaceholder": "कर",
+    "extraAmount": "राशि",
+    "extraHelper": "निश्चित राशि (कर, शुल्क या अन्य खर्च)",
+    "addExtra": "+ अतिरिक्त कीमत"
+  },
+  "quantity": {
+    "tapToSelect": "चयन करने के लिए टैप करें",
+    "selectTitle": "मात्रा चुनें"
+  },
+  "settings": {
+    "title": "सेटिंग्स",
+    "language": "भाषा",
+    "languageDescription": "ऐप की भाषा चुनें। सिस्टम डिफ़ॉल्ट उपलब्ध होने पर डिवाइस भाषा का अनुसरण करता है।",
+    "systemDefault": "सिस्टम डिफ़ॉल्ट",
+    "systemDefaultHint": "डिवाइस भाषा उपयोग करें",
+    "currency": "मुद्रा",
+    "currencyDescription": "कीमतें कैसे दिखें चुनें। “कोई मुद्रा नहीं” चुनने पर राशि बिना मुद्रा चिह्न के दिखेगी।",
+    "noCurrency": "कोई मुद्रा नहीं",
+    "errorTitle": "सेटिंग्स त्रुटि",
+    "currencyUpdateFailed": "मुद्रा अपडेट नहीं हो सकी।",
+    "languageUpdateFailed": "भाषा अपडेट नहीं हो सकी।"
+  },
+  "languages": {
+    "en": "अंग्रेज़ी",
+    "hy": "आर्मेनियाई",
+    "ru": "रूसी",
+    "zh": "चीनी",
+    "hi": "हिन्दी",
+    "fr": "फ़्रेंच",
+    "de": "जर्मन",
+    "it": "इतालवी"
+  },
+  "currency": {
+    "USD": "यूएस डॉलर (USD)",
+    "EUR": "यूरो (EUR)",
+    "GBP": "ब्रिटिश पाउंड (GBP)",
+    "AMD": "आर्मेनियाई ड्राम (AMD)",
+    "RUB": "रूसी रूबल (RUB)",
+    "GEL": "जॉर्जियाई लारी (GEL)",
+    "TRY": "तुर्की लीरा (TRY)",
+    "AED": "यूएई दिरहम (AED)",
+    "JPY": "जापानी येन (JPY)",
+    "CNY": "चीनी युआन (CNY)"
+  },
+  "validation": {
+    "extraTitleRequired": "अतिरिक्त कीमत का शीर्षक आवश्यक है",
+    "extraAmountPositive": "अतिरिक्त कीमत 0 से अधिक होनी चाहिए",
+    "productNameRequired": "उत्पाद का नाम आवश्यक है",
+    "pricePositive": "कीमत 0 से अधिक होनी चाहिए",
+    "quantityWhole": "मात्रा पूर्ण संख्या होनी चाहिए",
+    "quantityMin": "मात्रा कम से कम 1 होनी चाहिए",
+    "quantityMax": "मात्रा अधिकतम 100 हो सकती है",
+    "dateFormat": "तारीख YYYY-MM-DD प्रारूप में होनी चाहिए",
+    "productsMin": "कम से कम एक उत्पाद जोड़ें"
+  },
+  "errors": {
+    "databaseTitle": "डेटाबेस त्रुटि",
+    "databaseMessage": "स्थानीय डेटाबेस प्रारंभ नहीं किया जा सका।"
+  }
+}

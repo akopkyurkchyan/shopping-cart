@@ -1,0 +1,114 @@
+{
+  "common": {
+    "cancel": "Отмена",
+    "close": "Закрыть",
+    "delete": "Удалить",
+    "done": "Готово",
+    "save": "Сохранить",
+    "saving": "Сохранение...",
+    "remove": "Убрать",
+    "total": "Итого",
+    "settings": "Настройки",
+    "defaultCartTitle": "Покупки",
+    "untitledProduct": "Без названия",
+    "example": "Пример: {{value}}"
+  },
+  "home": {
+    "title": "Корзина покупок",
+    "createCart": "+ Создать новую корзину",
+    "emptyTitle": "Истории покупок пока нет.",
+    "emptyDescription": "Следите за расходами во время покупок. Создайте корзину, добавьте товары с ценой и количеством и сразу видьте итоговую сумму.\n\nНажмите «Создать новую корзину», чтобы начать. Корзины сохраняются на этом устройстве."
+  },
+  "details": {
+    "createTitle": "Создать корзину",
+    "editTitle": "Редактировать корзину",
+    "screenTitle": "Детали корзины",
+    "shoppingTitle": "Название",
+    "shoppingDate": "Дата",
+    "products": "Товары",
+    "addProduct": "+ Добавить товар",
+    "loading": "Загрузка корзины...",
+    "cannotSaveTitle": "Нельзя сохранить",
+    "cannotSaveMessage": "Добавьте хотя бы один товар перед сохранением.",
+    "saveFailedTitle": "Ошибка сохранения",
+    "saveFailedMessage": "Не удалось сохранить эту корзину.",
+    "deleteCartTitle": "Удалить корзину",
+    "deleteCartMessage": "Это действие нельзя отменить.",
+    "deleteFailedTitle": "Ошибка удаления",
+    "deleteFailedMessage": "Не удалось удалить эту корзину."
+  },
+  "product": {
+    "newTitle": "Новый товар",
+    "editTitle": "Товар {{number}}",
+    "name": "Название товара",
+    "namePlaceholder": "Молоко",
+    "pricePerUnit": "Цена за единицу",
+    "priceHelper": "Введите цену со скидкой",
+    "quantity": "Количество",
+    "rowTotal": "Сумма строки",
+    "each": "{{price}} за шт.",
+    "extrasSuffix": " + {{amount}} доп.",
+    "deleteTitle": "Удалить товар",
+    "deleteMessage": "Удалить «{{title}}» из этой корзины?",
+    "extraCardTitle": "Доп. цена {{number}}",
+    "extraTitle": "Название",
+    "extraTitlePlaceholder": "Налог",
+    "extraAmount": "Сумма",
+    "extraHelper": "Фиксированная сумма (налог, сбор или другой платеж)",
+    "addExtra": "+ Доп. цена"
+  },
+  "quantity": {
+    "tapToSelect": "Нажмите, чтобы выбрать",
+    "selectTitle": "Выбрать количество"
+  },
+  "settings": {
+    "title": "Настройки",
+    "language": "Язык",
+    "languageDescription": "Выберите язык приложения. Системный по умолчанию следует языку устройства, если он доступен.",
+    "systemDefault": "Системный по умолчанию",
+    "systemDefaultHint": "Использовать язык устройства",
+    "currency": "Валюта",
+    "currencyDescription": "Выберите, как показывать цены. «Без валюты» отображает суммы без символа валюты.",
+    "noCurrency": "Без валюты",
+    "errorTitle": "Ошибка настроек",
+    "currencyUpdateFailed": "Не удалось обновить валюту.",
+    "languageUpdateFailed": "Не удалось обновить язык."
+  },
+  "languages": {
+    "en": "Английский",
+    "hy": "Армянский",
+    "ru": "Русский",
+    "zh": "Китайский",
+    "hi": "Хинди",
+    "fr": "Французский",
+    "de": "Немецкий",
+    "it": "Итальянский"
+  },
+  "currency": {
+    "USD": "Доллар США (USD)",
+    "EUR": "Евро (EUR)",
+    "GBP": "Фунт стерлингов (GBP)",
+    "AMD": "Армянский драм (AMD)",
+    "RUB": "Российский рубль (RUB)",
+    "GEL": "Грузинский лари (GEL)",
+    "TRY": "Турецкая лира (TRY)",
+    "AED": "Дирхам ОАЭ (AED)",
+    "JPY": "Японская иена (JPY)",
+    "CNY": "Китайский юань (CNY)"
+  },
+  "validation": {
+    "extraTitleRequired": "Название доп. цены обязательно",
+    "extraAmountPositive": "Доп. цена должна быть больше 0",
+    "productNameRequired": "Название товара обязательно",
+    "pricePositive": "Цена должна быть больше 0",
+    "quantityWhole": "Количество должно быть целым числом",
+    "quantityMin": "Количество должно быть не меньше 1",
+    "quantityMax": "Количество должно быть не больше 100",
+    "dateFormat": "Дата должна быть в формате YYYY-MM-DD",
+    "productsMin": "Добавьте хотя бы один товар"
+  },
+  "errors": {
+    "databaseTitle": "Ошибка базы данных",
+    "databaseMessage": "Не удалось инициализировать локальную базу данных."
+  }
+}

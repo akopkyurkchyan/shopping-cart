@@ -18,7 +18,7 @@ describe('shopping cart validation', () => {
     expect(result.success).toBe(true);
 
     if (result.success) {
-      expect(result.data.title).toBe('Shopping');
+      expect(result.data.title).toBe('');
       expect(result.data.products[0].price).toBe(2.5);
       expect(result.data.products[0].quantity).toBe(3);
     }

@@ -1,0 +1,114 @@
+{
+  "common": {
+    "cancel": "Abbrechen",
+    "close": "Schließen",
+    "delete": "Löschen",
+    "done": "Fertig",
+    "save": "Speichern",
+    "saving": "Wird gespeichert...",
+    "remove": "Entfernen",
+    "total": "Summe",
+    "settings": "Einstellungen",
+    "defaultCartTitle": "Einkauf",
+    "untitledProduct": "Unbenanntes Produkt",
+    "example": "Beispiel: {{value}}"
+  },
+  "home": {
+    "title": "Einkaufswagen",
+    "createCart": "+ Neuen Einkaufswagen erstellen",
+    "emptyTitle": "Noch keine Einkaufshistorie.",
+    "emptyDescription": "Behalten Sie Ihre Ausgaben beim Einkaufen im Blick. Erstellen Sie einen Wagen, fügen Sie Produkte mit Preis und Menge hinzu und sehen Sie die Summe sofort.\n\nTippen Sie unten auf „Neuen Einkaufswagen erstellen“, um zu starten. Ihre Wagen werden auf diesem Gerät gespeichert."
+  },
+  "details": {
+    "createTitle": "Einkaufswagen erstellen",
+    "editTitle": "Einkaufswagen bearbeiten",
+    "screenTitle": "Einkaufsdetails",
+    "shoppingTitle": "Titel",
+    "shoppingDate": "Datum",
+    "products": "Produkte",
+    "addProduct": "+ Produkt hinzufügen",
+    "loading": "Einkaufswagen wird geladen...",
+    "cannotSaveTitle": "Speichern nicht möglich",
+    "cannotSaveMessage": "Fügen Sie vor dem Speichern mindestens ein Produkt hinzu.",
+    "saveFailedTitle": "Speichern fehlgeschlagen",
+    "saveFailedMessage": "Dieser Einkaufswagen konnte nicht gespeichert werden.",
+    "deleteCartTitle": "Einkaufswagen löschen",
+    "deleteCartMessage": "Diese Aktion kann nicht rückgängig gemacht werden.",
+    "deleteFailedTitle": "Löschen fehlgeschlagen",
+    "deleteFailedMessage": "Dieser Einkaufswagen konnte nicht gelöscht werden."
+  },
+  "product": {
+    "newTitle": "Neues Produkt",
+    "editTitle": "Produkt {{number}}",
+    "name": "Produktname",
+    "namePlaceholder": "Milch",
+    "pricePerUnit": "Preis pro Einheit",
+    "priceHelper": "Geben Sie den rabattierten Preis ein",
+    "quantity": "Menge",
+    "rowTotal": "Zeilensumme",
+    "each": "{{price}} je",
+    "extrasSuffix": " + {{amount}} Extra",
+    "deleteTitle": "Produkt löschen",
+    "deleteMessage": "„{{title}}“ aus diesem Wagen entfernen?",
+    "extraCardTitle": "Extra-Preis {{number}}",
+    "extraTitle": "Titel",
+    "extraTitlePlaceholder": "Steuer",
+    "extraAmount": "Betrag",
+    "extraHelper": "Fester Betrag (Steuer, Gebühr oder andere Kosten)",
+    "addExtra": "+ Extra-Preis"
+  },
+  "quantity": {
+    "tapToSelect": "Tippen zum Auswählen",
+    "selectTitle": "Menge auswählen"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "language": "Sprache",
+    "languageDescription": "Wählen Sie die App-Sprache. Systemstandard folgt der Gerätesprache, wenn verfügbar.",
+    "systemDefault": "Systemstandard",
+    "systemDefaultHint": "Gerätesprache verwenden",
+    "currency": "Währung",
+    "currencyDescription": "Wählen Sie, wie Preise angezeigt werden. „Keine Währung“ zeigt Beträge ohne Währungssymbol.",
+    "noCurrency": "Keine Währung",
+    "errorTitle": "Einstellungsfehler",
+    "currencyUpdateFailed": "Währung konnte nicht aktualisiert werden.",
+    "languageUpdateFailed": "Sprache konnte nicht aktualisiert werden."
+  },
+  "languages": {
+    "en": "Englisch",
+    "hy": "Armenisch",
+    "ru": "Russisch",
+    "zh": "Chinesisch",
+    "hi": "Hindi",
+    "fr": "Französisch",
+    "de": "Deutsch",
+    "it": "Italienisch"
+  },
+  "currency": {
+    "USD": "US-Dollar (USD)",
+    "EUR": "Euro (EUR)",
+    "GBP": "Britisches Pfund (GBP)",
+    "AMD": "Armenischer Dram (AMD)",
+    "RUB": "Russischer Rubel (RUB)",
+    "GEL": "Georgischer Lari (GEL)",
+    "TRY": "Türkische Lira (TRY)",
+    "AED": "VAE-Dirham (AED)",
+    "JPY": "Japanischer Yen (JPY)",
+    "CNY": "Chinesischer Yuan (CNY)"
+  },
+  "validation": {
+    "extraTitleRequired": "Titel des Extra-Preises ist erforderlich",
+    "extraAmountPositive": "Extra-Preis muss größer als 0 sein",
+    "productNameRequired": "Produktname ist erforderlich",
+    "pricePositive": "Preis muss größer als 0 sein",
+    "quantityWhole": "Menge muss eine ganze Zahl sein",
+    "quantityMin": "Menge muss mindestens 1 sein",
+    "quantityMax": "Menge darf höchstens 100 sein",
+    "dateFormat": "Datum muss im Format YYYY-MM-DD sein",
+    "productsMin": "Fügen Sie mindestens ein Produkt hinzu"
+  },
+  "errors": {
+    "databaseTitle": "Datenbankfehler",
+    "databaseMessage": "Die lokale Datenbank konnte nicht initialisiert werden."
+  }
+}

@@ -7,6 +7,7 @@ import {
   Text,
   View,
 } from 'react-native';
+import { useTranslation } from 'react-i18next';
 
 type QuantityPickerProps = {
   value: string;
@@ -23,6 +24,7 @@ export function QuantityPicker({
   hasError = false,
   onChange,
 }: QuantityPickerProps) {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const selectedValue = useMemo(() => {
     const parsed = Number(value);
@@ -40,7 +42,7 @@ export function QuantityPicker({
         onPress={() => setIsOpen(true)}
         style={[styles.trigger, hasError && styles.triggerError]}>
         <Text style={styles.triggerValue}>{selectedValue}</Text>
-        <Text style={styles.triggerHint}>Tap to select</Text>
+        <Text style={styles.triggerHint}>{t('quantity.tapToSelect')}</Text>
       </Pressable>
 
       <Modal
@@ -52,9 +54,9 @@ export function QuantityPicker({
           <Pressable onPress={() => setIsOpen(false)} style={styles.backdrop} />
           <View style={styles.sheet}>
             <View style={styles.sheetHeader}>
-              <Text style={styles.sheetTitle}>Select Quantity</Text>
+              <Text style={styles.sheetTitle}>{t('quantity.selectTitle')}</Text>
               <Pressable onPress={() => setIsOpen(false)}>
-                <Text style={styles.closeLabel}>Close</Text>
+                <Text style={styles.closeLabel}>{t('common.close')}</Text>
               </Pressable>
             </View>
 

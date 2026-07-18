@@ -30,6 +30,7 @@ import {
   useWatch,
 } from 'react-hook-form';
 import uuid from 'react-native-uuid';
+import { useTranslation } from 'react-i18next';
 
 import { useAppDispatch, useAppSelector } from '../app/store';
 import { ProductRow } from '../components/ProductRow';
@@ -122,11 +123,20 @@ const mapExtrasForTotal = (
   }));
 
 export function ShoppingDetailsScreen() {
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const navigation = useNavigation<NavigationProp>();
   const route = useRoute();
   const saveStatus = useAppSelector(selectShoppingSaveStatus);
   const formatMoney = useFormatCurrency();
+
+  const translateMessage = (message?: string) => {
+    if (!message) {
+      return message;
+    }
+
+    return message.startsWith('validation.') ? t(message) : message;
+  };
   const cartId = (route.params as RootStackParamList['ShoppingDetails'] | undefined)
     ?.cartId;
   const isEditMode = Boolean(cartId);
@@ -148,7 +158,7 @@ export function ShoppingDetailsScreen() {
     setError,
   } = useForm<ShoppingCartFormValues, undefined, ShoppingCartFormData>({
     defaultValues: {
-      title: 'Shopping',
+      title: t('common.defaultCartTitle'),
       date: getToday(),
       products: [],
     },
@@ -187,9 +197,9 @@ export function ShoppingDetailsScreen() {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      title: isEditMode ? 'Edit Shopping Cart' : 'Create Shopping Cart',
+      title: isEditMode ? t('details.editTitle') : t('details.createTitle'),
     });
-  }, [isEditMode, navigation]);
+  }, [isEditMode, navigation, t]);
 
   useFocusEffect(
     useCallback(() => {
@@ -254,7 +264,7 @@ export function ShoppingDetailsScreen() {
       dispatch(
         saveShoppingCart({
           id: cartId ?? String(uuid.v4()),
-          title: parsed.data.title,
+          title: parsed.data.title.trim() || t('common.defaultCartTitle'),
           date: parsed.data.date,
           createdAt,
           products: parsed.data.products,
@@ -273,15 +283,15 @@ export function ShoppingDetailsScreen() {
     });
 
     return unsubscribe;
-  }, [cartId, createdAt, dispatch, isDirty, navigation, watchedValues]);
+  }, [cartId, createdAt, dispatch, isDirty, navigation, t, watchedValues]);
 
   const saveForm = handleSubmit(async values => {
     if (!values.products.length) {
       setError('products', {
-        message: 'Add at least one product',
+        message: 'validation.productsMin',
         type: 'manual',
       });
-      Alert.alert('Cannot save', 'Add at least one product before saving.');
+      Alert.alert(t('details.cannotSaveTitle'), t('details.cannotSaveMessage'));
       return;
     }
 
@@ -289,7 +299,7 @@ export function ShoppingDetailsScreen() {
       await dispatch(
         saveShoppingCart({
           id: cartId ?? String(uuid.v4()),
-          title: values.title,
+          title: values.title.trim() || t('common.defaultCartTitle'),
           date: values.date,
           createdAt,
           products: values.products,
@@ -298,7 +308,7 @@ export function ShoppingDetailsScreen() {
 
       navigation.goBack();
     } catch {
-      Alert.alert('Save failed', 'Unable to save this shopping cart.');
+      Alert.alert(t('details.saveFailedTitle'), t('details.saveFailedMessage'));
     }
   });
 
@@ -307,14 +317,14 @@ export function ShoppingDetailsScreen() {
       return;
     }
 
-    Alert.alert('Delete shopping cart', 'This action cannot be undone.', [
+    Alert.alert(t('details.deleteCartTitle'), t('details.deleteCartMessage'), [
       {
         style: 'cancel',
-        text: 'Cancel',
+        text: t('common.cancel'),
       },
       {
         style: 'destructive',
-        text: 'Delete',
+        text: t('common.delete'),
         onPress: () => {
           dispatch(deleteShoppingCart(cartId))
             .unwrap()
@@ -323,14 +333,14 @@ export function ShoppingDetailsScreen() {
             })
             .catch(() => {
               Alert.alert(
-                'Delete failed',
-                'Unable to delete this shopping cart.',
+                t('details.deleteFailedTitle'),
+                t('details.deleteFailedMessage'),
               );
             });
         },
       },
     ]);
-  }, [cartId, dispatch, navigation]);
+  }, [cartId, dispatch, navigation, t]);
 
   const closeProductModal = useCallback(() => {
     setProductModal(null);
@@ -550,7 +560,7 @@ export function ShoppingDetailsScreen() {
   if (isLoading) {
     return (
       <View style={styles.loadingContainer}>
-        <Text style={styles.loadingText}>Loading shopping cart...</Text>
+        <Text style={styles.loadingText}>{t('details.loading')}</Text>
       </View>
     );
   }
@@ -558,7 +568,7 @@ export function ShoppingDetailsScreen() {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.content}>
-        <Text style={styles.label}>Shopping Title</Text>
+        <Text style={styles.label}>{t('details.shoppingTitle')}</Text>
         <Controller
           control={control}
           name="title"
@@ -566,14 +576,14 @@ export function ShoppingDetailsScreen() {
             <TextInput
               onBlur={onBlur}
               onChangeText={onChange}
-              placeholder="Shopping"
+              placeholder={t("common.defaultCartTitle")}
               style={styles.input}
               value={value}
             />
           )}
         />
 
-        <Text style={styles.label}>Shopping Date</Text>
+        <Text style={styles.label}>{t('details.shoppingDate')}</Text>
         <Controller
           control={control}
           name="date"
@@ -588,13 +598,13 @@ export function ShoppingDetailsScreen() {
           )}
         />
         {errors.date?.message ? (
-          <Text style={styles.errorText}>{errors.date.message}</Text>
+          <Text style={styles.errorText}>{translateMessage(errors.date.message)}</Text>
         ) : null}
 
         <View style={styles.sectionHeader}>
-          <Text style={styles.sectionTitle}>Products</Text>
+          <Text style={styles.sectionTitle}>{t('details.products')}</Text>
           <Pressable onPress={handleAddProduct} style={styles.addButton}>
-            <Text style={styles.addButtonLabel}>+ Add Product</Text>
+            <Text style={styles.addButtonLabel}>{t('details.addProduct')}</Text>
           </Pressable>
         </View>
 
@@ -616,7 +626,7 @@ export function ShoppingDetailsScreen() {
         ))}
 
         {errors.products?.message ? (
-          <Text style={styles.errorText}>{errors.products.message}</Text>
+          <Text style={styles.errorText}>{translateMessage(errors.products.message)}</Text>
         ) : null}
       </ScrollView>
 
@@ -639,11 +649,13 @@ export function ShoppingDetailsScreen() {
             <View style={styles.modalHeader}>
               <Text style={styles.modalTitle}>
                 {productModal?.mode === 'edit'
-                  ? `Product ${(productModal.index ?? 0) + 1}`
-                  : 'New Product'}
+                  ? t('product.editTitle', {
+                      number: (productModal.index ?? 0) + 1,
+                    })
+                  : t('product.newTitle')}
               </Text>
               <Pressable onPress={handleRemoveProduct}>
-                <Text style={styles.deleteLabel}>Delete</Text>
+                <Text style={styles.deleteLabel}>{t('common.delete')}</Text>
               </Pressable>
             </View>
 
@@ -651,18 +663,20 @@ export function ShoppingDetailsScreen() {
               <ScrollView
                 contentContainerStyle={styles.modalContent}
                 keyboardShouldPersistTaps="handled">
-                <Text style={styles.label}>Product Name</Text>
+                <Text style={styles.label}>{t('product.name')}</Text>
                 <TextInput
                   onChangeText={value => updateDraftField('title', value)}
-                  placeholder="Milk"
+                  placeholder={t("product.namePlaceholder")}
                   style={[styles.input, draftErrors.title && styles.inputError]}
                   value={productModal.draft.title}
                 />
                 {draftErrors.title ? (
-                  <Text style={styles.errorText}>{draftErrors.title}</Text>
+                  <Text style={styles.errorText}>
+                    {translateMessage(draftErrors.title)}
+                  </Text>
                 ) : null}
 
-                <Text style={styles.label}>Price Per Unit</Text>
+                <Text style={styles.label}>{t('product.pricePerUnit')}</Text>
                 <TextInput
                   keyboardType="decimal-pad"
                   onChangeText={value => updateDraftField('price', value)}
@@ -670,39 +684,43 @@ export function ShoppingDetailsScreen() {
                   style={[styles.input, draftErrors.price && styles.inputError]}
                   value={productModal.draft.price}
                 />
-                <Text style={styles.helperText}>Enter the discounted price</Text>
+                <Text style={styles.helperText}>{t('product.priceHelper')}</Text>
                 {draftErrors.price ? (
-                  <Text style={styles.errorText}>{draftErrors.price}</Text>
+                  <Text style={styles.errorText}>
+                    {translateMessage(draftErrors.price)}
+                  </Text>
                 ) : null}
 
-                <Text style={styles.label}>Quantity</Text>
+                <Text style={styles.label}>{t('product.quantity')}</Text>
                 <QuantityPicker
                   hasError={Boolean(draftErrors.quantity)}
                   onChange={value => updateDraftField('quantity', value)}
                   value={productModal.draft.quantity}
                 />
                 {draftErrors.quantity ? (
-                  <Text style={styles.errorText}>{draftErrors.quantity}</Text>
+                  <Text style={styles.errorText}>
+                    {translateMessage(draftErrors.quantity)}
+                  </Text>
                 ) : null}
 
                 {productModal.draft.extras.map((extra, extraIndex) => (
                   <View key={extra.id} style={styles.extraCard}>
                     <View style={styles.extraPriceHeader}>
                       <Text style={styles.extraCardTitle}>
-                        Extra price {extraIndex + 1}
+                        {t('product.extraCardTitle', { number: extraIndex + 1 })}
                       </Text>
                       <Pressable
                         onPress={() => handleRemoveExtraPrice(extraIndex)}>
-                        <Text style={styles.removeExtraLabel}>Remove</Text>
+                        <Text style={styles.removeExtraLabel}>{t('common.remove')}</Text>
                       </Pressable>
                     </View>
 
-                    <Text style={styles.label}>Title</Text>
+                    <Text style={styles.label}>{t('product.extraTitle')}</Text>
                     <TextInput
                       onChangeText={value =>
                         updateExtraField(extraIndex, 'title', value)
                       }
-                      placeholder="Tax"
+                      placeholder={t("product.extraTitlePlaceholder")}
                       style={[
                         styles.input,
                         draftErrors.extras?.[extraIndex]?.title &&
@@ -712,11 +730,13 @@ export function ShoppingDetailsScreen() {
                     />
                     {draftErrors.extras?.[extraIndex]?.title ? (
                       <Text style={styles.errorText}>
-                        {draftErrors.extras[extraIndex]?.title}
+                        {translateMessage(
+                          draftErrors.extras[extraIndex]?.title,
+                        )}
                       </Text>
                     ) : null}
 
-                    <Text style={styles.label}>Amount</Text>
+                    <Text style={styles.label}>{t('product.extraAmount')}</Text>
                     <TextInput
                       keyboardType="decimal-pad"
                       onChangeText={value =>
@@ -730,12 +750,12 @@ export function ShoppingDetailsScreen() {
                       ]}
                       value={extra.amount}
                     />
-                    <Text style={styles.helperText}>
-                      Fixed amount (tax, fee, or other charge)
-                    </Text>
+                    <Text style={styles.helperText}>{t('product.extraHelper')}</Text>
                     {draftErrors.extras?.[extraIndex]?.amount ? (
                       <Text style={styles.errorText}>
-                        {draftErrors.extras[extraIndex]?.amount}
+                        {translateMessage(
+                          draftErrors.extras[extraIndex]?.amount,
+                        )}
                       </Text>
                     ) : null}
                   </View>
@@ -745,19 +765,19 @@ export function ShoppingDetailsScreen() {
                   onPress={handleAddExtraPrice}
                   style={styles.extraPriceButton}>
                   <Text style={styles.extraPriceButtonLabel}>
-                    + Extra price
+                    {t('product.addExtra')}
                   </Text>
                 </Pressable>
 
                 <View style={styles.rowTotal}>
-                  <Text style={styles.rowTotalLabel}>Row Total</Text>
+                  <Text style={styles.rowTotalLabel}>{t('product.rowTotal')}</Text>
                   <Text style={styles.rowTotalValue}>
                     {formatMoney(draftRowTotal)}
                   </Text>
                 </View>
 
                 <Pressable onPress={handleDoneProduct} style={styles.doneButton}>
-                  <Text style={styles.doneButtonLabel}>Done</Text>
+                  <Text style={styles.doneButtonLabel}>{t('common.done')}</Text>
                 </Pressable>
               </ScrollView>
             ) : null}

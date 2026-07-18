@@ -1,0 +1,114 @@
+{
+  "common": {
+    "cancel": "Annulla",
+    "close": "Chiudi",
+    "delete": "Elimina",
+    "done": "Fatto",
+    "save": "Salva",
+    "saving": "Salvataggio...",
+    "remove": "Rimuovi",
+    "total": "Totale",
+    "settings": "Impostazioni",
+    "defaultCartTitle": "Spesa",
+    "untitledProduct": "Prodotto senza nome",
+    "example": "Esempio: {{value}}"
+  },
+  "home": {
+    "title": "Carrello",
+    "createCart": "+ Crea nuovo carrello",
+    "emptyTitle": "Nessuna cronologia acquisti.",
+    "emptyDescription": "Tieni traccia delle spese mentre fai la spesa. Crea un carrello, aggiungi prodotti con prezzo e quantità e vedi il totale aggiornarsi subito.\n\nTocca “Crea nuovo carrello” qui sotto per iniziare. I carrelli vengono salvati su questo dispositivo."
+  },
+  "details": {
+    "createTitle": "Crea carrello",
+    "editTitle": "Modifica carrello",
+    "screenTitle": "Dettagli spesa",
+    "shoppingTitle": "Titolo",
+    "shoppingDate": "Data",
+    "products": "Prodotti",
+    "addProduct": "+ Aggiungi prodotto",
+    "loading": "Caricamento carrello...",
+    "cannotSaveTitle": "Impossibile salvare",
+    "cannotSaveMessage": "Aggiungi almeno un prodotto prima di salvare.",
+    "saveFailedTitle": "Salvataggio non riuscito",
+    "saveFailedMessage": "Impossibile salvare questo carrello.",
+    "deleteCartTitle": "Elimina carrello",
+    "deleteCartMessage": "Questa azione non può essere annullata.",
+    "deleteFailedTitle": "Eliminazione non riuscita",
+    "deleteFailedMessage": "Impossibile eliminare questo carrello."
+  },
+  "product": {
+    "newTitle": "Nuovo prodotto",
+    "editTitle": "Prodotto {{number}}",
+    "name": "Nome prodotto",
+    "namePlaceholder": "Latte",
+    "pricePerUnit": "Prezzo unitario",
+    "priceHelper": "Inserisci il prezzo scontato",
+    "quantity": "Quantità",
+    "rowTotal": "Totale riga",
+    "each": "{{price}} cad.",
+    "extrasSuffix": " + {{amount}} extra",
+    "deleteTitle": "Elimina prodotto",
+    "deleteMessage": "Rimuovere \"{{title}}\" da questo carrello?",
+    "extraCardTitle": "Prezzo extra {{number}}",
+    "extraTitle": "Titolo",
+    "extraTitlePlaceholder": "Tassa",
+    "extraAmount": "Importo",
+    "extraHelper": "Importo fisso (tassa, commissione o altro addebito)",
+    "addExtra": "+ Prezzo extra"
+  },
+  "quantity": {
+    "tapToSelect": "Tocca per selezionare",
+    "selectTitle": "Seleziona quantità"
+  },
+  "settings": {
+    "title": "Impostazioni",
+    "language": "Lingua",
+    "languageDescription": "Scegli la lingua dell’app. Il valore di sistema segue la lingua del dispositivo quando disponibile.",
+    "systemDefault": "Predefinito di sistema",
+    "systemDefaultHint": "Usa la lingua del dispositivo",
+    "currency": "Valuta",
+    "currencyDescription": "Scegli come mostrare i prezzi. “Nessuna valuta” mostra gli importi senza simbolo di valuta.",
+    "noCurrency": "Nessuna valuta",
+    "errorTitle": "Errore impostazioni",
+    "currencyUpdateFailed": "Impossibile aggiornare la valuta.",
+    "languageUpdateFailed": "Impossibile aggiornare la lingua."
+  },
+  "languages": {
+    "en": "Inglese",
+    "hy": "Armeno",
+    "ru": "Russo",
+    "zh": "Cinese",
+    "hi": "Hindi",
+    "fr": "Francese",
+    "de": "Tedesco",
+    "it": "Italiano"
+  },
+  "currency": {
+    "USD": "Dollaro USA (USD)",
+    "EUR": "Euro (EUR)",
+    "GBP": "Sterlina britannica (GBP)",
+    "AMD": "Dram armeno (AMD)",
+    "RUB": "Rublo russo (RUB)",
+    "GEL": "Lari georgiano (GEL)",
+    "TRY": "Lira turca (TRY)",
+    "AED": "Dirham EAU (AED)",
+    "JPY": "Yen giapponese (JPY)",
+    "CNY": "Yuan cinese (CNY)"
+  },
+  "validation": {
+    "extraTitleRequired": "Il titolo del prezzo extra è obbligatorio",
+    "extraAmountPositive": "Il prezzo extra deve essere maggiore di 0",
+    "productNameRequired": "Il nome del prodotto è obbligatorio",
+    "pricePositive": "Il prezzo deve essere maggiore di 0",
+    "quantityWhole": "La quantità deve essere un numero intero",
+    "quantityMin": "La quantità deve essere almeno 1",
+    "quantityMax": "La quantità deve essere al massimo 100",
+    "dateFormat": "La data deve essere nel formato YYYY-MM-DD",
+    "productsMin": "Aggiungi almeno un prodotto"
+  },
+  "errors": {
+    "databaseTitle": "Errore database",
+    "databaseMessage": "Impossibile inizializzare il database locale."
+  }
+}

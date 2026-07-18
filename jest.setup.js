@@ -6,6 +6,10 @@ jest.mock('@op-engineering/op-sqlite', () => ({
   })),
 }));
 
+jest.mock('react-native-localize', () => ({
+  getLocales: () => [{ languageCode: 'en', countryCode: 'US' }],
+}));
+
 jest.mock('react-native-gesture-handler', () => {
   const React = require('react');
   const { View } = require('react-native');

@@ -1,0 +1,114 @@
+{
+  "common": {
+    "cancel": "Annuler",
+    "close": "Fermer",
+    "delete": "Supprimer",
+    "done": "Terminé",
+    "save": "Enregistrer",
+    "saving": "Enregistrement...",
+    "remove": "Retirer",
+    "total": "Total",
+    "settings": "Paramètres",
+    "defaultCartTitle": "Courses",
+    "untitledProduct": "Produit sans nom",
+    "example": "Exemple : {{value}}"
+  },
+  "home": {
+    "title": "Panier",
+    "createCart": "+ Créer un nouveau panier",
+    "emptyTitle": "Aucun historique d’achats pour le moment.",
+    "emptyDescription": "Suivez vos dépenses pendant vos courses. Créez un panier, ajoutez des produits avec prix et quantité, et voyez le total se mettre à jour instantanément.\n\nAppuyez sur « Créer un nouveau panier » ci-dessous pour commencer. Vos paniers sont enregistrés sur cet appareil."
+  },
+  "details": {
+    "createTitle": "Créer un panier",
+    "editTitle": "Modifier le panier",
+    "screenTitle": "Détails du panier",
+    "shoppingTitle": "Titre",
+    "shoppingDate": "Date",
+    "products": "Produits",
+    "addProduct": "+ Ajouter un produit",
+    "loading": "Chargement du panier...",
+    "cannotSaveTitle": "Impossible d’enregistrer",
+    "cannotSaveMessage": "Ajoutez au moins un produit avant d’enregistrer.",
+    "saveFailedTitle": "Échec de l’enregistrement",
+    "saveFailedMessage": "Impossible d’enregistrer ce panier.",
+    "deleteCartTitle": "Supprimer le panier",
+    "deleteCartMessage": "Cette action est irréversible.",
+    "deleteFailedTitle": "Échec de la suppression",
+    "deleteFailedMessage": "Impossible de supprimer ce panier."
+  },
+  "product": {
+    "newTitle": "Nouveau produit",
+    "editTitle": "Produit {{number}}",
+    "name": "Nom du produit",
+    "namePlaceholder": "Lait",
+    "pricePerUnit": "Prix unitaire",
+    "priceHelper": "Saisissez le prix remisé",
+    "quantity": "Quantité",
+    "rowTotal": "Total de la ligne",
+    "each": "{{price}} pièce",
+    "extrasSuffix": " + {{amount}} extras",
+    "deleteTitle": "Supprimer le produit",
+    "deleteMessage": "Retirer « {{title}} » de ce panier ?",
+    "extraCardTitle": "Prix extra {{number}}",
+    "extraTitle": "Titre",
+    "extraTitlePlaceholder": "Taxe",
+    "extraAmount": "Montant",
+    "extraHelper": "Montant fixe (taxe, frais ou autre charge)",
+    "addExtra": "+ Prix extra"
+  },
+  "quantity": {
+    "tapToSelect": "Appuyer pour sélectionner",
+    "selectTitle": "Sélectionner la quantité"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "language": "Langue",
+    "languageDescription": "Choisissez la langue de l’application. La valeur système suit la langue de l’appareil lorsqu’elle est disponible.",
+    "systemDefault": "Valeur système",
+    "systemDefaultHint": "Utiliser la langue de l’appareil",
+    "currency": "Devise",
+    "currencyDescription": "Choisissez l’affichage des prix. « Aucune devise » affiche les montants sans symbole monétaire.",
+    "noCurrency": "Aucune devise",
+    "errorTitle": "Erreur des paramètres",
+    "currencyUpdateFailed": "Impossible de mettre à jour la devise.",
+    "languageUpdateFailed": "Impossible de mettre à jour la langue."
+  },
+  "languages": {
+    "en": "Anglais",
+    "hy": "Arménien",
+    "ru": "Russe",
+    "zh": "Chinois",
+    "hi": "Hindi",
+    "fr": "Français",
+    "de": "Allemand",
+    "it": "Italien"
+  },
+  "currency": {
+    "USD": "Dollar américain (USD)",
+    "EUR": "Euro (EUR)",
+    "GBP": "Livre sterling (GBP)",
+    "AMD": "Dram arménien (AMD)",
+    "RUB": "Rouble russe (RUB)",
+    "GEL": "Lari géorgien (GEL)",
+    "TRY": "Livre turque (TRY)",
+    "AED": "Dirham des EAU (AED)",
+    "JPY": "Yen japonais (JPY)",
+    "CNY": "Yuan chinois (CNY)"
+  },
+  "validation": {
+    "extraTitleRequired": "Le titre du prix extra est obligatoire",
+    "extraAmountPositive": "Le prix extra doit être supérieur à 0",
+    "productNameRequired": "Le nom du produit est obligatoire",
+    "pricePositive": "Le prix doit être supérieur à 0",
+    "quantityWhole": "La quantité doit être un nombre entier",
+    "quantityMin": "La quantité doit être au moins 1",
+    "quantityMax": "La quantité doit être au plus 100",
+    "dateFormat": "La date doit être au format YYYY-MM-DD",
+    "productsMin": "Ajoutez au moins un produit"
+  },
+  "errors": {
+    "databaseTitle": "Erreur de base de données",
+    "databaseMessage": "La base de données locale n’a pas pu être initialisée."
+  }
+}

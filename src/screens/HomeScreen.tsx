@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useTranslation } from 'react-i18next';
 
 import { useAppDispatch, useAppSelector } from '../app/store';
 import { EmptyState } from '../components/EmptyState';
@@ -13,6 +14,7 @@ import type { RootStackParamList } from '../navigation/types';
 type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>;
 
 export function HomeScreen() {
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const navigation = useNavigation<NavigationProp>();
   const carts = useAppSelector(selectShoppingHistory);
@@ -26,11 +28,11 @@ export function HomeScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Shopping Cart</Text>
+        <Text style={styles.title}>{t('home.title')}</Text>
         <Pressable
           onPress={() => navigation.navigate('Settings')}
           style={styles.settingsButton}>
-          <Text style={styles.settingsButtonLabel}>Settings</Text>
+          <Text style={styles.settingsButtonLabel}>{t('common.settings')}</Text>
         </Pressable>
       </View>
 
@@ -40,10 +42,8 @@ export function HomeScreen() {
         keyExtractor={item => item.id}
         ListEmptyComponent={
           <EmptyState
-            message="No shopping history yet."
-            description={
-              'Track what you spend while shopping. Create a cart, add products with price and quantity, and see the total update instantly.\n\nTap “Create New Shopping Cart” below to get started. Your carts are saved on this device so you can review them anytime.'
-            }
+            message={t('home.emptyTitle')}
+            description={t('home.emptyDescription')}
           />
         }
         renderItem={({ item }) => (
@@ -59,7 +59,7 @@ export function HomeScreen() {
       <Pressable
         onPress={() => navigation.navigate('ShoppingDetails', {})}
         style={styles.createButton}>
-        <Text style={styles.createButtonLabel}>+ Create New Shopping Cart</Text>
+        <Text style={styles.createButtonLabel}>{t('home.createCart')}</Text>
       </Pressable>
     </View>
   );
@@ -108,7 +108,9 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#111827',
+    flex: 1,
     fontSize: 28,
     fontWeight: '700',
+    marginRight: 12,
   },
 });
