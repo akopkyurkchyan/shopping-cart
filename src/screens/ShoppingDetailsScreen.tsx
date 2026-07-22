@@ -625,6 +625,16 @@ export function ShoppingDetailsScreen() {
           />
         ))}
 
+        {fields.length > 0 ? (
+          <Pressable
+            onPress={handleAddProduct}
+            style={styles.addProductListButton}>
+            <Text style={styles.addProductListButtonLabel}>
+              {t('details.addProduct')}
+            </Text>
+          </Pressable>
+        ) : null}
+
         {errors.products?.message ? (
           <Text style={styles.errorText}>{translateMessage(errors.products.message)}</Text>
         ) : null}
@@ -796,6 +806,17 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   addButtonLabel: {
+    color: '#111827',
+    fontWeight: '700',
+  },
+  addProductListButton: {
+    alignItems: 'center',
+    backgroundColor: '#e5e7eb',
+    borderRadius: 12,
+    marginTop: 4,
+    paddingVertical: 12,
+  },
+  addProductListButtonLabel: {
     color: '#111827',
     fontWeight: '700',
   },

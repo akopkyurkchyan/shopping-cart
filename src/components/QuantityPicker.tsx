@@ -1,8 +1,8 @@
-import React, { useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import {
-  FlatList,
   Modal,
   Pressable,
+  ScrollView,
   StyleSheet,
   Text,
   View,
@@ -18,6 +18,7 @@ type QuantityPickerProps = {
 const QUANTITY_OPTIONS = Array.from({ length: 100 }, (_, index) =>
   String(index + 1),
 );
+const OPTION_HEIGHT = 48;
 
 export function QuantityPicker({
   value,
@@ -26,6 +27,7 @@ export function QuantityPicker({
 }: QuantityPickerProps) {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
+  const listRef = useRef<ScrollView>(null);
   const selectedValue = useMemo(() => {
     const parsed = Number(value);
 
@@ -35,6 +37,15 @@ export function QuantityPicker({
 
     return String(parsed);
   }, [value]);
+
+  const scrollToSelected = useCallback(() => {
+    const index = Math.max(0, Number(selectedValue) - 1);
+
+    listRef.current?.scrollTo({
+      y: index * OPTION_HEIGHT,
+      animated: false,
+    });
+  }, [selectedValue]);
 
   return (
     <>
@@ -60,20 +71,13 @@ export function QuantityPicker({
               </Pressable>
             </View>
 
-            <FlatList
-              data={QUANTITY_OPTIONS}
-              keyExtractor={item => item}
-              initialScrollIndex={Math.max(0, Number(selectedValue) - 1)}
-              getItemLayout={(_, index) => ({
-                length: 48,
-                offset: 48 * index,
-                index,
-              })}
-              renderItem={({ item }) => {
+            <ScrollView ref={listRef} onLayout={scrollToSelected}>
+              {QUANTITY_OPTIONS.map(item => {
                 const isSelected = item === selectedValue;
 
                 return (
                   <Pressable
+                    key={item}
                     onPress={() => {
                       onChange(item);
                       setIsOpen(false);
@@ -91,8 +95,8 @@ export function QuantityPicker({
                     </Text>
                   </Pressable>
                 );
-              }}
-            />
+              })}
+            </ScrollView>
           </View>
         </View>
       </Modal>
@@ -110,7 +114,7 @@ const styles = StyleSheet.create({
   },
   option: {
     alignItems: 'center',
-    height: 48,
+    height: OPTION_HEIGHT,
     justifyContent: 'center',
   },
   optionLabel: {

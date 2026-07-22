@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Alert, StyleSheet } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { I18nextProvider, useTranslation } from 'react-i18next';
+import { I18nextProvider } from 'react-i18next';
 import { Provider } from 'react-redux';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -12,15 +12,18 @@ import { RootNavigator } from '../navigation/RootNavigator';
 import { store } from './store';
 
 function AppBootstrap() {
-  const { t } = useTranslation();
-
+  // Bootstrap must run exactly once. Depending on `t` here creates an
+  // infinite loop: loadSettings -> changeLanguage -> new `t` -> effect re-runs.
   useEffect(() => {
     initDatabase()
       .then(() => store.dispatch(loadSettings()))
       .catch(() => {
-        Alert.alert(t('errors.databaseTitle'), t('errors.databaseMessage'));
+        Alert.alert(
+          i18n.t('errors.databaseTitle'),
+          i18n.t('errors.databaseMessage'),
+        );
       });
-  }, [t]);
+  }, []);
 
   return <RootNavigator />;
 }
