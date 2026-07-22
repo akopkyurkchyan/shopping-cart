@@ -68,6 +68,23 @@ describe('shopping cart validation', () => {
     expect(result.success).toBe(false);
   });
 
+  it('rejects a date that matches the format but is not a real calendar day', () => {
+    const result = shoppingCartSchema.safeParse({
+      date: '2026-02-30',
+      products: [
+        {
+          id: '1',
+          price: '2.50',
+          quantity: '3',
+          title: 'Milk',
+        },
+      ],
+      title: 'Weekly Shopping',
+    });
+
+    expect(result.success).toBe(false);
+  });
+
   it('accepts multiple titled extras', () => {
     const result = shoppingCartSchema.safeParse({
       date: '2026-07-16',

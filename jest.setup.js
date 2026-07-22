@@ -10,6 +10,20 @@ jest.mock('react-native-localize', () => ({
   getLocales: () => [{ languageCode: 'en', countryCode: 'US' }],
 }));
 
+jest.mock('@react-native-community/datetimepicker', () => {
+  const React = require('react');
+  const { View } = require('react-native');
+
+  return {
+    __esModule: true,
+    default: props => React.createElement(View, props),
+    DateTimePickerAndroid: {
+      open: jest.fn(),
+      dismiss: jest.fn(),
+    },
+  };
+});
+
 jest.mock('react-native-gesture-handler', () => {
   const React = require('react');
   const { View } = require('react-native');

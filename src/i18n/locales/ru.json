@@ -61,6 +61,11 @@
     "tapToSelect": "Нажмите, чтобы выбрать",
     "selectTitle": "Выбрать количество"
   },
+  "date": {
+    "tapToSelect": "Нажмите, чтобы выбрать",
+    "selectTitle": "Выбрать дату",
+    "placeholder": "Выберите дату"
+  },
   "settings": {
     "title": "Настройки",
     "language": "Язык",

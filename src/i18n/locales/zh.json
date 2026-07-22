@@ -61,6 +61,11 @@
     "tapToSelect": "点击选择",
     "selectTitle": "选择数量"
   },
+  "date": {
+    "tapToSelect": "点击选择",
+    "selectTitle": "选择日期",
+    "placeholder": "选择日期"
+  },
   "settings": {
     "title": "设置",
     "language": "语言",

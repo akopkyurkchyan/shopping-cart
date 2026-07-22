@@ -61,6 +61,11 @@
     "tapToSelect": "Սեղմեք ընտրելու համար",
     "selectTitle": "Ընտրել քանակը"
   },
+  "date": {
+    "tapToSelect": "Սեղմեք ընտրելու համար",
+    "selectTitle": "Ընտրել ամսաթիվը",
+    "placeholder": "Ընտրեք ամսաթիվը"
+  },
   "settings": {
     "title": "Կարգավորումներ",
     "language": "Լեզու",

@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import { parseDateValue } from './date';
+
 export const productExtraSchema = z.object({
   id: z.string().min(1),
   title: z.string().trim().min(1, 'validation.extraTitleRequired'),
@@ -22,7 +24,12 @@ export const productSchema = z.object({
 
 export const shoppingCartSchema = z.object({
   title: z.string().trim(),
-  date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'validation.dateFormat'),
+  date: z
+    .string()
+    .regex(/^\d{4}-\d{2}-\d{2}$/, 'validation.dateFormat')
+    .refine(value => parseDateValue(value) !== null, {
+      message: 'validation.dateFormat',
+    }),
   products: z.array(productSchema).min(1, 'validation.productsMin'),
 });
 

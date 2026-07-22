@@ -61,6 +61,11 @@
     "tapToSelect": "चयन करने के लिए टैप करें",
     "selectTitle": "मात्रा चुनें"
   },
+  "date": {
+    "tapToSelect": "चयन करने के लिए टैप करें",
+    "selectTitle": "तारीख चुनें",
+    "placeholder": "तारीख चुनें"
+  },
   "settings": {
     "title": "सेटिंग्स",
     "language": "भाषा",

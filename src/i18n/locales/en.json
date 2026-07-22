@@ -61,6 +61,11 @@
     "tapToSelect": "Tap to select",
     "selectTitle": "Select Quantity"
   },
+  "date": {
+    "tapToSelect": "Tap to select",
+    "selectTitle": "Select Date",
+    "placeholder": "Select date"
+  },
   "settings": {
     "title": "Settings",
     "language": "Language",

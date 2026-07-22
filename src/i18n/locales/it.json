@@ -61,6 +61,11 @@
     "tapToSelect": "Tocca per selezionare",
     "selectTitle": "Seleziona quantità"
   },
+  "date": {
+    "tapToSelect": "Tocca per selezionare",
+    "selectTitle": "Seleziona data",
+    "placeholder": "Seleziona data"
+  },
   "settings": {
     "title": "Impostazioni",
     "language": "Lingua",

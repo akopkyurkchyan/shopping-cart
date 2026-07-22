@@ -33,6 +33,7 @@ import uuid from 'react-native-uuid';
 import { useTranslation } from 'react-i18next';
 
 import { useAppDispatch, useAppSelector } from '../app/store';
+import { DatePicker } from '../components/DatePicker';
 import { ProductRow } from '../components/ProductRow';
 import { QuantityPicker } from '../components/QuantityPicker';
 import { TotalFooter } from '../components/TotalFooter';
@@ -45,6 +46,7 @@ import {
 import { useFormatCurrency } from '../hooks/useFormatCurrency';
 import type { RootStackParamList } from '../navigation/types';
 import { calcCartTotal, calcRowTotal } from '../utils/currency';
+import { getTodayDateValue } from '../utils/date';
 import {
   productSchema,
   shoppingCartSchema,
@@ -88,8 +90,6 @@ type ProductDraftErrors = {
   quantity?: string;
   extras?: ExtraDraftError[];
 };
-
-const getToday = (): string => new Date().toISOString().slice(0, 10);
 
 const createExtraDraft = (): ExtraDraft => ({
   id: String(uuid.v4()),
@@ -159,7 +159,7 @@ export function ShoppingDetailsScreen() {
   } = useForm<ShoppingCartFormValues, undefined, ShoppingCartFormData>({
     defaultValues: {
       title: t('common.defaultCartTitle'),
-      date: getToday(),
+      date: getTodayDateValue(),
       products: [],
     },
     resolver: zodResolver(shoppingCartSchema),
@@ -246,7 +246,7 @@ export function ShoppingDetailsScreen() {
   );
 
   useEffect(() => {
-    const unsubscribe = navigation.addListener('beforeRemove', event => {
+    return navigation.addListener('beforeRemove', event => {
       if (isAutosavingRef.current) {
         return;
       }
@@ -281,8 +281,6 @@ export function ShoppingDetailsScreen() {
           isAutosavingRef.current = false;
         });
     });
-
-    return unsubscribe;
   }, [cartId, createdAt, dispatch, isDirty, navigation, t, watchedValues]);
 
   const saveForm = handleSubmit(async values => {
@@ -587,12 +585,10 @@ export function ShoppingDetailsScreen() {
         <Controller
           control={control}
           name="date"
-          render={({ field: { onBlur, onChange, value } }) => (
-            <TextInput
-              onBlur={onBlur}
-              onChangeText={onChange}
-              placeholder="YYYY-MM-DD"
-              style={[styles.input, errors.date && styles.inputError]}
+          render={({ field: { onChange, value } }) => (
+            <DatePicker
+              hasError={Boolean(errors.date)}
+              onChange={onChange}
               value={value}
             />
           )}

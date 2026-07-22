@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { useFormatCurrency } from '../hooks/useFormatCurrency';
 import type { ShoppingCartSummary } from '../types/models';
+import { parseDateValue } from '../utils/date';
 
 type ShoppingHistoryItemProps = {
   cart: ShoppingCartSummary;
@@ -16,11 +17,14 @@ export function ShoppingHistoryItem({
 }: ShoppingHistoryItemProps) {
   const { i18n } = useTranslation();
   const formatMoney = useFormatCurrency();
+  // `cart.date` is a plain YYYY-MM-DD string. Parsing it with `new Date(...)`
+  // would read it as UTC midnight, which renders as the previous calendar
+  // day in any timezone behind UTC. Parse it as a local date instead.
   const formattedDate = new Intl.DateTimeFormat(i18n.language, {
     day: '2-digit',
     month: 'short',
     year: 'numeric',
-  }).format(new Date(cart.date));
+  }).format(parseDateValue(cart.date) ?? new Date());
 
   return (
     <Pressable onPress={onPress} style={styles.card}>
