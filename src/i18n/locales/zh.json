@@ -8,14 +8,13 @@
     "saving": "保存中...",
     "remove": "移除",
     "total": "合计",
-    "settings": "设置",
     "defaultCartTitle": "购物",
     "untitledProduct": "未命名商品",
     "example": "示例：{{value}}"
   },
   "home": {
     "title": "购物车",
-    "createCart": "+ 创建新购物车",
+    "createCart": "创建新购物车",
     "emptyTitle": "暂无购物记录。",
     "emptyDescription": "购物时随时掌握花费。创建购物车，添加商品价格和数量，即可即时查看总金额。\n\n点击下方“创建新购物车”开始。购物记录会保存在本设备上。"
   },
@@ -26,7 +25,7 @@
     "shoppingTitle": "购物标题",
     "shoppingDate": "日期",
     "products": "商品",
-    "addProduct": "+ 添加商品",
+    "addProduct": "添加商品",
     "loading": "正在加载购物车...",
     "cannotSaveTitle": "无法保存",
     "cannotSaveMessage": "保存前请至少添加一件商品。",
@@ -55,7 +54,7 @@
     "extraTitlePlaceholder": "税费",
     "extraAmount": "金额",
     "extraHelper": "固定金额（税费、手续费或其他费用）",
-    "addExtra": "+ 额外费用"
+    "addExtra": "额外费用"
   },
   "quantity": {
     "tapToSelect": "点击选择",

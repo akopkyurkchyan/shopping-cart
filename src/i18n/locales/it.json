@@ -8,14 +8,13 @@
     "saving": "Salvataggio...",
     "remove": "Rimuovi",
     "total": "Totale",
-    "settings": "Impostazioni",
     "defaultCartTitle": "Spesa",
     "untitledProduct": "Prodotto senza nome",
     "example": "Esempio: {{value}}"
   },
   "home": {
     "title": "Carrello",
-    "createCart": "+ Crea nuovo carrello",
+    "createCart": "Crea nuovo carrello",
     "emptyTitle": "Nessuna cronologia acquisti.",
     "emptyDescription": "Tieni traccia delle spese mentre fai la spesa. Crea un carrello, aggiungi prodotti con prezzo e quantità e vedi il totale aggiornarsi subito.\n\nTocca “Crea nuovo carrello” qui sotto per iniziare. I carrelli vengono salvati su questo dispositivo."
   },
@@ -26,7 +25,7 @@
     "shoppingTitle": "Titolo",
     "shoppingDate": "Data",
     "products": "Prodotti",
-    "addProduct": "+ Aggiungi prodotto",
+    "addProduct": "Aggiungi prodotto",
     "loading": "Caricamento carrello...",
     "cannotSaveTitle": "Impossibile salvare",
     "cannotSaveMessage": "Aggiungi almeno un prodotto prima di salvare.",
@@ -55,7 +54,7 @@
     "extraTitlePlaceholder": "Tassa",
     "extraAmount": "Importo",
     "extraHelper": "Importo fisso (tassa, commissione o altro addebito)",
-    "addExtra": "+ Prezzo extra"
+    "addExtra": "Prezzo extra"
   },
   "quantity": {
     "tapToSelect": "Tocca per selezionare",

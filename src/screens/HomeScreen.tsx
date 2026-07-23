@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { Plus, Settings, ShoppingCart } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
 
 import { useAppDispatch, useAppSelector } from '../app/store';
@@ -10,6 +11,7 @@ import { ShoppingHistoryItem } from '../components/ShoppingHistoryItem';
 import { selectShoppingHistory } from '../features/shopping/shoppingSelectors';
 import { loadShoppingHistory } from '../features/shopping/shoppingSlice';
 import type { RootStackParamList } from '../navigation/types';
+import { colors } from '../theme/colors';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>;
 
@@ -28,11 +30,16 @@ export function HomeScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>{t('home.title')}</Text>
+        <View style={styles.titleRow}>
+          <ShoppingCart color={colors.primary} size={26} />
+          <Text style={styles.title}>{t('home.title')}</Text>
+        </View>
         <Pressable
+          accessibilityLabel={t('settings.title')}
+          accessibilityRole="button"
           onPress={() => navigation.navigate('Settings')}
           style={styles.settingsButton}>
-          <Text style={styles.settingsButtonLabel}>{t('common.settings')}</Text>
+          <Settings color={colors.textPrimary} size={20} />
         </Pressable>
       </View>
 
@@ -59,6 +66,7 @@ export function HomeScreen() {
       <Pressable
         onPress={() => navigation.navigate('ShoppingDetails', {})}
         style={styles.createButton}>
+        <Plus color={colors.white} size={20} />
         <Text style={styles.createButtonLabel}>{t('home.createCart')}</Text>
       </Pressable>
     </View>
@@ -67,21 +75,24 @@ export function HomeScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#f9fafb',
+    backgroundColor: colors.surface,
     flex: 1,
     paddingHorizontal: 16,
     paddingTop: 16,
   },
   createButton: {
     alignItems: 'center',
-    backgroundColor: '#111827',
+    backgroundColor: colors.primary,
     borderRadius: 16,
+    flexDirection: 'row',
+    gap: 8,
+    justifyContent: 'center',
     marginBottom: 24,
     marginTop: 8,
     paddingVertical: 16,
   },
   createButtonLabel: {
-    color: '#ffffff',
+    color: colors.white,
     fontSize: 16,
     fontWeight: '700',
   },
@@ -96,21 +107,23 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
   },
   settingsButton: {
-    backgroundColor: '#e5e7eb',
+    alignItems: 'center',
+    backgroundColor: colors.border,
     borderRadius: 999,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-  },
-  settingsButtonLabel: {
-    color: '#111827',
-    fontSize: 14,
-    fontWeight: '600',
+    height: 40,
+    justifyContent: 'center',
+    width: 40,
   },
   title: {
-    color: '#111827',
-    flex: 1,
+    color: colors.textPrimary,
     fontSize: 28,
     fontWeight: '700',
+  },
+  titleRow: {
+    alignItems: 'center',
+    flex: 1,
+    flexDirection: 'row',
+    gap: 10,
     marginRight: 12,
   },
 });

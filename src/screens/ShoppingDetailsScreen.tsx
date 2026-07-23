@@ -30,6 +30,7 @@ import {
   useWatch,
 } from 'react-hook-form';
 import uuid from 'react-native-uuid';
+import { Check, Plus, Trash2 } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
 
 import { useAppDispatch, useAppSelector } from '../app/store';
@@ -45,6 +46,7 @@ import {
 } from '../features/shopping/shoppingSlice';
 import { useFormatCurrency } from '../hooks/useFormatCurrency';
 import type { RootStackParamList } from '../navigation/types';
+import { colors } from '../theme/colors';
 import { calcCartTotal, calcRowTotal } from '../utils/currency';
 import { getTodayDateValue } from '../utils/date';
 import {
@@ -600,6 +602,7 @@ export function ShoppingDetailsScreen() {
         <View style={styles.sectionHeader}>
           <Text style={styles.sectionTitle}>{t('details.products')}</Text>
           <Pressable onPress={handleAddProduct} style={styles.addButton}>
+            <Plus color={colors.textPrimary} size={16} />
             <Text style={styles.addButtonLabel}>{t('details.addProduct')}</Text>
           </Pressable>
         </View>
@@ -625,6 +628,7 @@ export function ShoppingDetailsScreen() {
           <Pressable
             onPress={handleAddProduct}
             style={styles.addProductListButton}>
+            <Plus color={colors.textPrimary} size={18} />
             <Text style={styles.addProductListButtonLabel}>
               {t('details.addProduct')}
             </Text>
@@ -660,7 +664,8 @@ export function ShoppingDetailsScreen() {
                     })
                   : t('product.newTitle')}
               </Text>
-              <Pressable onPress={handleRemoveProduct}>
+              <Pressable onPress={handleRemoveProduct} style={styles.deleteButton}>
+                <Trash2 color={colors.error} size={16} />
                 <Text style={styles.deleteLabel}>{t('common.delete')}</Text>
               </Pressable>
             </View>
@@ -716,7 +721,9 @@ export function ShoppingDetailsScreen() {
                         {t('product.extraCardTitle', { number: extraIndex + 1 })}
                       </Text>
                       <Pressable
-                        onPress={() => handleRemoveExtraPrice(extraIndex)}>
+                        onPress={() => handleRemoveExtraPrice(extraIndex)}
+                        style={styles.removeExtraButton}>
+                        <Trash2 color={colors.error} size={14} />
                         <Text style={styles.removeExtraLabel}>{t('common.remove')}</Text>
                       </Pressable>
                     </View>
@@ -770,6 +777,7 @@ export function ShoppingDetailsScreen() {
                 <Pressable
                   onPress={handleAddExtraPrice}
                   style={styles.extraPriceButton}>
+                  <Plus color={colors.primary} size={16} />
                   <Text style={styles.extraPriceButtonLabel}>
                     {t('product.addExtra')}
                   </Text>
@@ -783,6 +791,7 @@ export function ShoppingDetailsScreen() {
                 </View>
 
                 <Pressable onPress={handleDoneProduct} style={styles.doneButton}>
+                  <Check color={colors.white} size={18} />
                   <Text style={styles.doneButtonLabel}>{t('common.done')}</Text>
                 </Pressable>
               </ScrollView>
@@ -796,64 +805,78 @@ export function ShoppingDetailsScreen() {
 
 const styles = StyleSheet.create({
   addButton: {
-    backgroundColor: '#e5e7eb',
+    alignItems: 'center',
+    backgroundColor: colors.border,
     borderRadius: 999,
+    flexDirection: 'row',
+    gap: 6,
     paddingHorizontal: 14,
     paddingVertical: 10,
   },
   addButtonLabel: {
-    color: '#111827',
+    color: colors.textPrimary,
     fontWeight: '700',
   },
   addProductListButton: {
     alignItems: 'center',
-    backgroundColor: '#e5e7eb',
+    backgroundColor: colors.border,
     borderRadius: 12,
+    flexDirection: 'row',
+    gap: 8,
+    justifyContent: 'center',
     marginTop: 4,
     paddingVertical: 12,
   },
   addProductListButtonLabel: {
-    color: '#111827',
+    color: colors.textPrimary,
     fontWeight: '700',
   },
   container: {
-    backgroundColor: '#f9fafb',
+    backgroundColor: colors.surface,
     flex: 1,
   },
   content: {
     padding: 16,
     paddingBottom: 32,
   },
+  deleteButton: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 4,
+  },
   deleteLabel: {
-    color: '#dc2626',
+    color: colors.error,
     fontWeight: '600',
   },
   doneButton: {
     alignItems: 'center',
-    backgroundColor: '#111827',
+    backgroundColor: colors.primary,
     borderRadius: 14,
+    flexDirection: 'row',
+    gap: 8,
+    justifyContent: 'center',
     marginTop: 24,
     paddingVertical: 14,
   },
   doneButtonLabel: {
-    color: '#ffffff',
+    color: colors.white,
     fontSize: 16,
     fontWeight: '700',
   },
   errorText: {
-    color: '#dc2626',
+    color: colors.error,
     marginTop: 4,
   },
   extraCard: {
-    backgroundColor: '#f9fafb',
-    borderColor: '#e5e7eb',
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
     borderRadius: 14,
     borderWidth: 1,
     marginTop: 16,
     padding: 12,
   },
   extraCardTitle: {
-    color: '#111827',
+    color: colors.textPrimary,
     fontSize: 15,
     fontWeight: '700',
     marginTop: 12,
@@ -861,11 +884,13 @@ const styles = StyleSheet.create({
   extraPriceButton: {
     alignItems: 'center',
     alignSelf: 'flex-start',
+    flexDirection: 'row',
+    gap: 6,
     marginTop: 16,
     paddingVertical: 8,
   },
   extraPriceButtonLabel: {
-    color: '#111827',
+    color: colors.primary,
     fontSize: 15,
     fontWeight: '600',
   },
@@ -875,12 +900,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   helperText: {
-    color: '#6b7280',
+    color: colors.textSecondary,
     marginTop: 4,
   },
   input: {
-    backgroundColor: '#ffffff',
-    borderColor: '#d1d5db',
+    backgroundColor: colors.card,
+    borderColor: colors.border,
     borderRadius: 12,
     borderWidth: 1,
     fontSize: 16,
@@ -889,29 +914,29 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
   },
   inputError: {
-    borderColor: '#dc2626',
+    borderColor: colors.error,
   },
   label: {
-    color: '#111827',
+    color: colors.textPrimary,
     fontSize: 14,
     fontWeight: '600',
     marginTop: 12,
   },
   loadingContainer: {
     alignItems: 'center',
-    backgroundColor: '#f9fafb',
+    backgroundColor: colors.surface,
     flex: 1,
     justifyContent: 'center',
   },
   loadingText: {
-    color: '#6b7280',
+    color: colors.textSecondary,
     fontSize: 16,
   },
   modalBackdrop: {
     flex: 1,
   },
   modalCard: {
-    backgroundColor: '#ffffff',
+    backgroundColor: colors.card,
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
     maxHeight: '82%',
@@ -928,19 +953,24 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   modalOverlay: {
-    backgroundColor: 'rgba(17, 24, 39, 0.35)',
+    backgroundColor: colors.overlay,
     flex: 1,
     justifyContent: 'flex-end',
   },
   modalTitle: {
-    color: '#111827',
+    color: colors.textPrimary,
     fontSize: 20,
     fontWeight: '700',
   },
-  removeExtraLabel: {
-    color: '#dc2626',
-    fontWeight: '600',
+  removeExtraButton: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 4,
     marginTop: 12,
+  },
+  removeExtraLabel: {
+    color: colors.error,
+    fontWeight: '600',
   },
   rowTotal: {
     alignItems: 'center',
@@ -949,12 +979,12 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   rowTotalLabel: {
-    color: '#6b7280',
+    color: colors.textSecondary,
     fontSize: 16,
     fontWeight: '600',
   },
   rowTotalValue: {
-    color: '#111827',
+    color: colors.textPrimary,
     fontSize: 18,
     fontWeight: '700',
   },
@@ -966,7 +996,7 @@ const styles = StyleSheet.create({
     marginTop: 24,
   },
   sectionTitle: {
-    color: '#111827',
+    color: colors.textPrimary,
     fontSize: 20,
     fontWeight: '700',
   },

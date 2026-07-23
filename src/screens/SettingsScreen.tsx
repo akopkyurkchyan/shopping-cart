@@ -26,6 +26,7 @@ import type {
   AppCurrencyCode,
   AppLanguagePreference,
 } from '../types/settings';
+import { colors } from '../theme/colors';
 import { formatCurrency } from '../utils/currency';
 
 export function SettingsScreen() {
@@ -142,12 +143,12 @@ export function SettingsScreen() {
 
 const styles = StyleSheet.create({
   check: {
-    color: '#111827',
+    color: colors.primary,
     fontSize: 18,
     fontWeight: '700',
   },
   container: {
-    backgroundColor: '#f9fafb',
+    backgroundColor: colors.surface,
     flex: 1,
   },
   content: {
@@ -156,8 +157,8 @@ const styles = StyleSheet.create({
   },
   option: {
     alignItems: 'center',
-    backgroundColor: '#ffffff',
-    borderColor: '#e5e7eb',
+    backgroundColor: colors.card,
+    borderColor: colors.border,
     borderRadius: 14,
     borderWidth: 1,
     flexDirection: 'row',
@@ -167,24 +168,24 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
   },
   optionLabel: {
-    color: '#111827',
+    color: colors.textPrimary,
     fontSize: 16,
     fontWeight: '600',
   },
   optionPreview: {
-    color: '#6b7280',
+    color: colors.textSecondary,
     fontSize: 13,
     marginTop: 4,
   },
   optionSelected: {
-    borderColor: '#111827',
+    borderColor: colors.primary,
   },
   optionText: {
     flex: 1,
     paddingRight: 12,
   },
   sectionDescription: {
-    color: '#6b7280',
+    color: colors.textSecondary,
     fontSize: 14,
     lineHeight: 20,
     marginBottom: 16,
@@ -193,7 +194,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   sectionTitle: {
-    color: '#111827',
+    color: colors.textPrimary,
     fontSize: 20,
     fontWeight: '700',
     marginBottom: 8,

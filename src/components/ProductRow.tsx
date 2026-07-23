@@ -1,11 +1,13 @@
 import React, { useCallback, useRef } from 'react';
 import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Trash2 } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
 import Swipeable, {
   type SwipeableMethods,
 } from 'react-native-gesture-handler/ReanimatedSwipeable';
 
 import { useFormatCurrency } from '../hooks/useFormatCurrency';
+import { colors } from '../theme/colors';
 import { calcExtrasTotal } from '../utils/currency';
 
 type ProductRowProps = {
@@ -57,6 +59,7 @@ export function ProductRow({
   const renderRightActions = useCallback(() => {
     return (
       <View style={styles.deleteAction}>
+        <Trash2 color={colors.white} size={20} />
         <Text style={styles.deleteActionLabel}>{t('common.delete')}</Text>
       </View>
     );
@@ -96,8 +99,8 @@ export function ProductRow({
 const styles = StyleSheet.create({
   card: {
     alignItems: 'center',
-    backgroundColor: '#ffffff',
-    borderBottomColor: '#f3f4f6',
+    backgroundColor: colors.card,
+    borderBottomColor: colors.border,
     borderBottomWidth: 1,
     flexDirection: 'row',
     gap: 12,
@@ -108,40 +111,41 @@ const styles = StyleSheet.create({
   },
   deleteAction: {
     alignItems: 'center',
-    backgroundColor: '#dc2626',
+    backgroundColor: colors.error,
+    gap: 4,
     justifyContent: 'center',
     width: 88,
   },
   deleteActionLabel: {
-    color: '#ffffff',
+    color: colors.white,
     fontSize: 14,
     fontWeight: '700',
   },
   quantityBadge: {
     alignItems: 'center',
-    backgroundColor: '#f9fafb',
+    backgroundColor: colors.surface,
     borderRadius: 20,
     height: 40,
     justifyContent: 'center',
     width: 40,
   },
   quantityValue: {
-    color: '#111827',
+    color: colors.textPrimary,
     fontSize: 16,
     fontWeight: '700',
   },
   subtitle: {
-    color: '#6b7280',
+    color: colors.textSecondary,
     fontSize: 13,
     marginTop: 4,
   },
   title: {
-    color: '#111827',
+    color: colors.textPrimary,
     fontSize: 18,
     fontWeight: '500',
   },
   total: {
-    color: '#111827',
+    color: colors.textPrimary,
     fontSize: 16,
     fontWeight: '700',
     minWidth: 72,

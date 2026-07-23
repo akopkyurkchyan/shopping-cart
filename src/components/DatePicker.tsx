@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
+import { colors } from '../theme/colors';
 import { formatDateValue, parseDateValue } from '../utils/date';
 
 type DatePickerProps = {
@@ -127,19 +128,19 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   doneLabel: {
-    color: '#111827',
+    color: colors.primary,
     fontWeight: '700',
   },
   iosPicker: {
     alignSelf: 'stretch',
   },
   overlay: {
-    backgroundColor: 'rgba(17, 24, 39, 0.35)',
+    backgroundColor: colors.overlay,
     flex: 1,
     justifyContent: 'flex-end',
   },
   sheet: {
-    backgroundColor: '#ffffff',
+    backgroundColor: colors.card,
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
     paddingBottom: 16,
@@ -153,14 +154,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   sheetTitle: {
-    color: '#111827',
+    color: colors.textPrimary,
     fontSize: 18,
     fontWeight: '700',
   },
   trigger: {
     alignItems: 'center',
-    backgroundColor: '#ffffff',
-    borderColor: '#d1d5db',
+    backgroundColor: colors.card,
+    borderColor: colors.border,
     borderRadius: 12,
     borderWidth: 1,
     flexDirection: 'row',
@@ -170,14 +171,14 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
   },
   triggerError: {
-    borderColor: '#dc2626',
+    borderColor: colors.error,
   },
   triggerHint: {
-    color: '#6b7280',
+    color: colors.textSecondary,
     fontSize: 13,
   },
   triggerValue: {
-    color: '#111827',
+    color: colors.textPrimary,
     fontSize: 16,
     fontWeight: '600',
   },

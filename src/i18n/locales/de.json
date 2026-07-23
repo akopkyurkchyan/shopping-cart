@@ -8,14 +8,13 @@
     "saving": "Wird gespeichert...",
     "remove": "Entfernen",
     "total": "Summe",
-    "settings": "Einstellungen",
     "defaultCartTitle": "Einkauf",
     "untitledProduct": "Unbenanntes Produkt",
     "example": "Beispiel: {{value}}"
   },
   "home": {
     "title": "Einkaufswagen",
-    "createCart": "+ Neuen Einkaufswagen erstellen",
+    "createCart": "Neuen Einkaufswagen erstellen",
     "emptyTitle": "Noch keine Einkaufshistorie.",
     "emptyDescription": "Behalten Sie Ihre Ausgaben beim Einkaufen im Blick. Erstellen Sie einen Wagen, fügen Sie Produkte mit Preis und Menge hinzu und sehen Sie die Summe sofort.\n\nTippen Sie unten auf „Neuen Einkaufswagen erstellen“, um zu starten. Ihre Wagen werden auf diesem Gerät gespeichert."
   },
@@ -26,7 +25,7 @@
     "shoppingTitle": "Titel",
     "shoppingDate": "Datum",
     "products": "Produkte",
-    "addProduct": "+ Produkt hinzufügen",
+    "addProduct": "Produkt hinzufügen",
     "loading": "Einkaufswagen wird geladen...",
     "cannotSaveTitle": "Speichern nicht möglich",
     "cannotSaveMessage": "Fügen Sie vor dem Speichern mindestens ein Produkt hinzu.",
@@ -55,7 +54,7 @@
     "extraTitlePlaceholder": "Steuer",
     "extraAmount": "Betrag",
     "extraHelper": "Fester Betrag (Steuer, Gebühr oder andere Kosten)",
-    "addExtra": "+ Extra-Preis"
+    "addExtra": "Extra-Preis"
   },
   "quantity": {
     "tapToSelect": "Tippen zum Auswählen",

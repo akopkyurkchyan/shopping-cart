@@ -8,14 +8,13 @@
     "saving": "Enregistrement...",
     "remove": "Retirer",
     "total": "Total",
-    "settings": "Paramètres",
     "defaultCartTitle": "Courses",
     "untitledProduct": "Produit sans nom",
     "example": "Exemple : {{value}}"
   },
   "home": {
     "title": "Panier",
-    "createCart": "+ Créer un nouveau panier",
+    "createCart": "Créer un nouveau panier",
     "emptyTitle": "Aucun historique d’achats pour le moment.",
     "emptyDescription": "Suivez vos dépenses pendant vos courses. Créez un panier, ajoutez des produits avec prix et quantité, et voyez le total se mettre à jour instantanément.\n\nAppuyez sur « Créer un nouveau panier » ci-dessous pour commencer. Vos paniers sont enregistrés sur cet appareil."
   },
@@ -26,7 +25,7 @@
     "shoppingTitle": "Titre",
     "shoppingDate": "Date",
     "products": "Produits",
-    "addProduct": "+ Ajouter un produit",
+    "addProduct": "Ajouter un produit",
     "loading": "Chargement du panier...",
     "cannotSaveTitle": "Impossible d’enregistrer",
     "cannotSaveMessage": "Ajoutez au moins un produit avant d’enregistrer.",
@@ -55,7 +54,7 @@
     "extraTitlePlaceholder": "Taxe",
     "extraAmount": "Montant",
     "extraHelper": "Montant fixe (taxe, frais ou autre charge)",
-    "addExtra": "+ Prix extra"
+    "addExtra": "Prix extra"
   },
   "quantity": {
     "tapToSelect": "Appuyer pour sélectionner",

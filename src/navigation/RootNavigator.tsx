@@ -11,6 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { HomeScreen } from '../screens/HomeScreen';
 import { SettingsScreen } from '../screens/SettingsScreen';
 import { ShoppingDetailsScreen } from '../screens/ShoppingDetailsScreen';
+import { colors } from '../theme/colors';
 import type { RootStackParamList } from './types';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -19,7 +20,12 @@ const navigationTheme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    background: '#f9fafb',
+    background: colors.surface,
+    border: colors.border,
+    card: colors.card,
+    notification: colors.error,
+    primary: colors.primary,
+    text: colors.textPrimary,
   },
 };
 
@@ -31,7 +37,7 @@ export function RootNavigator() {
       <Stack.Navigator
         initialRouteName="Home"
         screenOptions={{
-          contentStyle: { backgroundColor: '#f9fafb' },
+          contentStyle: { backgroundColor: colors.surface },
           headerShadowVisible: false,
         }}>
         <Stack.Screen

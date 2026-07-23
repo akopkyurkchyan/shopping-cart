@@ -8,14 +8,13 @@
     "saving": "Saving...",
     "remove": "Remove",
     "total": "Total",
-    "settings": "Settings",
     "defaultCartTitle": "Shopping",
     "untitledProduct": "Untitled product",
     "example": "Example: {{value}}"
   },
   "home": {
     "title": "Shopping Cart",
-    "createCart": "+ Create New Shopping Cart",
+    "createCart": "Create New Shopping Cart",
     "emptyTitle": "No shopping history yet.",
     "emptyDescription": "Track what you spend while shopping. Create a cart, add products with price and quantity, and see the total update instantly.\n\nTap “Create New Shopping Cart” below to get started. Your carts are saved on this device so you can review them anytime."
   },
@@ -26,7 +25,7 @@
     "shoppingTitle": "Shopping Title",
     "shoppingDate": "Shopping Date",
     "products": "Products",
-    "addProduct": "+ Add Product",
+    "addProduct": "Add Product",
     "loading": "Loading shopping cart...",
     "cannotSaveTitle": "Cannot save",
     "cannotSaveMessage": "Add at least one product before saving.",
@@ -55,7 +54,7 @@
     "extraTitlePlaceholder": "Tax",
     "extraAmount": "Amount",
     "extraHelper": "Fixed amount (tax, fee, or other charge)",
-    "addExtra": "+ Extra price"
+    "addExtra": "Extra price"
   },
   "quantity": {
     "tapToSelect": "Tap to select",
