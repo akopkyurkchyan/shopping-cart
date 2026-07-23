@@ -8,15 +8,51 @@
     "saving": "保存中...",
     "remove": "移除",
     "total": "合计",
+    "appName": "购物车",
     "defaultCartTitle": "购物",
     "untitledProduct": "未命名商品",
     "example": "示例：{{value}}"
   },
   "home": {
-    "title": "购物车",
     "createCart": "创建新购物车",
+    "welcomeTitle": "记录你的购物",
+    "welcomeDescription": "点按 + 按钮开始新的购物车。添加商品价格和数量，即可即时查看总金额。购物记录会保存在本设备上。",
+    "recentTitle": "最近"
+  },
+  "history": {
+    "title": "购物记录",
     "emptyTitle": "暂无购物记录。",
-    "emptyDescription": "购物时随时掌握花费。创建购物车，添加商品价格和数量，即可即时查看总金额。\n\n点击下方“创建新购物车”开始。购物记录会保存在本设备上。"
+    "emptyDescription": "已保存的购物车会显示在这里。从主页标签创建新购物车即可开始。"
+  },
+  "about": {
+    "title": "关于 {{appName}}",
+    "headline": "更聪明地购物，更聪明地消费",
+    "intro": [
+      "{{appName}} 是一款简单直观的应用，旨在帮助你在购物时跟踪花费。",
+      "创建购物车，添加商品价格和数量，即可在结账前即时查看预估总金额。无论是购买食品、日用品还是日常物品，{{appName}} 都能帮你控制预算。"
+    ],
+    "featuresTitle": "功能",
+    "features": [
+      "🛒 创建无限购物车",
+      "📦 按价格和数量添加商品",
+      "💰 自动计算总金额",
+      "📅 保存购物记录",
+      "📱 完全离线可用",
+      "🔒 数据仅保存在你的设备上"
+    ],
+    "privacyTitle": "隐私",
+    "privacyBody": "我们重视你的隐私。{{appName}} 不会收集、存储或分享任何个人信息。所有购物数据都保存在本设备本地，绝不会上传到外部服务器。",
+    "thanksTitle": "感谢",
+    "thanksBody": [
+      "感谢你选择 {{appName}}！希望它能让每一次购物更轻松、更快、更有条理。",
+      "如果你有改进建议或想法，我们很乐意听取你的反馈。你的意见能帮助我们把 {{appName}} 做得更好。"
+    ]
+  },
+  "tabs": {
+    "home": "主页",
+    "history": "记录",
+    "about": "关于",
+    "settings": "设置"
   },
   "details": {
     "createTitle": "创建购物车",

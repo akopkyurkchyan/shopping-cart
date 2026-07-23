@@ -8,15 +8,51 @@
     "saving": "Saving...",
     "remove": "Remove",
     "total": "Total",
+    "appName": "Shopping Cart",
     "defaultCartTitle": "Shopping",
     "untitledProduct": "Untitled product",
     "example": "Example: {{value}}"
   },
   "home": {
-    "title": "Shopping Cart",
     "createCart": "Create New Shopping Cart",
+    "welcomeTitle": "Track your shopping",
+    "welcomeDescription": "Tap the + button to start a new cart. Add products with price and quantity, and see the total update instantly. Your carts are saved on this device.",
+    "recentTitle": "Recent"
+  },
+  "history": {
+    "title": "Shopping History",
     "emptyTitle": "No shopping history yet.",
-    "emptyDescription": "Track what you spend while shopping. Create a cart, add products with price and quantity, and see the total update instantly.\n\nTap “Create New Shopping Cart” below to get started. Your carts are saved on this device so you can review them anytime."
+    "emptyDescription": "Saved carts will appear here. Create a new cart from the Home tab to get started."
+  },
+  "about": {
+    "title": "About {{appName}}",
+    "headline": "Shop Smarter, Spend Smarter",
+    "intro": [
+      "{{appName}} is a simple and intuitive app designed to help you keep track of your spending while shopping.",
+      "Create a shopping cart, add products with their prices and quantities, and instantly see your estimated total before reaching the checkout. Whether you're buying groceries, household essentials, or everyday items, {{appName}} helps you stay within your budget."
+    ],
+    "featuresTitle": "Features",
+    "features": [
+      "🛒 Create unlimited shopping carts",
+      "📦 Add products with price and quantity",
+      "💰 Automatic total calculation",
+      "📅 Save shopping history",
+      "📱 Works completely offline",
+      "🔒 Your data stays on your device"
+    ],
+    "privacyTitle": "Privacy",
+    "privacyBody": "Your privacy matters. {{appName}} does not collect, store, or share any personal information. All shopping data is stored locally on your device and is never uploaded to external servers.",
+    "thanksTitle": "Thank You",
+    "thanksBody": [
+      "Thank you for choosing {{appName}}! We hope it makes every shopping trip easier, faster, and more organized.",
+      "If you have suggestions or ideas for improving the app, we'd love to hear your feedback. Your input helps us make {{appName}} even better."
+    ]
+  },
+  "tabs": {
+    "home": "Home",
+    "history": "History",
+    "about": "About",
+    "settings": "Settings"
   },
   "details": {
     "createTitle": "Create Shopping Cart",

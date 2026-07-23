@@ -8,15 +8,51 @@
     "saving": "Salvataggio...",
     "remove": "Rimuovi",
     "total": "Totale",
+    "appName": "Carrello",
     "defaultCartTitle": "Spesa",
     "untitledProduct": "Prodotto senza nome",
     "example": "Esempio: {{value}}"
   },
   "home": {
-    "title": "Carrello",
     "createCart": "Crea nuovo carrello",
+    "welcomeTitle": "Tieni traccia della spesa",
+    "welcomeDescription": "Tocca il pulsante + per avviare un nuovo carrello. Aggiungi prodotti con prezzo e quantità e vedi il totale aggiornarsi subito. I carrelli vengono salvati su questo dispositivo.",
+    "recentTitle": "Recenti"
+  },
+  "history": {
+    "title": "Cronologia acquisti",
     "emptyTitle": "Nessuna cronologia acquisti.",
-    "emptyDescription": "Tieni traccia delle spese mentre fai la spesa. Crea un carrello, aggiungi prodotti con prezzo e quantità e vedi il totale aggiornarsi subito.\n\nTocca “Crea nuovo carrello” qui sotto per iniziare. I carrelli vengono salvati su questo dispositivo."
+    "emptyDescription": "I carrelli salvati appariranno qui. Crea un nuovo carrello dalla scheda Home per iniziare."
+  },
+  "about": {
+    "title": "Informazioni su {{appName}}",
+    "headline": "Acquista in modo più intelligente, spendi meglio",
+    "intro": [
+      "{{appName}} è un’app semplice e intuitiva pensata per aiutarti a tenere traccia delle spese mentre fai la spesa.",
+      "Crea un carrello, aggiungi prodotti con prezzi e quantità e vedi subito il totale stimato prima di arrivare alla cassa. Che tu stia comprando alimentari, articoli per la casa o oggetti di tutti i giorni, {{appName}} ti aiuta a restare nel budget."
+    ],
+    "featuresTitle": "Funzionalità",
+    "features": [
+      "🛒 Crea carrelli illimitati",
+      "📦 Aggiungi prodotti con prezzo e quantità",
+      "💰 Calcolo automatico del totale",
+      "📅 Salva la cronologia degli acquisti",
+      "📱 Funziona completamente offline",
+      "🔒 I tuoi dati restano sul dispositivo"
+    ],
+    "privacyTitle": "Privacy",
+    "privacyBody": "La tua privacy è importante. {{appName}} non raccoglie, non memorizza e non condivide alcuna informazione personale. Tutti i dati della spesa sono salvati localmente sul tuo dispositivo e non vengono mai caricati su server esterni.",
+    "thanksTitle": "Grazie",
+    "thanksBody": [
+      "Grazie per aver scelto {{appName}}! Speriamo renda ogni spesa più facile, veloce e organizzata.",
+      "Se hai suggerimenti o idee per migliorare l’app, ci farebbe piacere ricevere il tuo feedback. Il tuo contributo ci aiuta a rendere {{appName}} ancora migliore."
+    ]
+  },
+  "tabs": {
+    "home": "Home",
+    "history": "Cronologia",
+    "about": "Info",
+    "settings": "Impostazioni"
   },
   "details": {
     "createTitle": "Crea carrello",

@@ -8,10 +8,9 @@ import {
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { HomeScreen } from '../screens/HomeScreen';
-import { SettingsScreen } from '../screens/SettingsScreen';
 import { ShoppingDetailsScreen } from '../screens/ShoppingDetailsScreen';
 import { colors } from '../theme/colors';
+import { MainTabNavigator } from './MainTabNavigator';
 import type { RootStackParamList } from './types';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -35,25 +34,20 @@ export function RootNavigator() {
   return (
     <NavigationContainer theme={navigationTheme}>
       <Stack.Navigator
-        initialRouteName="Home"
+        initialRouteName="MainTabs"
         screenOptions={{
           contentStyle: { backgroundColor: colors.surface },
           headerShadowVisible: false,
         }}>
         <Stack.Screen
-          component={HomeScreen}
-          name="Home"
+          component={MainTabNavigator}
+          name="MainTabs"
           options={{ headerShown: false }}
         />
         <Stack.Screen
           component={ShoppingDetailsScreen}
           name="ShoppingDetails"
           options={{ title: t('details.screenTitle') }}
-        />
-        <Stack.Screen
-          component={SettingsScreen}
-          name="Settings"
-          options={{ title: t('settings.title') }}
         />
       </Stack.Navigator>
     </NavigationContainer>

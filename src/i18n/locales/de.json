@@ -8,15 +8,51 @@
     "saving": "Wird gespeichert...",
     "remove": "Entfernen",
     "total": "Summe",
+    "appName": "Einkaufswagen",
     "defaultCartTitle": "Einkauf",
     "untitledProduct": "Unbenanntes Produkt",
     "example": "Beispiel: {{value}}"
   },
   "home": {
-    "title": "Einkaufswagen",
     "createCart": "Neuen Einkaufswagen erstellen",
+    "welcomeTitle": "Einkäufe im Blick",
+    "welcomeDescription": "Tippen Sie auf die +-Taste, um einen neuen Wagen zu starten. Fügen Sie Produkte mit Preis und Menge hinzu und sehen Sie die Summe sofort. Ihre Wagen werden auf diesem Gerät gespeichert.",
+    "recentTitle": "Zuletzt"
+  },
+  "history": {
+    "title": "Einkaufshistorie",
     "emptyTitle": "Noch keine Einkaufshistorie.",
-    "emptyDescription": "Behalten Sie Ihre Ausgaben beim Einkaufen im Blick. Erstellen Sie einen Wagen, fügen Sie Produkte mit Preis und Menge hinzu und sehen Sie die Summe sofort.\n\nTippen Sie unten auf „Neuen Einkaufswagen erstellen“, um zu starten. Ihre Wagen werden auf diesem Gerät gespeichert."
+    "emptyDescription": "Gespeicherte Wagen erscheinen hier. Erstellen Sie einen neuen Wagen über den Start-Tab, um zu beginnen."
+  },
+  "about": {
+    "title": "Über {{appName}}",
+    "headline": "Smarter einkaufen, smarter ausgeben",
+    "intro": [
+      "{{appName}} ist eine einfache und intuitive App, die Ihnen hilft, Ihre Ausgaben beim Einkaufen im Blick zu behalten.",
+      "Erstellen Sie einen Einkaufswagen, fügen Sie Produkte mit Preisen und Mengen hinzu und sehen Sie sofort Ihre geschätzte Summe – noch vor der Kasse. Ob Lebensmittel, Haushaltsbedarf oder Alltagsartikel: {{appName}} hilft Ihnen, im Budget zu bleiben."
+    ],
+    "featuresTitle": "Funktionen",
+    "features": [
+      "🛒 Unbegrenzt Einkaufswagen erstellen",
+      "📦 Produkte mit Preis und Menge hinzufügen",
+      "💰 Automatische Gesamtsumme",
+      "📅 Einkaufshistorie speichern",
+      "📱 Funktioniert vollständig offline",
+      "🔒 Ihre Daten bleiben auf dem Gerät"
+    ],
+    "privacyTitle": "Datenschutz",
+    "privacyBody": "Ihre Privatsphäre ist uns wichtig. {{appName}} erfasst, speichert oder teilt keine personenbezogenen Daten. Alle Einkaufsdaten werden lokal auf Ihrem Gerät gespeichert und niemals auf externe Server hochgeladen.",
+    "thanksTitle": "Danke",
+    "thanksBody": [
+      "Danke, dass Sie {{appName}} gewählt haben! Wir hoffen, dass die App jeden Einkauf leichter, schneller und übersichtlicher macht.",
+      "Wenn Sie Vorschläge oder Ideen zur Verbesserung der App haben, freuen wir uns über Ihr Feedback. Ihre Rückmeldungen helfen uns, {{appName}} noch besser zu machen."
+    ]
+  },
+  "tabs": {
+    "home": "Start",
+    "history": "Historie",
+    "about": "Info",
+    "settings": "Einstellungen"
   },
   "details": {
     "createTitle": "Einkaufswagen erstellen",

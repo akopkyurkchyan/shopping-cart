@@ -8,15 +8,51 @@
     "saving": "Enregistrement...",
     "remove": "Retirer",
     "total": "Total",
+    "appName": "Panier",
     "defaultCartTitle": "Courses",
     "untitledProduct": "Produit sans nom",
     "example": "Exemple : {{value}}"
   },
   "home": {
-    "title": "Panier",
     "createCart": "Créer un nouveau panier",
+    "welcomeTitle": "Suivez vos courses",
+    "welcomeDescription": "Appuyez sur le bouton + pour démarrer un nouveau panier. Ajoutez des produits avec prix et quantité, et voyez le total se mettre à jour instantanément. Vos paniers sont enregistrés sur cet appareil.",
+    "recentTitle": "Récents"
+  },
+  "history": {
+    "title": "Historique d’achats",
     "emptyTitle": "Aucun historique d’achats pour le moment.",
-    "emptyDescription": "Suivez vos dépenses pendant vos courses. Créez un panier, ajoutez des produits avec prix et quantité, et voyez le total se mettre à jour instantanément.\n\nAppuyez sur « Créer un nouveau panier » ci-dessous pour commencer. Vos paniers sont enregistrés sur cet appareil."
+    "emptyDescription": "Les paniers enregistrés apparaîtront ici. Créez un nouveau panier depuis l’onglet Accueil pour commencer."
+  },
+  "about": {
+    "title": "À propos de {{appName}}",
+    "headline": "Achetez plus malin, dépensez plus malin",
+    "intro": [
+      "{{appName}} est une application simple et intuitive conçue pour vous aider à suivre vos dépenses pendant vos courses.",
+      "Créez un panier, ajoutez des produits avec leurs prix et quantités, et voyez instantanément le total estimé avant d’arriver en caisse. Que vous achetiez des courses, des essentiels du quotidien ou des articles du quotidien, {{appName}} vous aide à rester dans votre budget."
+    ],
+    "featuresTitle": "Fonctionnalités",
+    "features": [
+      "🛒 Créez des paniers illimités",
+      "📦 Ajoutez des produits avec prix et quantité",
+      "💰 Calcul automatique du total",
+      "📅 Enregistrez l’historique d’achats",
+      "📱 Fonctionne entièrement hors ligne",
+      "🔒 Vos données restent sur votre appareil"
+    ],
+    "privacyTitle": "Confidentialité",
+    "privacyBody": "Votre vie privée compte. {{appName}} ne collecte, ne stocke ni ne partage aucune information personnelle. Toutes les données d’achat sont stockées localement sur votre appareil et ne sont jamais envoyées vers des serveurs externes.",
+    "thanksTitle": "Merci",
+    "thanksBody": [
+      "Merci d’avoir choisi {{appName}} ! Nous espérons qu’il rend chaque course plus facile, plus rapide et mieux organisée.",
+      "Si vous avez des suggestions ou des idées pour améliorer l’application, nous serions ravis de lire vos retours. Votre avis nous aide à rendre {{appName}} encore meilleur."
+    ]
+  },
+  "tabs": {
+    "home": "Accueil",
+    "history": "Historique",
+    "about": "À propos",
+    "settings": "Paramètres"
   },
   "details": {
     "createTitle": "Créer un panier",

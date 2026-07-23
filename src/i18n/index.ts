@@ -2,15 +2,27 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import * as RNLocalize from 'react-native-localize';
 
-import de from './locales/de.json';
-import en from './locales/en.json';
-import fr from './locales/fr.json';
-import hi from './locales/hi.json';
-import hy from './locales/hy.json';
-import it from './locales/it.json';
-import ru from './locales/ru.json';
-import zh from './locales/zh.json';
 import type { AppLanguageCode, AppLanguagePreference } from '../types/settings';
+
+// Use require() for locale JSON. Metro's ESM JSON imports can wrap the file as
+// `{ default: { ... } }`, which nests every key under `default.*` and makes
+// `t('about.title')` return the raw key instead of the translated string.
+const unwrapLocale = <T,>(mod: T | { default: T }): T => {
+  if (mod && typeof mod === 'object' && 'default' in (mod as object)) {
+    return (mod as { default: T }).default;
+  }
+
+  return mod as T;
+};
+
+const de = unwrapLocale(require('./locales/de.json'));
+const en = unwrapLocale(require('./locales/en.json'));
+const fr = unwrapLocale(require('./locales/fr.json'));
+const hi = unwrapLocale(require('./locales/hi.json'));
+const hy = unwrapLocale(require('./locales/hy.json'));
+const it = unwrapLocale(require('./locales/it.json'));
+const ru = unwrapLocale(require('./locales/ru.json'));
+const zh = unwrapLocale(require('./locales/zh.json'));
 
 export const SUPPORTED_LANGUAGES: AppLanguageCode[] = [
   'en',
@@ -26,14 +38,14 @@ export const SUPPORTED_LANGUAGES: AppLanguageCode[] = [
 export const FALLBACK_LANGUAGE: AppLanguageCode = 'en';
 
 const resources = {
+  de: { translation: de },
   en: { translation: en },
+  fr: { translation: fr },
+  hi: { translation: hi },
   hy: { translation: hy },
+  it: { translation: it },
   ru: { translation: ru },
   zh: { translation: zh },
-  hi: { translation: hi },
-  fr: { translation: fr },
-  de: { translation: de },
-  it: { translation: it },
 };
 
 const isSupportedLanguage = (code: string): code is AppLanguageCode =>
@@ -79,12 +91,15 @@ export const applyLanguage = async (
 if (!i18n.isInitialized) {
   i18n.use(initReactI18next).init({
     compatibilityJSON: 'v4',
-    resources,
-    lng: FALLBACK_LANGUAGE,
     fallbackLng: FALLBACK_LANGUAGE,
     interpolation: {
       escapeValue: false,
     },
+    lng: FALLBACK_LANGUAGE,
+    react: {
+      useSuspense: false,
+    },
+    resources,
   });
 }
 

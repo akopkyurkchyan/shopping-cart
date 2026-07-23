@@ -7,6 +7,8 @@ import {
   Text,
   View,
 } from 'react-native';
+import { Settings } from 'lucide-react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 
 import { useAppDispatch, useAppSelector } from '../app/store';
@@ -31,6 +33,7 @@ import { formatCurrency } from '../utils/currency';
 
 export function SettingsScreen() {
   const { t } = useTranslation();
+  const insets = useSafeAreaInsets();
   const dispatch = useAppDispatch();
   const currency = useAppSelector(selectCurrency);
   const language = useAppSelector(selectLanguage);
@@ -64,7 +67,14 @@ export function SettingsScreen() {
   );
 
   return (
-    <ScrollView contentContainerStyle={styles.content} style={styles.container}>
+    <ScrollView
+      contentContainerStyle={styles.content}
+      style={[styles.container, { paddingTop: insets.top + 16 }]}>
+      <View style={styles.header}>
+        <Settings color={colors.primary} size={26} />
+        <Text style={styles.title}>{t('settings.title')}</Text>
+      </View>
+
       <Text style={styles.sectionTitle}>{t('settings.language')}</Text>
       <Text style={styles.sectionDescription}>
         {t('settings.languageDescription')}
@@ -152,8 +162,14 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   content: {
-    padding: 16,
     paddingBottom: 32,
+    paddingHorizontal: 16,
+  },
+  header: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 10,
+    marginBottom: 24,
   },
   option: {
     alignItems: 'center',
@@ -198,5 +214,11 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '700',
     marginBottom: 8,
+  },
+  title: {
+    color: colors.textPrimary,
+    flex: 1,
+    fontSize: 28,
+    fontWeight: '700',
   },
 });
