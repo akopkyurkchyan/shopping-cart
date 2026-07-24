@@ -7,10 +7,10 @@
  */
 export const colors = {
   // Brand
-  primary: '#22C55E',
-  primaryDark: '#16A34A',
-  primaryLight: '#DCFCE7',
-  secondary: '#3B82F6',
+  primary: '#5ba566',
+  primaryDark: '#436d46',
+  primaryLight: '#adddb4',
+  secondary: '#5cc7d2',
 
   // Surfaces
   background: '#FFFFFF',
@@ -23,9 +23,9 @@ export const colors = {
   textSecondary: '#6B7280',
 
   // Feedback
-  success: '#16A34A',
-  error: '#EF4444',
-  warning: '#F59E0B',
+  success: '#5ba566',
+  error: '#f05e41',
+  warning: '#e9cd4a',
 
   // Utility
   white: '#FFFFFF',

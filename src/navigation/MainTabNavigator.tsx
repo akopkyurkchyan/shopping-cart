@@ -1,4 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import type { BottomTabBarButtonProps } from '@react-navigation/bottom-tabs';
 import {
   History,
   Home,
@@ -6,6 +7,7 @@ import {
   Settings,
 } from 'lucide-react-native';
 import React from 'react';
+import { Pressable, StyleSheet } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AboutScreen } from '../screens/AboutScreen';
@@ -39,6 +41,26 @@ function SettingsTabIcon({ color }: TabIconProps) {
   return <Settings color={color} size={TAB_ICON_SIZE} />;
 }
 
+/**
+ * Plain Pressable without Android ripple / opacity flash.
+ * PlatformPressable always injects a ripple on Android, even with a
+ * transparent pressColor, which shows up as the gray rounded highlight.
+ */
+function TabBarButton(props: BottomTabBarButtonProps) {
+  return (
+    <Pressable
+      accessibilityLabel={props['aria-label']}
+      accessibilityRole="button"
+      accessibilityState={{ selected: props['aria-selected'] === true }}
+      onLongPress={props.onLongPress}
+      onPress={props.onPress}
+      style={[props.style, styles.tabButton]}
+      testID={props.testID}>
+      {props.children}
+    </Pressable>
+  );
+}
+
 export function MainTabNavigator() {
   const { t } = useTranslation();
 
@@ -46,15 +68,19 @@ export function MainTabNavigator() {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
+        tabBarActiveBackgroundColor: 'transparent',
         tabBarActiveTintColor: colors.primary,
+        tabBarButton: TabBarButton,
+        tabBarInactiveBackgroundColor: 'transparent',
         tabBarInactiveTintColor: colors.textSecondary,
-        tabBarStyle: {
-          backgroundColor: colors.card,
-          borderTopColor: colors.border,
-        },
+        tabBarItemStyle: styles.tabItem,
         tabBarLabelStyle: {
           fontSize: 12,
           fontWeight: '600',
+        },
+        tabBarStyle: {
+          backgroundColor: colors.card,
+          borderTopColor: colors.border,
         },
       }}>
       <Tab.Screen
@@ -92,3 +118,12 @@ export function MainTabNavigator() {
     </Tab.Navigator>
   );
 }
+
+const styles = StyleSheet.create({
+  tabButton: {
+    backgroundColor: 'transparent',
+  },
+  tabItem: {
+    backgroundColor: 'transparent',
+  },
+});
