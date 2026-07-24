@@ -1,5 +1,6 @@
 import {
   formatDateValue,
+  getLastDaysDateRange,
   getTodayDateValue,
   parseDateValue,
 } from '../src/utils/date';
@@ -25,6 +26,18 @@ describe('date utils', () => {
 
   it('returns today as YYYY-MM-DD', () => {
     expect(getTodayDateValue()).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+  });
+
+  it('builds an inclusive last-N-days range ending today', () => {
+    jest.useFakeTimers();
+    jest.setSystemTime(new Date(2026, 6, 23, 15, 0, 0));
+
+    expect(getLastDaysDateRange(7)).toEqual({
+      fromDate: '2026-07-17',
+      toDate: '2026-07-23',
+    });
+
+    jest.useRealTimers();
   });
 
   it('parses stored dates to the same calendar day regardless of host timezone', () => {

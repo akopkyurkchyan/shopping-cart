@@ -19,12 +19,18 @@ import { formatDateValue, parseDateValue } from '../utils/date';
 type DatePickerProps = {
   value: string;
   hasError?: boolean;
+  label?: string;
+  minimumDate?: string;
+  maximumDate?: string;
   onChange: (value: string) => void;
 };
 
 export function DatePicker({
   value,
   hasError = false,
+  label,
+  minimumDate,
+  maximumDate,
   onChange,
 }: DatePickerProps) {
   const { t, i18n } = useTranslation();
@@ -37,6 +43,14 @@ export function DatePicker({
   // Native pickers require a concrete Date to anchor on; fall back to today
   // only for that purpose, without ever reporting it back as the field value.
   const anchorDate = useMemo(() => parsedDate ?? new Date(), [parsedDate]);
+  const parsedMinimumDate = useMemo(
+    () => (minimumDate ? parseDateValue(minimumDate) : null),
+    [minimumDate],
+  );
+  const parsedMaximumDate = useMemo(
+    () => (maximumDate ? parseDateValue(maximumDate) : null),
+    [maximumDate],
+  );
 
   const displayValue = useMemo(() => {
     if (!parsedDate) {
@@ -72,6 +86,8 @@ export function DatePicker({
       // parent re-render (see react-native-datetimepicker#907, #1047).
       DateTimePickerAndroid.open({
         display: 'default',
+        maximumDate: parsedMaximumDate ?? undefined,
+        minimumDate: parsedMinimumDate ?? undefined,
         mode: 'date',
         onValueChange: handleValueChange,
         value: anchorDate,
@@ -80,17 +96,27 @@ export function DatePicker({
     }
 
     setIsOpen(true);
-  }, [anchorDate, handleValueChange]);
+  }, [
+    anchorDate,
+    handleValueChange,
+    parsedMaximumDate,
+    parsedMinimumDate,
+  ]);
 
   return (
     <>
       <Pressable
         onPress={openPicker}
         style={[styles.trigger, hasError && styles.triggerError]}>
-        <Text style={styles.triggerValue}>
-          {displayValue ?? t('date.placeholder')}
-        </Text>
-        <Text style={styles.triggerHint}>{t('date.tapToSelect')}</Text>
+        <View style={styles.triggerText}>
+          {label ? <Text style={styles.triggerLabel}>{label}</Text> : null}
+          <Text style={styles.triggerValue}>
+            {displayValue ?? t('date.placeholder')}
+          </Text>
+        </View>
+        {!label ? (
+          <Text style={styles.triggerHint}>{t('date.tapToSelect')}</Text>
+        ) : null}
       </Pressable>
 
       {Platform.OS === 'ios' ? (
@@ -103,13 +129,17 @@ export function DatePicker({
             <Pressable onPress={closePicker} style={styles.backdrop} />
             <View style={styles.sheet}>
               <View style={styles.sheetHeader}>
-                <Text style={styles.sheetTitle}>{t('date.selectTitle')}</Text>
+                <Text style={styles.sheetTitle}>
+                  {label ?? t('date.selectTitle')}
+                </Text>
                 <Pressable onPress={closePicker}>
                   <Text style={styles.doneLabel}>{t('common.done')}</Text>
                 </Pressable>
               </View>
               <DateTimePicker
                 display="spinner"
+                maximumDate={parsedMaximumDate ?? undefined}
+                minimumDate={parsedMinimumDate ?? undefined}
                 mode="date"
                 onValueChange={handleValueChange}
                 style={styles.iosPicker}
@@ -176,6 +206,15 @@ const styles = StyleSheet.create({
   triggerHint: {
     color: colors.textSecondary,
     fontSize: 13,
+  },
+  triggerLabel: {
+    color: colors.textSecondary,
+    fontSize: 12,
+    fontWeight: '600',
+    marginBottom: 2,
+  },
+  triggerText: {
+    flex: 1,
   },
   triggerValue: {
     color: colors.textPrimary,

@@ -21,8 +21,14 @@
   },
   "history": {
     "title": "Shopping History",
+    "from": "From",
+    "to": "To",
+    "clearRange": "Clear dates",
+    "loadMore": "Load more",
     "emptyTitle": "No shopping history yet.",
-    "emptyDescription": "Saved carts will appear here. Create a new cart from the Home tab to get started."
+    "emptyDescription": "Saved carts will appear here. Create a new cart from the Home tab to get started.",
+    "emptyFilteredTitle": "No shoppings in this range.",
+    "emptyFilteredDescription": "Try a different date range, or clear the dates to see all history."
   },
   "about": {
     "title": "About {{appName}}",

@@ -75,3 +75,44 @@ export const groupCartsByMonth = (
       title: formatMonthLabel(key, locale),
     }));
 };
+
+export const HISTORY_PAGE_SIZE = 10;
+
+/**
+ * Filters carts to an inclusive YYYY-MM-DD range. Empty bounds are ignored.
+ * Expects carts sorted newest-first and preserves that order.
+ */
+export const filterCartsByDateRange = (
+  carts: ShoppingCartSummary[],
+  fromDate: string,
+  toDate: string,
+): ShoppingCartSummary[] => {
+  const hasFrom = Boolean(fromDate);
+  const hasTo = Boolean(toDate);
+
+  if (!hasFrom && !hasTo) {
+    return carts;
+  }
+
+  return carts.filter(
+    cart =>
+      (!hasFrom || cart.date >= fromDate) && (!hasTo || cart.date <= toDate),
+  );
+};
+
+export const paginateCarts = (
+  carts: ShoppingCartSummary[],
+  limit: number,
+): ShoppingCartSummary[] => carts.slice(0, Math.max(0, limit));
+
+/** Ensures from <= to when both bounds are set. */
+export const normalizeDateRange = (
+  fromDate: string,
+  toDate: string,
+): { fromDate: string; toDate: string } => {
+  if (fromDate && toDate && fromDate > toDate) {
+    return { fromDate: toDate, toDate: fromDate };
+  }
+
+  return { fromDate, toDate };
+};

@@ -21,8 +21,14 @@
   },
   "history": {
     "title": "Einkaufshistorie",
+    "from": "Von",
+    "to": "Bis",
+    "clearRange": "Daten löschen",
+    "loadMore": "Mehr laden",
     "emptyTitle": "Noch keine Einkaufshistorie.",
-    "emptyDescription": "Gespeicherte Wagen erscheinen hier. Erstellen Sie einen neuen Wagen über den Start-Tab, um zu beginnen."
+    "emptyDescription": "Gespeicherte Wagen erscheinen hier. Erstellen Sie einen neuen Wagen über den Start-Tab, um zu beginnen.",
+    "emptyFilteredTitle": "Keine Einkäufe in diesem Zeitraum.",
+    "emptyFilteredDescription": "Versuchen Sie einen anderen Zeitraum, oder löschen Sie die Daten, um die gesamte Historie zu sehen."
   },
   "about": {
     "title": "Über {{appName}}",

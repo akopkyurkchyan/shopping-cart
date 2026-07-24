@@ -21,8 +21,14 @@
   },
   "history": {
     "title": "购物记录",
+    "from": "开始",
+    "to": "结束",
+    "clearRange": "清除日期",
+    "loadMore": "加载更多",
     "emptyTitle": "暂无购物记录。",
-    "emptyDescription": "已保存的购物车会显示在这里。从主页标签创建新购物车即可开始。"
+    "emptyDescription": "已保存的购物车会显示在这里。从主页标签创建新购物车即可开始。",
+    "emptyFilteredTitle": "该日期范围内没有购物记录。",
+    "emptyFilteredDescription": "请尝试其他日期范围，或清除日期以查看全部记录。"
   },
   "about": {
     "title": "关于 {{appName}}",

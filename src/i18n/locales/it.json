@@ -21,8 +21,14 @@
   },
   "history": {
     "title": "Cronologia acquisti",
+    "from": "Da",
+    "to": "A",
+    "clearRange": "Cancella date",
+    "loadMore": "Carica altri",
     "emptyTitle": "Nessuna cronologia acquisti.",
-    "emptyDescription": "I carrelli salvati appariranno qui. Crea un nuovo carrello dalla scheda Home per iniziare."
+    "emptyDescription": "I carrelli salvati appariranno qui. Crea un nuovo carrello dalla scheda Home per iniziare.",
+    "emptyFilteredTitle": "Nessun acquisto in questo intervallo.",
+    "emptyFilteredDescription": "Prova un altro intervallo di date, oppure cancella le date per vedere tutta la cronologia."
   },
   "about": {
     "title": "Informazioni su {{appName}}",

@@ -8,7 +8,13 @@ import type { AppLanguageCode, AppLanguagePreference } from '../types/settings';
 // `{ default: { ... } }`, which nests every key under `default.*` and makes
 // `t('about.title')` return the raw key instead of the translated string.
 const unwrapLocale = <T,>(mod: T | { default: T }): T => {
-  if (mod && typeof mod === 'object' && 'default' in (mod as object)) {
+  if (
+    mod &&
+    typeof mod === 'object' &&
+    'default' in (mod as object) &&
+    (mod as { default: unknown }).default &&
+    typeof (mod as { default: unknown }).default === 'object'
+  ) {
     return (mod as { default: T }).default;
   }
 
@@ -88,6 +94,20 @@ export const applyLanguage = async (
   return language;
 };
 
+const registerResources = () => {
+  for (const [language, bundle] of Object.entries(resources)) {
+    // deep: true + overwrite: true so Fast Refresh / Metro reloads pick up
+    // newly added translation keys instead of leaving raw keys on screen.
+    i18n.addResourceBundle(
+      language,
+      'translation',
+      bundle.translation,
+      true,
+      true,
+    );
+  }
+};
+
 if (!i18n.isInitialized) {
   i18n.use(initReactI18next).init({
     compatibilityJSON: 'v4',
@@ -101,6 +121,8 @@ if (!i18n.isInitialized) {
     },
     resources,
   });
+} else {
+  registerResources();
 }
 
 export default i18n;

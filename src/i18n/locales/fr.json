@@ -21,8 +21,14 @@
   },
   "history": {
     "title": "Historique d’achats",
+    "from": "Du",
+    "to": "Au",
+    "clearRange": "Effacer les dates",
+    "loadMore": "Charger plus",
     "emptyTitle": "Aucun historique d’achats pour le moment.",
-    "emptyDescription": "Les paniers enregistrés apparaîtront ici. Créez un nouveau panier depuis l’onglet Accueil pour commencer."
+    "emptyDescription": "Les paniers enregistrés apparaîtront ici. Créez un nouveau panier depuis l’onglet Accueil pour commencer.",
+    "emptyFilteredTitle": "Aucun achat dans cette période.",
+    "emptyFilteredDescription": "Essayez une autre plage de dates, ou effacez les dates pour voir tout l’historique."
   },
   "about": {
     "title": "À propos de {{appName}}",

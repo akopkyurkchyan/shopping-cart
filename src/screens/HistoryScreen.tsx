@@ -1,5 +1,5 @@
-import React, { useCallback, useMemo } from 'react';
-import { SectionList, StyleSheet, Text, View } from 'react-native';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { Pressable, SectionList, StyleSheet, Text, View } from 'react-native';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { History } from 'lucide-react-native';
@@ -7,13 +7,21 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 
 import { useAppDispatch, useAppSelector } from '../app/store';
+import { DatePicker } from '../components/DatePicker';
 import { EmptyState } from '../components/EmptyState';
 import { ShoppingHistoryItem } from '../components/ShoppingHistoryItem';
 import { selectShoppingHistory } from '../features/shopping/shoppingSelectors';
 import { loadShoppingHistory } from '../features/shopping/shoppingSlice';
 import type { RootStackParamList } from '../navigation/types';
 import { colors } from '../theme/colors';
-import { groupCartsByMonth } from '../utils/shoppingHistory';
+import { getLastDaysDateRange } from '../utils/date';
+import {
+  filterCartsByDateRange,
+  groupCartsByMonth,
+  HISTORY_PAGE_SIZE,
+  normalizeDateRange,
+  paginateCarts,
+} from '../utils/shoppingHistory';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
@@ -23,21 +31,58 @@ export function HistoryScreen() {
   const dispatch = useAppDispatch();
   const navigation = useNavigation<NavigationProp>();
   const carts = useAppSelector(selectShoppingHistory);
-  const sections = useMemo(
-    () =>
-      groupCartsByMonth(carts, i18n.language).map(group => ({
-        data: group.carts,
-        key: group.key,
-        title: group.title,
-      })),
-    [carts, i18n.language],
+  const [fromDate, setFromDate] = useState(
+    () => getLastDaysDateRange(7).fromDate,
   );
+  const [toDate, setToDate] = useState(() => getLastDaysDateRange(7).toDate);
+  const [visibleCount, setVisibleCount] = useState(HISTORY_PAGE_SIZE);
 
   useFocusEffect(
     useCallback(() => {
       dispatch(loadShoppingHistory());
     }, [dispatch]),
   );
+
+  useEffect(() => {
+    setVisibleCount(HISTORY_PAGE_SIZE);
+  }, [fromDate, toDate]);
+
+  const handleFromChange = useCallback((nextFrom: string) => {
+    const normalized = normalizeDateRange(nextFrom, toDate);
+    setFromDate(normalized.fromDate);
+    setToDate(normalized.toDate);
+  }, [toDate]);
+
+  const handleToChange = useCallback((nextTo: string) => {
+    const normalized = normalizeDateRange(fromDate, nextTo);
+    setFromDate(normalized.fromDate);
+    setToDate(normalized.toDate);
+  }, [fromDate]);
+
+  const handleClearRange = useCallback(() => {
+    setFromDate('');
+    setToDate('');
+  }, []);
+
+  const filteredCarts = useMemo(
+    () => filterCartsByDateRange(carts, fromDate, toDate),
+    [carts, fromDate, toDate],
+  );
+  const visibleCarts = useMemo(
+    () => paginateCarts(filteredCarts, visibleCount),
+    [filteredCarts, visibleCount],
+  );
+  const sections = useMemo(
+    () =>
+      groupCartsByMonth(visibleCarts, i18n.language).map(group => ({
+        data: group.carts,
+        key: group.key,
+        title: group.title,
+      })),
+    [i18n.language, visibleCarts],
+  );
+  const hasMore = visibleCarts.length < filteredCarts.length;
+  const hasActiveRange = Boolean(fromDate || toDate);
 
   return (
     <View style={[styles.container, { paddingTop: insets.top + 16 }]}>
@@ -46,14 +91,58 @@ export function HistoryScreen() {
         <Text style={styles.title}>{t('history.title')}</Text>
       </View>
 
+      <View style={styles.rangeRow}>
+        <View style={styles.rangeField}>
+          <DatePicker
+            label={t('history.from')}
+            maximumDate={toDate || undefined}
+            onChange={handleFromChange}
+            value={fromDate}
+          />
+        </View>
+        <View style={styles.rangeField}>
+          <DatePicker
+            label={t('history.to')}
+            minimumDate={fromDate || undefined}
+            onChange={handleToChange}
+            value={toDate}
+          />
+        </View>
+      </View>
+
+      {hasActiveRange ? (
+        <Pressable onPress={handleClearRange} style={styles.clearButton}>
+          <Text style={styles.clearButtonLabel}>{t('history.clearRange')}</Text>
+        </Pressable>
+      ) : null}
+
       <SectionList
         contentContainerStyle={styles.listContent}
         keyExtractor={item => item.id}
         ListEmptyComponent={
           <EmptyState
-            message={t('history.emptyTitle')}
-            description={t('history.emptyDescription')}
+            message={
+              hasActiveRange
+                ? t('history.emptyFilteredTitle')
+                : t('history.emptyTitle')
+            }
+            description={
+              hasActiveRange
+                ? t('history.emptyFilteredDescription')
+                : t('history.emptyDescription')
+            }
           />
+        }
+        ListFooterComponent={
+          hasMore ? (
+            <Pressable
+              onPress={() =>
+                setVisibleCount(current => current + HISTORY_PAGE_SIZE)
+              }
+              style={styles.loadMoreButton}>
+              <Text style={styles.loadMoreLabel}>{t('history.loadMore')}</Text>
+            </Pressable>
+          ) : null
         }
         renderItem={({ item }) => (
           <ShoppingHistoryItem
@@ -74,6 +163,16 @@ export function HistoryScreen() {
 }
 
 const styles = StyleSheet.create({
+  clearButton: {
+    alignSelf: 'flex-start',
+    marginBottom: 8,
+    paddingVertical: 4,
+  },
+  clearButtonLabel: {
+    color: colors.primary,
+    fontSize: 14,
+    fontWeight: '600',
+  },
   container: {
     backgroundColor: colors.surface,
     flex: 1,
@@ -83,11 +182,31 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     gap: 10,
-    marginBottom: 16,
+    marginBottom: 8,
   },
   listContent: {
     flexGrow: 1,
     paddingBottom: 16,
+  },
+  loadMoreButton: {
+    alignItems: 'center',
+    backgroundColor: colors.border,
+    borderRadius: 12,
+    marginTop: 8,
+    paddingVertical: 14,
+  },
+  loadMoreLabel: {
+    color: colors.textPrimary,
+    fontSize: 15,
+    fontWeight: '700',
+  },
+  rangeField: {
+    flex: 1,
+  },
+  rangeRow: {
+    flexDirection: 'row',
+    gap: 10,
+    marginBottom: 8,
   },
   sectionTitle: {
     backgroundColor: colors.surface,

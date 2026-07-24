@@ -32,3 +32,20 @@ export const parseDateValue = (value: string): Date | null => {
 };
 
 export const getTodayDateValue = (): string => formatDateValue(new Date());
+
+/** Inclusive local calendar range ending today (e.g. 7 → today and the prior 6 days). */
+export const getLastDaysDateRange = (
+  dayCount: number,
+): { fromDate: string; toDate: string } => {
+  const toDate = new Date();
+  const fromDate = new Date(
+    toDate.getFullYear(),
+    toDate.getMonth(),
+    toDate.getDate() - (Math.max(1, dayCount) - 1),
+  );
+
+  return {
+    fromDate: formatDateValue(fromDate),
+    toDate: formatDateValue(toDate),
+  };
+};
