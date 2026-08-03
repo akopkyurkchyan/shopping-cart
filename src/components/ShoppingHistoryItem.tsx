@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { Calendar } from 'lucide-react-native';
+import { Calendar, ShoppingBasket } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
 
 import { useFormatCurrency } from '../hooks/useFormatCurrency';
@@ -30,8 +30,11 @@ export function ShoppingHistoryItem({
 
   return (
     <Pressable onPress={onPress} style={styles.card}>
-      <View>
-        <Text style={styles.title}>{cart.title}</Text>
+      <View style={styles.content}>
+        <View style={styles.titleRow}>
+          <ShoppingBasket color={colors.accent} size={20} />
+          <Text style={styles.title}>{cart.title}</Text>
+        </View>
         <View style={styles.dateRow}>
           <Calendar color={colors.textSecondary} size={14} />
           <Text style={styles.date}>{formattedDate}</Text>
@@ -54,10 +57,20 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     padding: 16,
   },
+  content: {
+    flex: 1,
+    marginRight: 12,
+  },
   title: {
     color: colors.textPrimary,
+    flexShrink: 1,
     fontSize: 18,
     fontWeight: '600',
+  },
+  titleRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 8,
   },
   date: {
     color: colors.textSecondary,
@@ -69,7 +82,7 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   total: {
-    color: colors.textPrimary,
+    color: colors.success,
     fontSize: 16,
     fontWeight: '700',
   },

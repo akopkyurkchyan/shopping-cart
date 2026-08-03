@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Pressable, SectionList, StyleSheet, Text, View } from 'react-native';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { History } from 'lucide-react-native';
+import { History, Plus } from 'lucide-react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 
@@ -87,8 +87,19 @@ export function HistoryScreen() {
   return (
     <View style={[styles.container, { paddingTop: insets.top + 16 }]}>
       <View style={styles.header}>
-        <History color={colors.primary} size={26} />
-        <Text style={styles.title}>{t('history.title')}</Text>
+        <View style={styles.titleRow}>
+          <View style={styles.titleIcon}>
+            <History color={colors.primary} size={26} />
+          </View>
+          <Text style={styles.title}>{t('history.title')}</Text>
+        </View>
+        <Pressable
+          accessibilityLabel={t('home.createCart')}
+          accessibilityRole="button"
+          onPress={() => navigation.navigate('ShoppingDetails', {})}
+          style={styles.createButton}>
+          <Plus color={colors.white} size={24} />
+        </Pressable>
       </View>
 
       <View style={styles.rangeRow}>
@@ -178,10 +189,18 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 16,
   },
-  header: {
+  createButton: {
     alignItems: 'center',
+    backgroundColor: colors.primary,
+    borderRadius: 12,
+    height: 44,
+    justifyContent: 'center',
+    width: 44,
+  },
+  header: {
+    alignItems: 'flex-start',
     flexDirection: 'row',
-    gap: 10,
+    justifyContent: 'space-between',
     marginBottom: 8,
   },
   listContent: {
@@ -219,8 +238,22 @@ const styles = StyleSheet.create({
   },
   title: {
     color: colors.textPrimary,
-    flex: 1,
+    flexShrink: 1,
     fontSize: 28,
     fontWeight: '700',
+    includeFontPadding: false,
+    lineHeight: 34,
+  },
+  titleIcon: {
+    alignItems: 'center',
+    height: 34,
+    justifyContent: 'center',
+  },
+  titleRow: {
+    alignItems: 'flex-start',
+    flex: 1,
+    flexDirection: 'row',
+    gap: 10,
+    marginRight: 12,
   },
 });

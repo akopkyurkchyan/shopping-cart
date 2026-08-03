@@ -38,7 +38,9 @@ export function HomeScreen() {
     <View style={[styles.container, { paddingTop: insets.top + 16 }]}>
       <View style={styles.header}>
         <View style={styles.titleRow}>
-          <ShoppingCart color={colors.primary} size={26} />
+          <View style={styles.titleIcon}>
+            <ShoppingCart color={colors.primary} size={26} />
+          </View>
           <Text style={styles.title}>{t('common.appName')}</Text>
         </View>
         <Pressable
@@ -104,7 +106,7 @@ const styles = StyleSheet.create({
     width: 44,
   },
   header: {
-    alignItems: 'center',
+    alignItems: 'flex-start',
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 16,
@@ -153,11 +155,19 @@ const styles = StyleSheet.create({
   },
   title: {
     color: colors.textPrimary,
+    flexShrink: 1,
     fontSize: 28,
     fontWeight: '700',
+    includeFontPadding: false,
+    lineHeight: 34,
+  },
+  titleIcon: {
+    alignItems: 'center',
+    height: 34,
+    justifyContent: 'center',
   },
   titleRow: {
-    alignItems: 'center',
+    alignItems: 'flex-start',
     flex: 1,
     flexDirection: 'row',
     gap: 10,

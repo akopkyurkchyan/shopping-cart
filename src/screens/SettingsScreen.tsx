@@ -71,7 +71,9 @@ export function SettingsScreen() {
       contentContainerStyle={styles.content}
       style={[styles.container, { paddingTop: insets.top + 16 }]}>
       <View style={styles.header}>
-        <Settings color={colors.primary} size={26} />
+        <View style={styles.titleIcon}>
+          <Settings color={colors.primary} size={26} />
+        </View>
         <Text style={styles.title}>{t('settings.title')}</Text>
       </View>
 
@@ -166,7 +168,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   header: {
-    alignItems: 'center',
+    alignItems: 'flex-start',
     flexDirection: 'row',
     gap: 10,
     marginBottom: 24,
@@ -220,5 +222,12 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 28,
     fontWeight: '700',
+    includeFontPadding: false,
+    lineHeight: 34,
+  },
+  titleIcon: {
+    alignItems: 'center',
+    height: 34,
+    justifyContent: 'center',
   },
 });

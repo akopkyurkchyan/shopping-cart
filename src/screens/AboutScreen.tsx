@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
-import { ScrollView, StyleSheet, Text } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Info } from 'lucide-react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 
@@ -43,7 +44,12 @@ export function AboutScreen() {
     <ScrollView
       contentContainerStyle={styles.content}
       style={[styles.container, { paddingTop: insets.top + 16 }]}>
-      <Text style={styles.title}>{t('about.title', { appName })}</Text>
+      <View style={styles.header}>
+        <View style={styles.titleIcon}>
+          <Info color={colors.primary} size={26} />
+        </View>
+        <Text style={styles.title}>{t('about.title', { appName })}</Text>
+      </View>
 
       <Text style={styles.headline}>{t('about.headline')}</Text>
 
@@ -90,6 +96,12 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     marginBottom: 6,
   },
+  header: {
+    alignItems: 'flex-start',
+    flexDirection: 'row',
+    gap: 10,
+    marginBottom: 8,
+  },
   headline: {
     color: colors.textPrimary,
     fontSize: 22,
@@ -113,8 +125,15 @@ const styles = StyleSheet.create({
   },
   title: {
     color: colors.textPrimary,
+    flex: 1,
     fontSize: 28,
     fontWeight: '700',
-    marginBottom: 8,
+    includeFontPadding: false,
+    lineHeight: 34,
+  },
+  titleIcon: {
+    alignItems: 'center',
+    height: 34,
+    justifyContent: 'center',
   },
 });

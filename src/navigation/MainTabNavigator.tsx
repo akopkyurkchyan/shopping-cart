@@ -82,6 +82,9 @@ export function MainTabNavigator() {
           backgroundColor: colors.card,
           borderTopColor: colors.border,
         },
+        sceneStyle: {
+          backgroundColor: colors.surface,
+        },
       }}>
       <Tab.Screen
         component={HomeScreen}
