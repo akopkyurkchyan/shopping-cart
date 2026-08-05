@@ -31,6 +31,7 @@ import {
 } from 'react-hook-form';
 import uuid from 'react-native-uuid';
 import { Check, Plus, Trash2 } from 'lucide-react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 
 import { useAppDispatch, useAppSelector } from '../app/store';
@@ -131,6 +132,7 @@ export function ShoppingDetailsScreen() {
   const route = useRoute();
   const saveStatus = useAppSelector(selectShoppingSaveStatus);
   const formatMoney = useFormatCurrency();
+  const insets = useSafeAreaInsets();
 
   const translateMessage = (message?: string) => {
     if (!message) {
@@ -655,7 +657,11 @@ export function ShoppingDetailsScreen() {
         visible={productModal !== null}>
         <View style={styles.modalOverlay}>
           <Pressable onPress={closeProductModal} style={styles.modalBackdrop} />
-          <View style={styles.modalCard}>
+          <View
+            style={[
+              styles.modalCard,
+              { paddingBottom: Math.max(insets.bottom, 16) },
+            ]}>
             <View style={styles.modalHeader}>
               <Text style={styles.modalTitle}>
                 {productModal?.mode === 'edit'

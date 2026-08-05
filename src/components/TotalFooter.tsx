@@ -1,6 +1,7 @@
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Check, Trash2, Wallet } from 'lucide-react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 
 import { useFormatCurrency } from '../hooks/useFormatCurrency';
@@ -22,10 +23,11 @@ export function TotalFooter({
   onSave,
 }: TotalFooterProps) {
   const { t } = useTranslation();
+  const insets = useSafeAreaInsets();
   const formatMoney = useFormatCurrency();
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingBottom: 16 + insets.bottom }]}>
       <View style={styles.totalRow}>
         <View style={styles.labelRow}>
           <Wallet color={colors.textSecondary} size={16} />
@@ -82,7 +84,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.card,
     borderTopColor: colors.border,
     borderTopWidth: 1,
-    padding: 16,
+    paddingHorizontal: 16,
+    paddingTop: 16,
   },
   deleteButton: {
     backgroundColor: colors.card,
