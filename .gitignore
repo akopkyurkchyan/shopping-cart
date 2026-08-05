@@ -24,7 +24,6 @@ DerivedData
 
 # Android/IntelliJ
 #
-build/
 .idea
 .gradle
 local.properties
@@ -33,6 +32,9 @@ local.properties
 .cxx/
 *.keystore
 !debug.keystore
+keystore.properties
+android/keystore.properties
+android/app/upload-keystore.jks
 .kotlin/
 
 # node.js
