@@ -8,13 +8,14 @@ import Swipeable, {
 
 import { useFormatCurrency } from '../hooks/useFormatCurrency';
 import { colors } from '../theme/colors';
+import type { ProductExtraScope } from '../types/models';
 import { calcExtrasTotal } from '../utils/currency';
 
 type ProductRowProps = {
   title: string;
   quantity: number;
   price: number;
-  extras: Array<{ amount: number }>;
+  extras: Array<{ amount: number; scope?: ProductExtraScope }>;
   rowTotal: number;
   onPress: () => void;
   onDelete: () => void;
@@ -32,7 +33,7 @@ export function ProductRow({
   const { t } = useTranslation();
   const swipeableRef = useRef<SwipeableMethods | null>(null);
   const formatMoney = useFormatCurrency();
-  const extrasTotal = calcExtrasTotal(extras);
+  const extrasTotal = calcExtrasTotal(extras, quantity);
   const displayTitle = title || t('common.untitledProduct');
 
   const confirmDelete = useCallback(() => {

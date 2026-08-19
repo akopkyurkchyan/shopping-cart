@@ -95,7 +95,12 @@
     "extraTitle": "Title",
     "extraTitlePlaceholder": "Tax",
     "extraAmount": "Amount",
+    "extraScope": "Apply to",
+    "extraScopeUnit": "Each Unit",
+    "extraScopeProduct": "Entire Product",
     "extraHelper": "Fixed amount (tax, fee, or other charge)",
+    "extraHelperUnit": "Added for every unit (amount × quantity)",
+    "extraHelperProduct": "Added once for the whole product",
     "addExtra": "Extra price"
   },
   "quantity": {

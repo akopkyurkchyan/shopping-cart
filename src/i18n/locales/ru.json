@@ -95,7 +95,12 @@
     "extraTitle": "Название",
     "extraTitlePlaceholder": "Налог",
     "extraAmount": "Сумма",
+    "extraScope": "Применить к",
+    "extraScopeUnit": "Каждой единице",
+    "extraScopeProduct": "Всему товару",
     "extraHelper": "Фиксированная сумма (налог, сбор или другой платеж)",
+    "extraHelperUnit": "Добавляется за каждую единицу (сумма × количество)",
+    "extraHelperProduct": "Добавляется один раз ко всему товару",
     "addExtra": "Доп. цена"
   },
   "quantity": {

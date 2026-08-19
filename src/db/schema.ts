@@ -26,6 +26,7 @@ export const createProductExtrasTable = `
     product_id TEXT NOT NULL,
     title TEXT NOT NULL,
     amount REAL NOT NULL,
+    scope TEXT NOT NULL DEFAULT 'unit',
     FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
   );
 `;
@@ -42,6 +43,11 @@ export const createProductExtrasProductIdIndex = `
 
 export const addProductsExtraPriceColumn = `
   ALTER TABLE products ADD COLUMN extra_price REAL NOT NULL DEFAULT 0;
+`;
+
+/** Existing extras were fixed amounts; keep totals stable on upgrade. */
+export const addProductExtrasScopeColumn = `
+  ALTER TABLE product_extras ADD COLUMN scope TEXT NOT NULL DEFAULT 'product';
 `;
 
 export const createAppSettingsTable = `

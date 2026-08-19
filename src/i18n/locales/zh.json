@@ -95,7 +95,12 @@
     "extraTitle": "名称",
     "extraTitlePlaceholder": "税费",
     "extraAmount": "金额",
+    "extraScope": "应用于",
+    "extraScopeUnit": "每件",
+    "extraScopeProduct": "整件商品",
     "extraHelper": "固定金额（税费、手续费或其他费用）",
+    "extraHelperUnit": "按每件计算（金额 × 数量）",
+    "extraHelperProduct": "整件商品只加一次",
     "addExtra": "额外费用"
   },
   "quantity": {

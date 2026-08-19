@@ -95,7 +95,12 @@
     "extraTitle": "शीर्षक",
     "extraTitlePlaceholder": "कर",
     "extraAmount": "राशि",
+    "extraScope": "लागू करें",
+    "extraScopeUnit": "प्रत्येक इकाई",
+    "extraScopeProduct": "पूरा उत्पाद",
     "extraHelper": "निश्चित राशि (कर, शुल्क या अन्य खर्च)",
+    "extraHelperUnit": "हर इकाई के लिए जोड़ा जाता है (राशि × मात्रा)",
+    "extraHelperProduct": "पूरे उत्पाद के लिए एक बार जोड़ा जाता है",
     "addExtra": "अतिरिक्त कीमत"
   },
   "quantity": {

@@ -95,7 +95,12 @@
     "extraTitle": "Անվանում",
     "extraTitlePlaceholder": "Հարկ",
     "extraAmount": "Գումար",
+    "extraScope": "Կիրառել",
+    "extraScopeUnit": "Յուրաքանչյուր միավորի",
+    "extraScopeProduct": "Ամբողջ ապրանքի",
     "extraHelper": "Ֆիքսված գումար (հարկ, վճար կամ այլ ծախս)",
+    "extraHelperUnit": "Ավելացվում է յուրաքանչյուր միավորի համար (գումար × քանակ)",
+    "extraHelperProduct": "Ավելացվում է մեկ անգամ ամբողջ ապրանքի համար",
     "addExtra": "Լրացուցիչ գին"
   },
   "quantity": {

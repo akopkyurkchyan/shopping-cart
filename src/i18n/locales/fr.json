@@ -95,7 +95,12 @@
     "extraTitle": "Titre",
     "extraTitlePlaceholder": "Taxe",
     "extraAmount": "Montant",
+    "extraScope": "Appliquer à",
+    "extraScopeUnit": "Chaque unité",
+    "extraScopeProduct": "Produit entier",
     "extraHelper": "Montant fixe (taxe, frais ou autre charge)",
+    "extraHelperUnit": "Ajouté pour chaque unité (montant × quantité)",
+    "extraHelperProduct": "Ajouté une seule fois pour le produit entier",
     "addExtra": "Prix extra"
   },
   "quantity": {

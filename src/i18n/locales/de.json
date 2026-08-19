@@ -95,7 +95,12 @@
     "extraTitle": "Titel",
     "extraTitlePlaceholder": "Steuer",
     "extraAmount": "Betrag",
+    "extraScope": "Anwenden auf",
+    "extraScopeUnit": "Jede Einheit",
+    "extraScopeProduct": "Gesamtes Produkt",
     "extraHelper": "Fester Betrag (Steuer, Gebühr oder andere Kosten)",
+    "extraHelperUnit": "Wird für jede Einheit addiert (Betrag × Menge)",
+    "extraHelperProduct": "Wird einmal für das gesamte Produkt addiert",
     "addExtra": "Extra-Preis"
   },
   "quantity": {

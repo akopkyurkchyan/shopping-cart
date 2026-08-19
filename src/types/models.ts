@@ -1,7 +1,11 @@
+export type ProductExtraScope = 'unit' | 'product';
+
 export type ProductExtraPrice = {
   id: string;
   title: string;
   amount: number;
+  /** `unit` = amount × quantity; `product` = amount once. */
+  scope: ProductExtraScope;
 };
 
 export type Product = {

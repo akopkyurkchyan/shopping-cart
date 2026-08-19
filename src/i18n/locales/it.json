@@ -95,7 +95,12 @@
     "extraTitle": "Titolo",
     "extraTitlePlaceholder": "Tassa",
     "extraAmount": "Importo",
+    "extraScope": "Applica a",
+    "extraScopeUnit": "Ogni unità",
+    "extraScopeProduct": "Prodotto intero",
     "extraHelper": "Importo fisso (tassa, commissione o altro addebito)",
+    "extraHelperUnit": "Aggiunto per ogni unità (importo × quantità)",
+    "extraHelperProduct": "Aggiunto una sola volta per l'intero prodotto",
     "addExtra": "Prezzo extra"
   },
   "quantity": {
