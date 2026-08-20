@@ -15,8 +15,8 @@
   },
   "home": {
     "createCart": "Crea nuovo carrello",
-    "welcomeTitle": "Tieni traccia della spesa",
-    "welcomeDescription": "Tocca il pulsante + per avviare un nuovo carrello. Aggiungi prodotti con prezzo e quantità e vedi il totale aggiornarsi subito. I carrelli vengono salvati su questo dispositivo.",
+    "welcomeTitle": "Tieni sotto controllo i tuoi acquisti",
+    "welcomeDescription": "Tocca il pulsante + per iniziare un nuovo carrello. Aggiungi prodotti con prezzo e quantità e guarda il totale aggiornarsi istantaneamente. I tuoi carrelli vengono salvati su questo dispositivo.",
     "recentTitle": "Recenti"
   },
   "history": {
@@ -24,51 +24,51 @@
     "from": "Da",
     "to": "A",
     "clearRange": "Cancella date",
-    "loadMore": "Carica altri",
-    "emptyTitle": "Nessuna cronologia acquisti.",
-    "emptyDescription": "I carrelli salvati appariranno qui. Crea un nuovo carrello dalla scheda Home per iniziare.",
-    "emptyFilteredTitle": "Nessun acquisto in questo intervallo.",
-    "emptyFilteredDescription": "Prova un altro intervallo di date, oppure cancella le date per vedere tutta la cronologia."
+    "loadMore": "Carica altro",
+    "emptyTitle": "Nessuna cronologia degli acquisti.",
+    "emptyDescription": "I carrelli salvati verranno visualizzati qui. Crea un nuovo carrello dalla scheda Home per iniziare.",
+    "emptyFilteredTitle": "Nessuna cronologia degli acquisti in questo periodo.",
+    "emptyFilteredDescription": "Prova un intervallo di date diverso oppure cancella le date per visualizzare tutta la cronologia."
   },
   "about": {
     "title": "Informazioni su {{appName}}",
-    "headline": "Acquista in modo più intelligente, spendi meglio",
+    "headline": "Acquista meglio, spendi meglio",
     "intro": [
-      "{{appName}} è un’app semplice e intuitiva pensata per aiutarti a tenere traccia delle spese mentre fai la spesa.",
-      "Crea un carrello, aggiungi prodotti con prezzi e quantità e vedi subito il totale stimato prima di arrivare alla cassa. Che tu stia comprando alimentari, articoli per la casa o oggetti di tutti i giorni, {{appName}} ti aiuta a restare nel budget."
+      "{{appName}} è un'app semplice e intuitiva progettata per aiutarti a tenere sotto controllo le tue spese durante gli acquisti.",
+      "Crea un carrello, aggiungi prodotti con prezzi e quantità e visualizza immediatamente il totale stimato prima di arrivare alla cassa. Che tu stia acquistando prodotti alimentari, articoli per la casa o prodotti di uso quotidiano, {{appName}} ti aiuta a rispettare il tuo budget."
     ],
     "featuresTitle": "Funzionalità",
     "features": [
-      "🛒 Crea carrelli illimitati",
+      "🛒 Crea un numero illimitato di carrelli",
       "📦 Aggiungi prodotti con prezzo e quantità",
       "💰 Calcolo automatico del totale",
       "📅 Salva la cronologia degli acquisti",
       "📱 Funziona completamente offline",
-      "🔒 I tuoi dati restano sul dispositivo"
+      "🔒 I tuoi dati rimangono sul tuo dispositivo"
     ],
     "privacyTitle": "Privacy",
-    "privacyBody": "La tua privacy è importante. {{appName}} non raccoglie, non memorizza e non condivide alcuna informazione personale. Tutti i dati della spesa sono salvati localmente sul tuo dispositivo e non vengono mai caricati su server esterni.",
+    "privacyBody": "La tua privacy è importante. {{appName}} non raccoglie, non memorizza e non condivide informazioni personali. Tutti i dati relativi agli acquisti vengono archiviati localmente sul tuo dispositivo e non vengono mai caricati su server esterni.",
     "thanksTitle": "Grazie",
     "thanksBody": [
-      "Grazie per aver scelto {{appName}}! Speriamo renda ogni spesa più facile, veloce e organizzata.",
-      "Se hai suggerimenti o idee per migliorare l’app, ci farebbe piacere ricevere il tuo feedback. Il tuo contributo ci aiuta a rendere {{appName}} ancora migliore."
+      "Grazie per aver scelto {{appName}}! Ci auguriamo che renda ogni tua spesa più semplice, veloce e organizzata.",
+      "Se hai suggerimenti o idee per migliorare l'app, saremo felici di ricevere il tuo feedback. I tuoi suggerimenti ci aiutano a rendere {{appName}} ancora migliore."
     ]
   },
   "tabs": {
     "home": "Home",
     "history": "Cronologia",
-    "about": "Info",
+    "about": "Informazioni",
     "settings": "Impostazioni"
   },
   "details": {
     "createTitle": "Crea carrello",
     "editTitle": "Modifica carrello",
-    "screenTitle": "Dettagli spesa",
-    "shoppingTitle": "Titolo",
-    "shoppingDate": "Data",
+    "screenTitle": "Dettagli del carrello",
+    "shoppingTitle": "Nome del carrello",
+    "shoppingDate": "Data della spesa",
     "products": "Prodotti",
     "addProduct": "Aggiungi prodotto",
-    "loading": "Caricamento carrello...",
+    "loading": "Caricamento del carrello...",
     "cannotSaveTitle": "Impossibile salvare",
     "cannotSaveMessage": "Aggiungi almeno un prodotto prima di salvare.",
     "saveFailedTitle": "Salvataggio non riuscito",
@@ -81,27 +81,27 @@
   "product": {
     "newTitle": "Nuovo prodotto",
     "editTitle": "Prodotto {{number}}",
-    "name": "Nome prodotto",
+    "name": "Nome del prodotto",
     "namePlaceholder": "Latte",
-    "pricePerUnit": "Prezzo unitario",
-    "priceHelper": "Inserisci il prezzo scontato",
+    "pricePerUnit": "Prezzo per unità",
+    "priceHelper": "Inserisci il prezzo dopo eventuali sconti",
     "quantity": "Quantità",
     "rowTotal": "Totale riga",
-    "each": "{{price}} cad.",
-    "extrasSuffix": " + {{amount}} extra",
+    "each": "{{price}} ciascuno",
+    "extrasSuffix": " + {{amount}} di costi aggiuntivi",
     "deleteTitle": "Elimina prodotto",
     "deleteMessage": "Rimuovere \"{{title}}\" da questo carrello?",
-    "extraCardTitle": "Prezzo extra {{number}}",
-    "extraTitle": "Titolo",
+    "extraCardTitle": "Costo aggiuntivo {{number}}",
+    "extraTitle": "Nome",
     "extraTitlePlaceholder": "Tassa",
     "extraAmount": "Importo",
     "extraScope": "Applica a",
-    "extraScopeUnit": "Ogni unità",
-    "extraScopeProduct": "Prodotto intero",
-    "extraHelper": "Importo fisso (tassa, commissione o altro addebito)",
+    "extraScopeUnit": "Per unità",
+    "extraScopeProduct": "Intero prodotto",
+    "extraHelper": "Importo fisso (tassa, commissione o altro costo)",
     "extraHelperUnit": "Aggiunto per ogni unità (importo × quantità)",
     "extraHelperProduct": "Aggiunto una sola volta per l'intero prodotto",
-    "addExtra": "Prezzo extra"
+    "addExtra": "Aggiungi costo aggiuntivo"
   },
   "quantity": {
     "tapToSelect": "Tocca per selezionare",
@@ -115,13 +115,13 @@
   "settings": {
     "title": "Impostazioni",
     "language": "Lingua",
-    "languageDescription": "Scegli la lingua dell’app. Il valore di sistema segue la lingua del dispositivo quando disponibile.",
-    "systemDefault": "Predefinito di sistema",
+    "languageDescription": "Scegli la lingua dell'app. La lingua predefinita del sistema segue la lingua del dispositivo, quando disponibile.",
+    "systemDefault": "Predefinita del sistema",
     "systemDefaultHint": "Usa la lingua del dispositivo",
     "currency": "Valuta",
-    "currencyDescription": "Scegli come mostrare i prezzi. “Nessuna valuta” mostra gli importi senza simbolo di valuta.",
+    "currencyDescription": "Scegli come visualizzare i prezzi nell'app. Seleziona \"Nessuna valuta\" per visualizzare gli importi senza il simbolo della valuta.",
     "noCurrency": "Nessuna valuta",
-    "errorTitle": "Errore impostazioni",
+    "errorTitle": "Errore nelle impostazioni",
     "currencyUpdateFailed": "Impossibile aggiornare la valuta.",
     "languageUpdateFailed": "Impossibile aggiornare la lingua."
   },
@@ -136,30 +136,30 @@
     "it": "Italiano"
   },
   "currency": {
-    "USD": "Dollaro USA (USD)",
+    "USD": "Dollaro statunitense (USD)",
     "EUR": "Euro (EUR)",
     "GBP": "Sterlina britannica (GBP)",
     "AMD": "Dram armeno (AMD)",
     "RUB": "Rublo russo (RUB)",
     "GEL": "Lari georgiano (GEL)",
     "TRY": "Lira turca (TRY)",
-    "AED": "Dirham EAU (AED)",
+    "AED": "Dirham degli Emirati Arabi Uniti (AED)",
     "JPY": "Yen giapponese (JPY)",
     "CNY": "Yuan cinese (CNY)"
   },
   "validation": {
-    "extraTitleRequired": "Il titolo del prezzo extra è obbligatorio",
-    "extraAmountPositive": "Il prezzo extra deve essere maggiore di 0",
+    "extraTitleRequired": "Il nome del costo aggiuntivo è obbligatorio",
+    "extraAmountPositive": "Il costo aggiuntivo deve essere maggiore di 0",
     "productNameRequired": "Il nome del prodotto è obbligatorio",
     "pricePositive": "Il prezzo deve essere maggiore di 0",
     "quantityWhole": "La quantità deve essere un numero intero",
     "quantityMin": "La quantità deve essere almeno 1",
-    "quantityMax": "La quantità deve essere al massimo 100",
-    "dateFormat": "La data deve essere nel formato YYYY-MM-DD",
+    "quantityMax": "La quantità non può essere superiore a 100",
+    "dateFormat": "La data deve essere nel formato AAAA-MM-GG",
     "productsMin": "Aggiungi almeno un prodotto"
   },
   "errors": {
-    "databaseTitle": "Errore database",
+    "databaseTitle": "Errore del database",
     "databaseMessage": "Impossibile inizializzare il database locale."
   }
 }

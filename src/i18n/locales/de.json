@@ -7,7 +7,7 @@
     "save": "Speichern",
     "saving": "Wird gespeichert...",
     "remove": "Entfernen",
-    "total": "Summe",
+    "total": "Gesamt",
     "appName": "Einkaufswagen",
     "defaultCartTitle": "Einkauf",
     "untitledProduct": "Unbenanntes Produkt",
@@ -15,68 +15,68 @@
   },
   "home": {
     "createCart": "Neuen Einkaufswagen erstellen",
-    "welcomeTitle": "Einkäufe im Blick",
-    "welcomeDescription": "Tippen Sie auf die +-Taste, um einen neuen Wagen zu starten. Fügen Sie Produkte mit Preis und Menge hinzu und sehen Sie die Summe sofort. Ihre Wagen werden auf diesem Gerät gespeichert.",
-    "recentTitle": "Zuletzt"
+    "welcomeTitle": "Ihre Einkäufe im Blick",
+    "welcomeDescription": "Tippen Sie auf die + Schaltfläche, um einen neuen Einkaufswagen zu erstellen. Fügen Sie Produkte mit Preis und Menge hinzu und sehen Sie, wie sich die Gesamtsumme sofort aktualisiert. Ihre Einkaufswagen werden auf diesem Gerät gespeichert.",
+    "recentTitle": "Zuletzt verwendet"
   },
   "history": {
-    "title": "Einkaufshistorie",
+    "title": "Einkaufsverlauf",
     "from": "Von",
     "to": "Bis",
-    "clearRange": "Daten löschen",
+    "clearRange": "Datumsangaben löschen",
     "loadMore": "Mehr laden",
-    "emptyTitle": "Noch keine Einkaufshistorie.",
-    "emptyDescription": "Gespeicherte Wagen erscheinen hier. Erstellen Sie einen neuen Wagen über den Start-Tab, um zu beginnen.",
-    "emptyFilteredTitle": "Keine Einkäufe in diesem Zeitraum.",
-    "emptyFilteredDescription": "Versuchen Sie einen anderen Zeitraum, oder löschen Sie die Daten, um die gesamte Historie zu sehen."
+    "emptyTitle": "Noch kein Einkaufsverlauf vorhanden.",
+    "emptyDescription": "Gespeicherte Einkaufswagen werden hier angezeigt. Erstellen Sie einen neuen Einkaufswagen auf der Startseite, um zu beginnen.",
+    "emptyFilteredTitle": "Kein Einkaufsverlauf in diesem Zeitraum.",
+    "emptyFilteredDescription": "Versuchen Sie einen anderen Datumsbereich oder löschen Sie die Datumsangaben, um den gesamten Verlauf anzuzeigen."
   },
   "about": {
     "title": "Über {{appName}}",
-    "headline": "Smarter einkaufen, smarter ausgeben",
+    "headline": "Clever einkaufen, clever ausgeben",
     "intro": [
       "{{appName}} ist eine einfache und intuitive App, die Ihnen hilft, Ihre Ausgaben beim Einkaufen im Blick zu behalten.",
-      "Erstellen Sie einen Einkaufswagen, fügen Sie Produkte mit Preisen und Mengen hinzu und sehen Sie sofort Ihre geschätzte Summe – noch vor der Kasse. Ob Lebensmittel, Haushaltsbedarf oder Alltagsartikel: {{appName}} hilft Ihnen, im Budget zu bleiben."
+      "Erstellen Sie einen Einkaufswagen, fügen Sie Produkte mit Preisen und Mengen hinzu und sehen Sie sofort die geschätzte Gesamtsumme, bevor Sie die Kasse erreichen. Egal, ob Sie Lebensmittel, Haushaltsartikel oder Dinge des täglichen Bedarfs kaufen – {{appName}} hilft Ihnen, Ihr Budget einzuhalten."
     ],
     "featuresTitle": "Funktionen",
     "features": [
-      "🛒 Unbegrenzt Einkaufswagen erstellen",
+      "🛒 Unbegrenzte Einkaufswagen erstellen",
       "📦 Produkte mit Preis und Menge hinzufügen",
-      "💰 Automatische Gesamtsumme",
-      "📅 Einkaufshistorie speichern",
+      "💰 Automatische Berechnung der Gesamtsumme",
+      "📅 Einkaufsverlauf speichern",
       "📱 Funktioniert vollständig offline",
-      "🔒 Ihre Daten bleiben auf dem Gerät"
+      "🔒 Ihre Daten bleiben auf Ihrem Gerät"
     ],
     "privacyTitle": "Datenschutz",
-    "privacyBody": "Ihre Privatsphäre ist uns wichtig. {{appName}} erfasst, speichert oder teilt keine personenbezogenen Daten. Alle Einkaufsdaten werden lokal auf Ihrem Gerät gespeichert und niemals auf externe Server hochgeladen.",
-    "thanksTitle": "Danke",
+    "privacyBody": "Ihre Privatsphäre ist uns wichtig. {{appName}} sammelt, speichert oder teilt keine persönlichen Informationen. Alle Einkaufsdaten werden lokal auf Ihrem Gerät gespeichert und niemals auf externe Server hochgeladen.",
+    "thanksTitle": "Vielen Dank",
     "thanksBody": [
-      "Danke, dass Sie {{appName}} gewählt haben! Wir hoffen, dass die App jeden Einkauf leichter, schneller und übersichtlicher macht.",
+      "Vielen Dank, dass Sie sich für {{appName}} entschieden haben! Wir hoffen, dass die App jeden Einkauf einfacher, schneller und übersichtlicher macht.",
       "Wenn Sie Vorschläge oder Ideen zur Verbesserung der App haben, freuen wir uns über Ihr Feedback. Ihre Rückmeldungen helfen uns, {{appName}} noch besser zu machen."
     ]
   },
   "tabs": {
-    "home": "Start",
-    "history": "Historie",
-    "about": "Info",
+    "home": "Startseite",
+    "history": "Verlauf",
+    "about": "Über",
     "settings": "Einstellungen"
   },
   "details": {
     "createTitle": "Einkaufswagen erstellen",
     "editTitle": "Einkaufswagen bearbeiten",
-    "screenTitle": "Einkaufsdetails",
-    "shoppingTitle": "Titel",
-    "shoppingDate": "Datum",
+    "screenTitle": "Einkaufswagendetails",
+    "shoppingTitle": "Titel des Einkaufswagens",
+    "shoppingDate": "Einkaufsdatum",
     "products": "Produkte",
     "addProduct": "Produkt hinzufügen",
     "loading": "Einkaufswagen wird geladen...",
     "cannotSaveTitle": "Speichern nicht möglich",
     "cannotSaveMessage": "Fügen Sie vor dem Speichern mindestens ein Produkt hinzu.",
     "saveFailedTitle": "Speichern fehlgeschlagen",
-    "saveFailedMessage": "Dieser Einkaufswagen konnte nicht gespeichert werden.",
+    "saveFailedMessage": "Der Einkaufswagen konnte nicht gespeichert werden.",
     "deleteCartTitle": "Einkaufswagen löschen",
     "deleteCartMessage": "Diese Aktion kann nicht rückgängig gemacht werden.",
     "deleteFailedTitle": "Löschen fehlgeschlagen",
-    "deleteFailedMessage": "Dieser Einkaufswagen konnte nicht gelöscht werden."
+    "deleteFailedMessage": "Der Einkaufswagen konnte nicht gelöscht werden."
   },
   "product": {
     "newTitle": "Neues Produkt",
@@ -84,46 +84,46 @@
     "name": "Produktname",
     "namePlaceholder": "Milch",
     "pricePerUnit": "Preis pro Einheit",
-    "priceHelper": "Geben Sie den rabattierten Preis ein",
+    "priceHelper": "Geben Sie den Preis nach einem eventuellen Rabatt ein",
     "quantity": "Menge",
     "rowTotal": "Zeilensumme",
-    "each": "{{price}} je",
-    "extrasSuffix": " + {{amount}} Extra",
+    "each": "{{price}} pro Stück",
+    "extrasSuffix": " + {{amount}} Zusatzkosten",
     "deleteTitle": "Produkt löschen",
-    "deleteMessage": "„{{title}}“ aus diesem Wagen entfernen?",
-    "extraCardTitle": "Extra-Preis {{number}}",
-    "extraTitle": "Titel",
+    "deleteMessage": "\"{{title}}\" aus diesem Einkaufswagen entfernen?",
+    "extraCardTitle": "Zusatzkosten {{number}}",
+    "extraTitle": "Bezeichnung",
     "extraTitlePlaceholder": "Steuer",
     "extraAmount": "Betrag",
     "extraScope": "Anwenden auf",
-    "extraScopeUnit": "Jede Einheit",
+    "extraScopeUnit": "Pro Einheit",
     "extraScopeProduct": "Gesamtes Produkt",
-    "extraHelper": "Fester Betrag (Steuer, Gebühr oder andere Kosten)",
-    "extraHelperUnit": "Wird für jede Einheit addiert (Betrag × Menge)",
-    "extraHelperProduct": "Wird einmal für das gesamte Produkt addiert",
-    "addExtra": "Extra-Preis"
+    "extraHelper": "Fester Betrag (Steuer, Gebühr oder sonstige Kosten)",
+    "extraHelperUnit": "Wird für jede Einheit hinzugefügt (Betrag × Menge)",
+    "extraHelperProduct": "Wird einmal für das gesamte Produkt hinzugefügt",
+    "addExtra": "Zusatzkosten hinzufügen"
   },
   "quantity": {
-    "tapToSelect": "Tippen zum Auswählen",
+    "tapToSelect": "Tippen, um auszuwählen",
     "selectTitle": "Menge auswählen"
   },
   "date": {
-    "tapToSelect": "Tippen zum Auswählen",
+    "tapToSelect": "Tippen, um auszuwählen",
     "selectTitle": "Datum auswählen",
     "placeholder": "Datum auswählen"
   },
   "settings": {
     "title": "Einstellungen",
     "language": "Sprache",
-    "languageDescription": "Wählen Sie die App-Sprache. Systemstandard folgt der Gerätesprache, wenn verfügbar.",
+    "languageDescription": "Wählen Sie die App-Sprache. Die Systemeinstellung verwendet, sofern verfügbar, die Sprache Ihres Geräts.",
     "systemDefault": "Systemstandard",
     "systemDefaultHint": "Gerätesprache verwenden",
     "currency": "Währung",
-    "currencyDescription": "Wählen Sie, wie Preise angezeigt werden. „Keine Währung“ zeigt Beträge ohne Währungssymbol.",
+    "currencyDescription": "Wählen Sie, wie Preise in der App angezeigt werden. Wählen Sie „Keine Währung“, um Beträge ohne Währungssymbol anzuzeigen.",
     "noCurrency": "Keine Währung",
-    "errorTitle": "Einstellungsfehler",
-    "currencyUpdateFailed": "Währung konnte nicht aktualisiert werden.",
-    "languageUpdateFailed": "Sprache konnte nicht aktualisiert werden."
+    "errorTitle": "Fehler bei den Einstellungen",
+    "currencyUpdateFailed": "Die Währung konnte nicht aktualisiert werden.",
+    "languageUpdateFailed": "Die Sprache konnte nicht aktualisiert werden."
   },
   "languages": {
     "en": "Englisch",
@@ -148,14 +148,14 @@
     "CNY": "Chinesischer Yuan (CNY)"
   },
   "validation": {
-    "extraTitleRequired": "Titel des Extra-Preises ist erforderlich",
-    "extraAmountPositive": "Extra-Preis muss größer als 0 sein",
-    "productNameRequired": "Produktname ist erforderlich",
-    "pricePositive": "Preis muss größer als 0 sein",
-    "quantityWhole": "Menge muss eine ganze Zahl sein",
-    "quantityMin": "Menge muss mindestens 1 sein",
-    "quantityMax": "Menge darf höchstens 100 sein",
-    "dateFormat": "Datum muss im Format YYYY-MM-DD sein",
+    "extraTitleRequired": "Die Bezeichnung der Zusatzkosten ist erforderlich",
+    "extraAmountPositive": "Die Zusatzkosten müssen größer als 0 sein",
+    "productNameRequired": "Der Produktname ist erforderlich",
+    "pricePositive": "Der Preis muss größer als 0 sein",
+    "quantityWhole": "Die Menge muss eine ganze Zahl sein",
+    "quantityMin": "Die Menge muss mindestens 1 betragen",
+    "quantityMax": "Die Menge darf höchstens 100 betragen",
+    "dateFormat": "Das Datum muss im Format JJJJ-MM-TT angegeben werden",
     "productsMin": "Fügen Sie mindestens ein Produkt hinzu"
   },
   "errors": {

@@ -14,9 +14,9 @@
     "example": "Example: {{value}}"
   },
   "home": {
-    "createCart": "Create New Shopping Cart",
-    "welcomeTitle": "Track your shopping",
-    "welcomeDescription": "Tap the + button to start a new cart. Add products with price and quantity, and see the total update instantly. Your carts are saved on this device.",
+    "createCart": "Create New Cart",
+    "welcomeTitle": "Track Your Shopping",
+    "welcomeDescription": "Tap the + button to start a new cart. Add products with their price and quantity, and see the total update instantly. Your carts are saved on this device.",
     "recentTitle": "Recent"
   },
   "history": {
@@ -27,7 +27,7 @@
     "loadMore": "Load more",
     "emptyTitle": "No shopping history yet.",
     "emptyDescription": "Saved carts will appear here. Create a new cart from the Home tab to get started.",
-    "emptyFilteredTitle": "No shoppings in this range.",
+    "emptyFilteredTitle": "No shopping history in this range.",
     "emptyFilteredDescription": "Try a different date range, or clear the dates to see all history."
   },
   "about": {
@@ -63,45 +63,45 @@
   "details": {
     "createTitle": "Create Shopping Cart",
     "editTitle": "Edit Shopping Cart",
-    "screenTitle": "Shopping Details",
-    "shoppingTitle": "Shopping Title",
+    "screenTitle": "Shopping Cart Details",
+    "shoppingTitle": "Shopping Cart Title",
     "shoppingDate": "Shopping Date",
     "products": "Products",
     "addProduct": "Add Product",
     "loading": "Loading shopping cart...",
-    "cannotSaveTitle": "Cannot save",
+    "cannotSaveTitle": "Cannot Save",
     "cannotSaveMessage": "Add at least one product before saving.",
-    "saveFailedTitle": "Save failed",
-    "saveFailedMessage": "Unable to save this shopping cart.",
-    "deleteCartTitle": "Delete shopping cart",
+    "saveFailedTitle": "Save Failed",
+    "saveFailedMessage": "Unable to save this cart.",
+    "deleteCartTitle": "Delete Shopping Cart",
     "deleteCartMessage": "This action cannot be undone.",
-    "deleteFailedTitle": "Delete failed",
-    "deleteFailedMessage": "Unable to delete this shopping cart."
+    "deleteFailedTitle": "Delete Failed",
+    "deleteFailedMessage": "Unable to delete this cart."
   },
   "product": {
     "newTitle": "New Product",
     "editTitle": "Product {{number}}",
     "name": "Product Name",
     "namePlaceholder": "Milk",
-    "pricePerUnit": "Price Per Unit",
-    "priceHelper": "Enter the discounted price",
+    "pricePerUnit": "Price per Unit",
+    "priceHelper": "Enter the price after any discount",
     "quantity": "Quantity",
     "rowTotal": "Row Total",
     "each": "{{price}} each",
-    "extrasSuffix": " + {{amount}} extras",
-    "deleteTitle": "Delete product",
+    "extrasSuffix": " + {{amount}} extra charges",
+    "deleteTitle": "Delete Product",
     "deleteMessage": "Remove \"{{title}}\" from this cart?",
-    "extraCardTitle": "Extra price {{number}}",
+    "extraCardTitle": "Extra Charge {{number}}",
     "extraTitle": "Title",
     "extraTitlePlaceholder": "Tax",
     "extraAmount": "Amount",
-    "extraScope": "Apply to",
-    "extraScopeUnit": "Each Unit",
+    "extraScope": "Apply To",
+    "extraScopeUnit": "Per Unit",
     "extraScopeProduct": "Entire Product",
     "extraHelper": "Fixed amount (tax, fee, or other charge)",
     "extraHelperUnit": "Added for every unit (amount × quantity)",
     "extraHelperProduct": "Added once for the whole product",
-    "addExtra": "Extra price"
+    "addExtra": "Add Extra Charge"
   },
   "quantity": {
     "tapToSelect": "Tap to select",
@@ -119,9 +119,9 @@
     "systemDefault": "System default",
     "systemDefaultHint": "Use device language",
     "currency": "Currency",
-    "currencyDescription": "Choose how prices are shown across the app. Select “No currency” to display amounts without a currency symbol.",
+    "currencyDescription": "Choose how prices are shown across the app. Select \"No currency\" to display amounts without a currency symbol.",
     "noCurrency": "No currency",
-    "errorTitle": "Settings error",
+    "errorTitle": "Settings Error",
     "currencyUpdateFailed": "Unable to update currency.",
     "languageUpdateFailed": "Unable to update language."
   },
@@ -148,8 +148,8 @@
     "CNY": "Chinese Yuan (CNY)"
   },
   "validation": {
-    "extraTitleRequired": "Extra price title is required",
-    "extraAmountPositive": "Extra price must be greater than 0",
+    "extraTitleRequired": "Extra charge title is required",
+    "extraAmountPositive": "Extra charge must be greater than 0",
     "productNameRequired": "Product name is required",
     "pricePositive": "Price must be greater than 0",
     "quantityWhole": "Quantity must be a whole number",
@@ -159,7 +159,7 @@
     "productsMin": "Add at least one product"
   },
   "errors": {
-    "databaseTitle": "Database error",
+    "databaseTitle": "Database Error",
     "databaseMessage": "The local database could not be initialized."
   }
 }
