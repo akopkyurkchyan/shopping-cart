@@ -47,6 +47,7 @@ import {
 } from '../features/shopping/shoppingSlice';
 import { useFormatCurrency } from '../hooks/useFormatCurrency';
 import type { RootStackParamList } from '../navigation/types';
+import type { ProductExtraScope } from '../types/models';
 import { colors } from '../theme/colors';
 import { calcCartTotal, calcRowTotal } from '../utils/currency';
 import { getTodayDateValue } from '../utils/date';
@@ -66,6 +67,7 @@ type ExtraDraft = {
   id: string;
   title: string;
   amount: string;
+  scope: ProductExtraScope;
 };
 
 type ProductDraft = {
@@ -98,6 +100,7 @@ const createExtraDraft = (): ExtraDraft => ({
   id: String(uuid.v4()),
   title: '',
   amount: '',
+  scope: 'unit',
 });
 
 const createProductDraft = (): ProductDraft => ({
@@ -118,11 +121,17 @@ const toProductNumber = (value: unknown): number => {
   return parsed;
 };
 
+const normalizeExtraScope = (value: unknown): ProductExtraScope =>
+  value === 'product' ? 'product' : 'unit';
+
 const mapExtrasForTotal = (
-  extras: Array<{ amount?: unknown }> | undefined,
+  extras:
+    | Array<{ amount?: unknown; scope?: unknown }>
+    | undefined,
 ) =>
   (extras ?? []).map(extra => ({
     amount: toProductNumber(extra?.amount),
+    scope: normalizeExtraScope(extra?.scope),
   }));
 
 export function ShoppingDetailsScreen() {
@@ -234,6 +243,7 @@ export function ShoppingDetailsScreen() {
               id: extra.id,
               title: extra.title,
               amount: String(extra.amount),
+              scope: extra.scope ?? 'unit',
             })),
           })),
         });
@@ -373,7 +383,11 @@ export function ShoppingDetailsScreen() {
   );
 
   const updateExtraField = useCallback(
-    (extraIndex: number, field: 'title' | 'amount', value: string) => {
+    (
+      extraIndex: number,
+      field: 'title' | 'amount' | 'scope',
+      value: string,
+    ) => {
       setProductModal(current => {
         if (!current) {
           return current;
@@ -387,7 +401,10 @@ export function ShoppingDetailsScreen() {
               index === extraIndex
                 ? {
                     ...extra,
-                    [field]: value,
+                    [field]:
+                      field === 'scope'
+                        ? normalizeExtraScope(value)
+                        : value,
                   }
                 : extra,
             ),
@@ -395,7 +412,7 @@ export function ShoppingDetailsScreen() {
         };
       });
       setDraftErrors(current => {
-        if (!current.extras?.[extraIndex]) {
+        if (!current.extras?.[extraIndex] || field === 'scope') {
           return current;
         }
 
@@ -482,6 +499,7 @@ export function ShoppingDetailsScreen() {
             id: String(extra.id),
             title: String(extra.title ?? ''),
             amount: String(extra.amount ?? ''),
+            scope: normalizeExtraScope(extra.scope),
           })),
         },
       });
@@ -535,6 +553,7 @@ export function ShoppingDetailsScreen() {
         id: extra.id,
         title: extra.title,
         amount: String(extra.amount),
+        scope: extra.scope,
       })),
     };
 
@@ -769,7 +788,50 @@ export function ShoppingDetailsScreen() {
                       ]}
                       value={extra.amount}
                     />
-                    <Text style={styles.helperText}>{t('product.extraHelper')}</Text>
+
+                    <Text style={styles.label}>{t('product.extraScope')}</Text>
+                    <View style={styles.scopeRow}>
+                      <Pressable
+                        onPress={() =>
+                          updateExtraField(extraIndex, 'scope', 'unit')
+                        }
+                        style={[
+                          styles.scopeOption,
+                          extra.scope === 'unit' && styles.scopeOptionSelected,
+                        ]}>
+                        <Text
+                          style={[
+                            styles.scopeOptionLabel,
+                            extra.scope === 'unit' &&
+                              styles.scopeOptionLabelSelected,
+                          ]}>
+                          {t('product.extraScopeUnit')}
+                        </Text>
+                      </Pressable>
+                      <Pressable
+                        onPress={() =>
+                          updateExtraField(extraIndex, 'scope', 'product')
+                        }
+                        style={[
+                          styles.scopeOption,
+                          extra.scope === 'product' &&
+                            styles.scopeOptionSelected,
+                        ]}>
+                        <Text
+                          style={[
+                            styles.scopeOptionLabel,
+                            extra.scope === 'product' &&
+                              styles.scopeOptionLabelSelected,
+                          ]}>
+                          {t('product.extraScopeProduct')}
+                        </Text>
+                      </Pressable>
+                    </View>
+                    <Text style={styles.helperText}>
+                      {extra.scope === 'product'
+                        ? t('product.extraHelperProduct')
+                        : t('product.extraHelperUnit')}
+                    </Text>
                     {draftErrors.extras?.[extraIndex]?.amount ? (
                       <Text style={styles.errorText}>
                         {translateMessage(
@@ -993,6 +1055,34 @@ const styles = StyleSheet.create({
     color: colors.textPrimary,
     fontSize: 18,
     fontWeight: '700',
+  },
+  scopeOption: {
+    alignItems: 'center',
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderRadius: 10,
+    borderWidth: 1,
+    flex: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 12,
+  },
+  scopeOptionLabel: {
+    color: colors.textSecondary,
+    fontSize: 14,
+    fontWeight: '600',
+    textAlign: 'center',
+  },
+  scopeOptionLabelSelected: {
+    color: colors.primaryDark,
+  },
+  scopeOptionSelected: {
+    backgroundColor: colors.primaryLight,
+    borderColor: colors.primary,
+  },
+  scopeRow: {
+    flexDirection: 'row',
+    gap: 10,
+    marginTop: 8,
   },
   sectionHeader: {
     alignItems: 'center',

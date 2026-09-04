@@ -8,6 +8,7 @@ export const productExtraSchema = z.object({
   amount: z.coerce
     .number()
     .positive('validation.extraAmountPositive'),
+  scope: z.enum(['unit', 'product']).default('unit'),
 });
 
 export const productSchema = z.object({

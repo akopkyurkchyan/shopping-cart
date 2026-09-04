@@ -5,6 +5,7 @@ import { calcCartTotal, roundCurrency } from '../utils/currency';
 import type {
   Product,
   ProductExtraPrice,
+  ProductExtraScope,
   ShoppingCart,
   ShoppingCartDraftProduct,
   ShoppingCartSummary,
@@ -31,6 +32,7 @@ type ExtraRow = {
   product_id: string;
   title: string;
   amount: number;
+  scope?: string;
 };
 
 type SaveCartInput = {
@@ -40,6 +42,9 @@ type SaveCartInput = {
   createdAt: string;
   products: ShoppingCartDraftProduct[];
 };
+
+const normalizeExtraScope = (value: unknown): ProductExtraScope =>
+  value === 'product' ? 'product' : 'unit';
 
 const mapCartSummary = (row: Record<string, Scalar>): ShoppingCartSummary => {
   const cartRow = row as unknown as CartRow;
@@ -60,6 +65,7 @@ const mapExtra = (row: Record<string, Scalar>): ProductExtraPrice => {
     id: extraRow.id,
     title: extraRow.title,
     amount: Number(extraRow.amount),
+    scope: normalizeExtraScope(extraRow.scope),
   };
 };
 
@@ -123,7 +129,7 @@ export const getCartById = async (id: string): Promise<ShoppingCart | null> => {
     const productId = String(productRow.id);
     const extrasResult = await db.execute(
       `
-        SELECT id, product_id, title, amount
+        SELECT id, product_id, title, amount, scope
         FROM product_extras
         WHERE product_id = ?
         ORDER BY rowid ASC;
@@ -157,6 +163,7 @@ export const saveCart = async ({
       quantity: product.quantity,
       extras: (product.extras ?? []).map(extra => ({
         amount: roundCurrency(extra.amount),
+        scope: extra.scope ?? 'unit',
       })),
     })),
   );
@@ -204,14 +211,15 @@ export const saveCart = async ({
       for (const extra of product.extras ?? []) {
         await tx.execute(
           `
-            INSERT INTO product_extras (id, product_id, title, amount)
-            VALUES (?, ?, ?, ?);
+            INSERT INTO product_extras (id, product_id, title, amount, scope)
+            VALUES (?, ?, ?, ?, ?);
           `,
           [
             extra.id,
             product.id,
             extra.title.trim(),
             roundCurrency(extra.amount),
+            extra.scope ?? 'unit',
           ],
         );
       }

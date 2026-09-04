@@ -1,5 +1,6 @@
 import {
   calcCartTotal,
+  calcExtrasTotal,
   calcRowTotal,
   formatCurrency,
   roundCurrency,
@@ -20,39 +21,45 @@ describe('currency utils', () => {
     expect(formatCurrency(42.3, 'USD')).not.toBe('42.30');
   });
 
-  it('calculates row totals', () => {
-    expect(calcRowTotal(2.5, 3)).toBe(7.5);
+  it('multiplies unit-scoped extras by quantity by default', () => {
+    // 5 * 1 + 5 * 0.15 = 5.75
     expect(
-      calcRowTotal(2.5, 3, [
-        { amount: 1 },
-        { amount: 0.25 },
-      ]),
-    ).toBe(8.75);
+      calcRowTotal(1, 5, [{ amount: 0.15, scope: 'unit' }]),
+    ).toBe(5.75);
+    expect(calcExtrasTotal([{ amount: 0.15 }], 5)).toBe(0.75);
   });
 
-  it('calculates cart totals across products', () => {
+  it('adds product-scoped extras once', () => {
+    // 5 * 1 + 0.15 = 5.15
     expect(
-      calcCartTotal([
-        { price: 2.5, quantity: 3 },
-        { price: 1.2, quantity: 2 },
-      ]),
-    ).toBe(9.9);
+      calcRowTotal(1, 5, [{ amount: 0.15, scope: 'product' }]),
+    ).toBe(5.15);
   });
 
-  it('includes multiple fixed extras in cart totals', () => {
+  it('supports mixed extra scopes on one row', () => {
+    // 5 * 2 + (0.10 * 5) + 0.50 = 10 + 0.5 + 0.5 = 11
+    expect(
+      calcRowTotal(2, 5, [
+        { amount: 0.1, scope: 'unit' },
+        { amount: 0.5, scope: 'product' },
+      ]),
+    ).toBe(11);
+  });
+
+  it('calculates cart totals across products with scopes', () => {
     expect(
       calcCartTotal([
         {
-          price: 2.5,
-          quantity: 3,
-          extras: [{ amount: 1 }, { amount: 0.5 }],
+          price: 1,
+          quantity: 5,
+          extras: [{ amount: 0.15, scope: 'unit' }],
         },
         {
-          price: 1.2,
-          quantity: 2,
-          extras: [{ amount: 0.5 }],
+          price: 1,
+          quantity: 5,
+          extras: [{ amount: 0.15, scope: 'product' }],
         },
       ]),
-    ).toBe(11.9);
+    ).toBe(10.9);
   });
 });

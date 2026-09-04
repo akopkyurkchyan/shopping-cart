@@ -2,6 +2,7 @@ import { open, type DB } from '@op-engineering/op-sqlite';
 import uuid from 'react-native-uuid';
 
 import {
+  addProductExtrasScopeColumn,
   addProductsExtraPriceColumn,
   createAppSettingsTable,
   createProductExtrasProductIdIndex,
@@ -29,6 +30,15 @@ const ensureExtraPriceColumn = async (db: DB): Promise<void> => {
   }
 };
 
+const ensureProductExtrasScopeColumn = async (db: DB): Promise<void> => {
+  const columns = await db.execute('PRAGMA table_info(product_extras);');
+  const hasScope = columns.rows.some(column => column.name === 'scope');
+
+  if (!hasScope) {
+    await db.execute(addProductExtrasScopeColumn);
+  }
+};
+
 const migrateLegacyExtraPrices = async (db: DB): Promise<void> => {
   const legacyExtras = await db.execute(
     `
@@ -49,10 +59,10 @@ const migrateLegacyExtraPrices = async (db: DB): Promise<void> => {
 
     await db.execute(
       `
-        INSERT INTO product_extras (id, product_id, title, amount)
-        VALUES (?, ?, ?, ?);
+        INSERT INTO product_extras (id, product_id, title, amount, scope)
+        VALUES (?, ?, ?, ?, ?);
       `,
-      [String(uuid.v4()), productId, 'Extra', amount],
+      [String(uuid.v4()), productId, 'Extra', amount, 'product'],
     );
   }
 };
@@ -63,6 +73,7 @@ const migrate = async (db: DB): Promise<void> => {
   await db.execute(createProductsShoppingIdIndex);
   await ensureExtraPriceColumn(db);
   await db.execute(createProductExtrasTable);
+  await ensureProductExtrasScopeColumn(db);
   await db.execute(createProductExtrasProductIdIndex);
   await migrateLegacyExtraPrices(db);
   await db.execute(createAppSettingsTable);

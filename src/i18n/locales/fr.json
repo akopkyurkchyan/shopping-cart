@@ -15,43 +15,43 @@
   },
   "home": {
     "createCart": "Créer un nouveau panier",
-    "welcomeTitle": "Suivez vos courses",
-    "welcomeDescription": "Appuyez sur le bouton + pour démarrer un nouveau panier. Ajoutez des produits avec prix et quantité, et voyez le total se mettre à jour instantanément. Vos paniers sont enregistrés sur cet appareil.",
+    "welcomeTitle": "Suivez vos achats",
+    "welcomeDescription": "Appuyez sur le bouton + pour commencer un nouveau panier. Ajoutez des produits avec leur prix et leur quantité, et voyez le total se mettre à jour instantanément. Vos paniers sont enregistrés sur cet appareil.",
     "recentTitle": "Récents"
   },
   "history": {
-    "title": "Historique d’achats",
+    "title": "Historique des achats",
     "from": "Du",
     "to": "Au",
     "clearRange": "Effacer les dates",
     "loadMore": "Charger plus",
     "emptyTitle": "Aucun historique d’achats pour le moment.",
     "emptyDescription": "Les paniers enregistrés apparaîtront ici. Créez un nouveau panier depuis l’onglet Accueil pour commencer.",
-    "emptyFilteredTitle": "Aucun achat dans cette période.",
-    "emptyFilteredDescription": "Essayez une autre plage de dates, ou effacez les dates pour voir tout l’historique."
+    "emptyFilteredTitle": "Aucun historique d’achats pour cette période.",
+    "emptyFilteredDescription": "Essayez une autre période ou effacez les dates pour afficher tout l’historique."
   },
   "about": {
     "title": "À propos de {{appName}}",
-    "headline": "Achetez plus malin, dépensez plus malin",
+    "headline": "Achetez mieux, dépensez mieux",
     "intro": [
-      "{{appName}} est une application simple et intuitive conçue pour vous aider à suivre vos dépenses pendant vos courses.",
-      "Créez un panier, ajoutez des produits avec leurs prix et quantités, et voyez instantanément le total estimé avant d’arriver en caisse. Que vous achetiez des courses, des essentiels du quotidien ou des articles du quotidien, {{appName}} vous aide à rester dans votre budget."
+      "{{appName}} est une application simple et intuitive conçue pour vous aider à suivre vos dépenses pendant vos achats.",
+      "Créez un panier, ajoutez des produits avec leur prix et leur quantité, et consultez instantanément le total estimé avant d’arriver à la caisse. Que vous achetiez des produits alimentaires, des articles ménagers ou des produits du quotidien, {{appName}} vous aide à respecter votre budget."
     ],
     "featuresTitle": "Fonctionnalités",
     "features": [
-      "🛒 Créez des paniers illimités",
-      "📦 Ajoutez des produits avec prix et quantité",
+      "🛒 Créez un nombre illimité de paniers",
+      "📦 Ajoutez des produits avec leur prix et leur quantité",
       "💰 Calcul automatique du total",
-      "📅 Enregistrez l’historique d’achats",
+      "📅 Enregistrez l’historique de vos achats",
       "📱 Fonctionne entièrement hors ligne",
       "🔒 Vos données restent sur votre appareil"
     ],
     "privacyTitle": "Confidentialité",
-    "privacyBody": "Votre vie privée compte. {{appName}} ne collecte, ne stocke ni ne partage aucune information personnelle. Toutes les données d’achat sont stockées localement sur votre appareil et ne sont jamais envoyées vers des serveurs externes.",
+    "privacyBody": "Votre vie privée est importante. {{appName}} ne collecte, ne stocke et ne partage aucune information personnelle. Toutes les données relatives à vos achats sont stockées localement sur votre appareil et ne sont jamais envoyées vers des serveurs externes.",
     "thanksTitle": "Merci",
     "thanksBody": [
-      "Merci d’avoir choisi {{appName}} ! Nous espérons qu’il rend chaque course plus facile, plus rapide et mieux organisée.",
-      "Si vous avez des suggestions ou des idées pour améliorer l’application, nous serions ravis de lire vos retours. Votre avis nous aide à rendre {{appName}} encore meilleur."
+      "Merci d’avoir choisi {{appName}} ! Nous espérons que l’application rendra chacun de vos achats plus simple, plus rapide et mieux organisé.",
+      "Si vous avez des suggestions ou des idées pour améliorer l’application, nous serions ravis de connaître votre avis. Vos retours nous aident à rendre {{appName}} encore meilleur."
     ]
   },
   "tabs": {
@@ -64,8 +64,8 @@
     "createTitle": "Créer un panier",
     "editTitle": "Modifier le panier",
     "screenTitle": "Détails du panier",
-    "shoppingTitle": "Titre",
-    "shoppingDate": "Date",
+    "shoppingTitle": "Nom du panier",
+    "shoppingDate": "Date des achats",
     "products": "Produits",
     "addProduct": "Ajouter un produit",
     "loading": "Chargement du panier...",
@@ -83,38 +83,43 @@
     "editTitle": "Produit {{number}}",
     "name": "Nom du produit",
     "namePlaceholder": "Lait",
-    "pricePerUnit": "Prix unitaire",
-    "priceHelper": "Saisissez le prix remisé",
+    "pricePerUnit": "Prix par unité",
+    "priceHelper": "Saisissez le prix après réduction éventuelle",
     "quantity": "Quantité",
     "rowTotal": "Total de la ligne",
-    "each": "{{price}} pièce",
-    "extrasSuffix": " + {{amount}} extras",
+    "each": "{{price}} l’unité",
+    "extrasSuffix": " + {{amount}} de frais supplémentaires",
     "deleteTitle": "Supprimer le produit",
     "deleteMessage": "Retirer « {{title}} » de ce panier ?",
-    "extraCardTitle": "Prix extra {{number}}",
-    "extraTitle": "Titre",
+    "extraCardTitle": "Frais supplémentaires {{number}}",
+    "extraTitle": "Nom",
     "extraTitlePlaceholder": "Taxe",
     "extraAmount": "Montant",
-    "extraHelper": "Montant fixe (taxe, frais ou autre charge)",
-    "addExtra": "Prix extra"
+    "extraScope": "Appliquer à",
+    "extraScopeUnit": "Par unité",
+    "extraScopeProduct": "Produit entier",
+    "extraHelper": "Montant fixe (taxe, frais ou autre supplément)",
+    "extraHelperUnit": "Ajouté pour chaque unité (montant × quantité)",
+    "extraHelperProduct": "Ajouté une seule fois pour l’ensemble du produit",
+    "addExtra": "Ajouter des frais"
   },
   "quantity": {
-    "tapToSelect": "Appuyer pour sélectionner",
+    "tapToSelect": "Appuyez pour sélectionner",
     "selectTitle": "Sélectionner la quantité"
   },
   "date": {
-    "tapToSelect": "Appuyer pour sélectionner",
-    "selectTitle": "Sélectionner la date",
+    "tapToSelect": "Appuyez pour sélectionner",
+    "selectTitle": "Sélectionner une date",
     "placeholder": "Sélectionner une date"
   },
   "settings": {
     "title": "Paramètres",
     "language": "Langue",
-    "languageDescription": "Choisissez la langue de l’application. La valeur système suit la langue de l’appareil lorsqu’elle est disponible.",
-    "systemDefault": "Valeur système",
+    "languageDescription": "Choisissez la langue de l’application. La langue du système utilise la langue de votre appareil lorsqu’elle est disponible.",
+    "systemDefault": "Langue du système",
     "systemDefaultHint": "Utiliser la langue de l’appareil",
     "currency": "Devise",
-    "currencyDescription": "Choisissez l’affichage des prix. « Aucune devise » affiche les montants sans symbole monétaire.",
+    "currencyDescription": "Choisissez comment les prix sont affichés dans l’application. Sélectionnez « Aucune devise » pour afficher les montants sans symbole monétaire.",
     "noCurrency": "Aucune devise",
     "errorTitle": "Erreur des paramètres",
     "currencyUpdateFailed": "Impossible de mettre à jour la devise.",
@@ -138,19 +143,19 @@
     "RUB": "Rouble russe (RUB)",
     "GEL": "Lari géorgien (GEL)",
     "TRY": "Livre turque (TRY)",
-    "AED": "Dirham des EAU (AED)",
+    "AED": "Dirham des Émirats arabes unis (AED)",
     "JPY": "Yen japonais (JPY)",
     "CNY": "Yuan chinois (CNY)"
   },
   "validation": {
-    "extraTitleRequired": "Le titre du prix extra est obligatoire",
-    "extraAmountPositive": "Le prix extra doit être supérieur à 0",
+    "extraTitleRequired": "Le nom des frais supplémentaires est obligatoire",
+    "extraAmountPositive": "Les frais supplémentaires doivent être supérieurs à 0",
     "productNameRequired": "Le nom du produit est obligatoire",
     "pricePositive": "Le prix doit être supérieur à 0",
     "quantityWhole": "La quantité doit être un nombre entier",
-    "quantityMin": "La quantité doit être au moins 1",
-    "quantityMax": "La quantité doit être au plus 100",
-    "dateFormat": "La date doit être au format YYYY-MM-DD",
+    "quantityMin": "La quantité doit être d’au moins 1",
+    "quantityMax": "La quantité ne peut pas dépasser 100",
+    "dateFormat": "La date doit être au format AAAA-MM-JJ",
     "productsMin": "Ajoutez au moins un produit"
   },
   "errors": {
